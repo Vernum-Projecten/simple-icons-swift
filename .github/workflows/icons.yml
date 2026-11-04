@@ -114,7 +114,7 @@ jobs:
             echo "1. On a branch \`chore/simple-icons-$LATEST\`: \`bash scripts/dev/update-icons.sh $LATEST\`. It checks the npm tarball's sha512, regenerates the icons, and writes \`simple-icons.json\` and the changelog fragment."
             echo "2. \`swift test\`, and the other gates in CONTRIBUTING.md."
             echo "3. A pull request that closes this issue, labelled \`icons\` (and \`breaking\` when icons are removed)."
-            echo "4. After the merge, release it as $LATEST, the Simple Icons version: the release cut and the tag \`v$LATEST\` (docs/releasing.md)."
+            echo "4. After the merge, release it: \`${LATEST%.*}.0\` for a new Simple Icons minor or major, else the next free patch of \`${LATEST%.*}\` (docs/releasing.md, Versions)."
             echo
             echo "docs/updating-icons.md has the details, and what to do when the generator refuses."
           } > "$RUNNER_TEMP/body.md"

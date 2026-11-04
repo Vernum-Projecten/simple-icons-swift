@@ -15,11 +15,23 @@ is left to click.
 
 ## Versions
 
-**The package's version is the version of the Simple Icons release it
-holds.** simple-icons-swift 16.36.0 has the icons of Simple Icons 16.36.0,
-so nobody has to look up which icons a version contains, and the version
-column of the Simple Icons listing matches our releases. `check-version.sh`
-refuses a tag that differs from `simpleIconsVersion` in `simple-icons.json`.
+**`MAJOR.MINOR` is the Simple Icons release the package holds; `PATCH`
+is ours.** simple-icons-swift 16.36.x has the icons of Simple Icons
+16.36: Simple Icons only adds icons in a minor and only removes them in a
+major, so `MAJOR.MINOR` says which icons exist. `PATCH` is the next free
+number, taken by every release we make: a Simple Icons patch (updated
+paths and metadata) and a fix or improvement of our own alike. The exact
+Simple Icons release is `simpleIconsVersion` in `simple-icons.json`, in
+`SimpleIcon.simpleIconsVersion` and in the README badge.
+`check-version.sh` refuses a tag whose `MAJOR.MINOR` differs from the pin,
+or whose `PATCH` is not above every earlier tag of that `MAJOR.MINOR`.
+
+| We release | Version |
+| :-- | :-- |
+| Simple Icons 16.37.0, the first of 16.37 | 16.37.0 |
+| A fix of our own after that | 16.37.1 |
+| Simple Icons 16.37.1 (updated paths) | 16.37.2 |
+| Simple Icons 17.0.0 | 17.0.0 |
 
 This is still Semantic Versioning, because Simple Icons'
 [versioning](https://github.com/simple-icons/simple-icons/blob/develop/VERSIONING.md)
@@ -34,14 +46,13 @@ public constant.
 
 What follows from it:
 
-- **One release per Simple Icons release**, soon after the icon update
-  issue is done. Simple Icons releases weekly.
-- **Our own changes ship with the next Simple Icons release.** A fix or a
-  new API waits for the next weekly release; there is no version number
-  of our own to give it.
+- **A release for every Simple Icons release**, soon after the icon update
+  issue is done (Simple Icons releases weekly), and **a patch release of
+  our own** whenever a fix or improvement should not wait.
 - **Breaking API of our own waits for a Simple Icons major** (about every
   six months), the only releases that may break code. Until then, add
-  next to the old API and deprecate it.
+  next to the old API and deprecate it. The one exception was 16.36.1,
+  released before anyone depended on the package (`CHANGELOG.md`).
 - **1.0.0** is the first release, made before this rule; it holds Simple
   Icons 16.36.0, the same code as 16.36.0. It stays as it is: releases and
   their tags are immutable.
@@ -97,10 +108,8 @@ listing's version column current.
 - **The workflow failed on something passing** (a runner, the network):
   re-run the failed jobs from the run's page.
 - **The workflow failed on the code or the changelog:** nothing was
-  published. Fix it on `main` through a pull request. The version cannot
-  move (it is the Simple Icons version), so the owner deletes the
-  unpublished tag, as a repository admin past the `release-tags` ruleset,
-  and tags the fixed `main` again. Do this only while no release exists
-  for the tag.
-- **A published release is wrong:** it is immutable. The fix ships with
-  the next Simple Icons release.
+  published. Fix it on `main` through a pull request and release it as
+  the next patch; the failed tag stays (the `release-tags` ruleset), and
+  `check-version.sh` counts it, so its number is not reused.
+- **A published release is wrong:** it is immutable. Fix forward with a
+  patch release.

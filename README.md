@@ -226,9 +226,10 @@ pull request and the tests like any other change. The pinned version is in
 [`simple-icons.json`](simple-icons.json) and in
 `SimpleIcon.simpleIconsVersion`.
 
-**The package's version is the Simple Icons version**: simple-icons-swift
-16.36.0 holds the icons of Simple Icons 16.36.0, and there is a release for
-every Simple Icons release. Simple Icons follows
+**The package's `MAJOR.MINOR` is the Simple Icons release it holds**:
+simple-icons-swift 16.36.x has the icons of Simple Icons 16.36, and there
+is a release for every Simple Icons release. The last number is ours: it
+counts Simple Icons' patches and our own fixes alike. Simple Icons follows
 [Semantic Versioning](https://semver.org) the way it affects your code: a
 minor release adds icons, a patch updates them, and a major removes icons,
 so the constants that name them go too ([docs/releasing.md](docs/releasing.md)).

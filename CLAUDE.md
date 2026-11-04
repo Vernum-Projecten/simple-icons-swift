@@ -102,8 +102,8 @@ months, which removes icons (`VERSIONING.md` upstream).
   rerun. When the generator refuses (an SVG it cannot rebuild, a slug that
   is no Swift name), `docs/updating-icons.md` says what to change.
 - A simple-icons major removes constants, which breaks code that used
-  them; our version is the Simple Icons version, so it is a major here
-  too (`docs/releasing.md`).
+  them; our `MAJOR` is Simple Icons', so it is a major here too
+  (`docs/releasing.md`).
 
 ## Hard rules
 
@@ -186,12 +186,14 @@ has the `no-changelog` label.
 
 ## Releases
 
-**The package's version is the Simple Icons version it holds**:
-simple-icons-swift 16.36.0 has the icons of Simple Icons 16.36.0, and
-`check-version.sh` refuses any other tag. One release per Simple Icons
-release; our own changes ship with the next one, and breaking API of our
-own waits for a Simple Icons major (deprecate in between). 1.0.0 was the
-first release, before this rule; it holds 16.36.0. `docs/releasing.md` has the
+**`MAJOR.MINOR` is the Simple Icons release the package holds; `PATCH`
+is ours**, the next free number: simple-icons-swift 16.36.x has the icons
+of Simple Icons 16.36, and both a Simple Icons patch and a fix of our own
+take the next patch. `check-version.sh` refuses a tag whose `MAJOR.MINOR`
+is not the pin's or whose `PATCH` is not new. Breaking API of our own
+waits for a Simple Icons major (deprecate in between); 16.36.1 was the one
+exception, before anyone used the package. 1.0.0 was the first release,
+before this rule; it holds 16.36.0. `docs/releasing.md` has the
 procedure: `changelog.sh --assemble X.Y.Z YYYY-MM-DD` on a release branch,
 merge, then the owner tags `vX.Y.Z` on `main`; `release.yml` checks the tag
 against the changelog, runs the tests and publishes the release itself.
