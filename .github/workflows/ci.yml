@@ -19,9 +19,9 @@ concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-env:
-  # The xcode-27 image is Apple Silicon on macOS 27 with Xcode 27.
-  DEVELOPER_DIR: /Applications/Xcode_27.1.app/Contents/Developer
+# DEVELOPER_DIR is set per macOS job, never for the whole workflow: in the
+# Linux container Swift 6.4's build system would try to load the toolchains
+# of that Xcode path and stop.
 
 jobs:
   guards:
@@ -61,6 +61,9 @@ jobs:
   macos:
     name: macOS build, tests and format
     runs-on: xcode-27
+    env:
+      # The xcode-27 image is Apple Silicon on macOS 27 with Xcode 27.
+      DEVELOPER_DIR: /Applications/Xcode_27.1.app/Contents/Developer
     timeout-minutes: 30
     permissions:
       contents: read
@@ -80,6 +83,9 @@ jobs:
   platforms:
     name: build for ${{ matrix.platform }}
     runs-on: xcode-27
+    env:
+      # The xcode-27 image is Apple Silicon on macOS 27 with Xcode 27.
+      DEVELOPER_DIR: /Applications/Xcode_27.1.app/Contents/Developer
     timeout-minutes: 30
     permissions:
       contents: read
@@ -123,6 +129,9 @@ jobs:
   docs:
     name: documentation
     runs-on: xcode-27
+    env:
+      # The xcode-27 image is Apple Silicon on macOS 27 with Xcode 27.
+      DEVELOPER_DIR: /Applications/Xcode_27.1.app/Contents/Developer
     timeout-minutes: 20
     permissions:
       contents: read
@@ -144,6 +153,9 @@ jobs:
   generated:
     name: generated icons match the pin
     runs-on: xcode-27
+    env:
+      # The xcode-27 image is Apple Silicon on macOS 27 with Xcode 27.
+      DEVELOPER_DIR: /Applications/Xcode_27.1.app/Contents/Developer
     timeout-minutes: 20
     permissions:
       contents: read
