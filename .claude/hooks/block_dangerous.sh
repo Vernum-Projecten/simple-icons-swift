@@ -8,8 +8,8 @@
 #     be listed among the third-party libraries is the owner's to open
 #     (docs/third-party-listing.md)
 #   - a release tag pushed, or a GitHub release created, edited or deleted:
-#     the repository has immutable releases, so publishing is final and the
-#     owner's (docs/releasing.md)
+#     the repository has immutable releases, and the tag push, which makes
+#     the Release workflow publish, is the owner's decision (docs/releasing.md)
 #   - security commands that would export or delete signing identities
 
 set -euo pipefail
@@ -52,7 +52,7 @@ if printf '%s' "$cmd" | grep -qE 'git[[:space:]]+push[^;|&]*[[:space:]](refs/tag
 fi
 
 if printf '%s' "$cmd" | grep -qE 'gh[[:space:]]+release[[:space:]]+(create|edit|delete|upload)'; then
-  echo "BLOCKED: releases are immutable once published; the Release workflow makes the draft and the owner publishes it (docs/releasing.md)." >&2
+  echo "BLOCKED: releases are immutable once published; the owner pushes the tag and the Release workflow publishes it (docs/releasing.md)." >&2
   exit 2
 fi
 

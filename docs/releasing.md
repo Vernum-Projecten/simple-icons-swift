@@ -2,17 +2,16 @@
 
 A release is a `vX.Y.Z` tag on `main` and a GitHub release for it. A Swift
 package ships as source: SwiftPM and Swift Package Index resolve a version
-from its tag, so there is nothing to build, sign or upload. The flow is the
-one of our other projects: the owner pushes the tag,
-`.github/workflows/release.yml` checks it and makes a **draft** release with
-the changelog section as notes, and the owner reads the draft and publishes
-it.
+from its tag, so there is nothing to build, sign or upload. The owner
+pushes the tag; `.github/workflows/release.yml` checks it, runs the tests
+and **publishes** the release with the changelog section as notes. Nothing
+is left to click.
 
 > [!IMPORTANT]
 > The repository has **immutable releases** on. A published release, its
-> notes and its tag can never be changed or deleted. The draft is the last
-> moment to fix anything; after that, a mistake takes a new patch
-> release.
+> notes and its tag can never be changed or deleted. So the last chance to
+> fix the notes is the release pull request (step 3), and pushing the tag
+> is the decision to release.
 
 ## Versions
 
@@ -58,9 +57,11 @@ listing's version column stays current.
    ```
 
    It writes the fragments into `CHANGELOG.md` under `## [X.Y.Z] - date`
-   and deletes them. Read the section once more: it is what people see.
+   and deletes them.
 3. Open the pull request (`release: X.Y.Z`, label `no-changelog`), let CI
-   pass, merge.
+   pass, merge. **Read the section in the pull request carefully:** it
+   becomes the release notes word for word, and they can never be edited
+   after the release.
 4. On the updated `main`:
 
    ```bash
@@ -73,18 +74,14 @@ listing's version column stays current.
    the hook refuses it.)
 5. `release.yml` checks that the tag is on `main`, that `CHANGELOG.md` has
    its section and no fragment is left, that the icons match the pin, runs
-   the tests on the tagged commit, and creates the draft release
-   "simple-icons-swift X.Y.Z".
-6. Open the draft (Releases on GitHub), read the notes and check the tag,
-   then **Publish release**. From then on it is immutable. Swift Package
-   Index finds the tag within a few hours.
+   the tests on the tagged commit, and publishes the release
+   "simple-icons-swift X.Y.Z" as the latest one. Swift Package Index finds
+   the tag within a few hours.
 
 ## When a release goes wrong
 
-- **The workflow failed before the draft:** fix the cause on `main`
+- **The workflow failed:** nothing was published. Fix the cause on `main`
   through a pull request. The tag cannot be moved (the `release-tags`
   ruleset), so release the fix as the next patch version.
-- **The draft is wrong:** edit the notes in the draft, or delete the draft
-  and fix `CHANGELOG.md`, while it is still a draft.
 - **A published release is wrong:** it is immutable. Fix forward with a new
   patch release.

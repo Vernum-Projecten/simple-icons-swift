@@ -1,15 +1,15 @@
 name: Release
 
-# A tag vX.Y.Z on main produces a DRAFT GitHub release "simple-icons-swift
-# X.Y.Z" with its CHANGELOG.md section as notes. The owner reads the draft
-# and publishes it. The repository has immutable releases on: once
-# published, a release, its notes and its tag can never change, so the
-# draft is the last moment to catch a mistake (a wrong note means a new
-# patch release). A Swift package ships as source: SwiftPM and Swift Package
-# Index resolve the version from the tag, so there is nothing to build or
-# upload. Before the draft is made, the tag is checked against the changelog
+# A tag vX.Y.Z on main publishes the GitHub release "simple-icons-swift
+# X.Y.Z" with its CHANGELOG.md section as notes. Pushing the tag is the one
+# human decision; the notes were already reviewed in the release pull
+# request. A Swift package ships as source: SwiftPM and Swift Package Index
+# resolve the version from the tag, so there is nothing to build or upload.
+# Before anything is published, the tag is checked against the changelog
 # and the pinned icons (scripts/release/check-version.sh) and the tests run
-# on the tagged commit. docs/releasing.md has the procedure.
+# on the tagged commit; a failure stops the lane and publishes nothing. The
+# repository has immutable releases on: once published, the release, its
+# notes and its tag never change. docs/releasing.md has the procedure.
 
 on:
   push:
@@ -17,9 +17,6 @@ on:
       - "v[0-9]+.[0-9]+.[0-9]+"
 
 permissions: {}
-
-env:
-  DEVELOPER_DIR: /Applications/Xcode_27.1.app/Contents/Developer
 
 jobs:
   plan:
@@ -48,6 +45,8 @@ jobs:
     name: tests on the tagged commit
     needs: plan
     runs-on: xcode-27
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_27.1.app/Contents/Developer
     timeout-minutes: 30
     permissions:
       contents: read
@@ -58,8 +57,8 @@ jobs:
       - name: swift test
         run: swift test -Xswiftc -warnings-as-errors
 
-  draft:
-    name: draft release
+  publish:
+    name: publish the release
     needs: [plan, test]
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -73,16 +72,12 @@ jobs:
         env:
           TAG: ${{ github.ref_name }}
         run: bash scripts/release/notes.sh "$TAG" > "$RUNNER_TEMP/notes.md"
-      - name: create the draft release
+      - name: publish the release
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ github.ref_name }}
           REPO: ${{ github.repository }}
         run: |
-          gh release create "$TAG" --repo "$REPO" --draft --verify-tag \
+          gh release create "$TAG" --repo "$REPO" --verify-tag --latest \
             --title "simple-icons-swift ${TAG#v}" --notes-file "$RUNNER_TEMP/notes.md"
-          {
-            echo "Draft release $TAG created. Read it on GitHub, then publish it."
-            echo
-            echo "Immutable releases are on: once published, the release and its tag can never change."
-          } >> "$GITHUB_STEP_SUMMARY"
+          echo "Released $TAG: $(gh release view "$TAG" --repo "$REPO" --json url --jq .url)" >> "$GITHUB_STEP_SUMMARY"

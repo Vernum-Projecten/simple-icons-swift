@@ -63,9 +63,9 @@ the entry and what has to be true before it is requested.
   visionOS, `swift test` on Linux, the DocC build, and the generated code
   against the pin), `changelog.yml` (the fragment guard, also when a label
   changes), `icons.yml` (daily: a new simple-icons release becomes an
-  issue; it only writes issues, never code) and `release.yml` (a `v*` tag: checks and tests, then a draft
-  GitHub release with the changelog section as notes, for the owner to
-  publish).
+  issue; it only writes issues, never code) and `release.yml` (a `v*` tag:
+  checks and tests, then publishes the GitHub release with the changelog
+  section as notes).
 - `docs/`: `releasing.md` (versioning and the release procedure),
   `third-party-listing.md` (the Simple Icons README entry), `updating-icons.md`
   (how the icon updates work and what to do when the generator refuses).
@@ -117,8 +117,8 @@ months, which removes icons (`VERSIONING.md` upstream).
   "Generated with", no robot emoji. The `commit-msg` hook strips it and the
   Claude Bash hook refuses the command.
 - **The owner opens anything in `simple-icons/simple-icons`**, pushes
-  release tags and publishes releases (immutable once published); the
-  Claude Bash hook refuses all three.
+  release tags (each publishes an immutable release) and alone touches
+  GitHub releases by hand; the Claude Bash hook refuses all three.
 - **Prose has no AI tells**, in docs, DocC, commits and PRs: no em dashes,
   no middle dot "·" as a separator, no "not X but Y", no buzzwords.
 - **Our own branding only.** The README and docs use our logo
@@ -186,7 +186,7 @@ minor (icons added) our minor, a patch (paths and metadata) our patch; our
 own API changes follow SemVer as usual. `docs/releasing.md` has the
 procedure: `changelog.sh --assemble X.Y.Z YYYY-MM-DD` on a release branch,
 merge, then the owner tags `vX.Y.Z` on `main`; `release.yml` checks the tag
-against the changelog, runs the tests and makes a **draft** release, which
-the owner reads and publishes. Immutable releases are on: a published
-release and its tag never change, so a mistake is fixed with a new patch
-release. Swift Package Index picks up the tag by itself.
+against the changelog, runs the tests and publishes the release itself.
+Immutable releases are on: a published release, its notes and its tag
+never change, so the notes are final once the release pull request is
+merged, and a mistake is fixed with a new patch release. Swift Package Index picks up the tag by itself.
