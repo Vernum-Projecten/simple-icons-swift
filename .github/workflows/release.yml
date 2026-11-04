@@ -1,0 +1,88 @@
+name: Release
+
+# A tag vX.Y.Z on main produces a DRAFT GitHub release "simple-icons-swift
+# X.Y.Z" with its CHANGELOG.md section as notes. The owner reads the draft
+# and publishes it. The repository has immutable releases on: once
+# published, a release, its notes and its tag can never change, so the
+# draft is the last moment to catch a mistake (a wrong note means a new
+# patch release). A Swift package ships as source: SwiftPM and Swift Package
+# Index resolve the version from the tag, so there is nothing to build or
+# upload. Before the draft is made, the tag is checked against the changelog
+# and the pinned icons (scripts/release/check-version.sh) and the tests run
+# on the tagged commit. docs/releasing.md has the procedure.
+
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+
+permissions: {}
+
+env:
+  DEVELOPER_DIR: /Applications/Xcode_27.1.app/Contents/Developer
+
+jobs:
+  plan:
+    name: tag is on main and matches the changelog
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: the tag is on main
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          git fetch --no-tags origin main
+          git merge-base --is-ancestor "$TAG" origin/main || { echo "::error::$TAG is not on main"; exit 1; }
+      - name: check-version.sh
+        env:
+          TAG: ${{ github.ref_name }}
+        run: bash scripts/release/check-version.sh "$TAG"
+
+  test:
+    name: tests on the tagged commit
+    needs: plan
+    runs-on: xcode-27
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: swift test
+        run: swift test -Xswiftc -warnings-as-errors
+
+  draft:
+    name: draft release
+    needs: [plan, test]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: release notes from the changelog
+        env:
+          TAG: ${{ github.ref_name }}
+        run: bash scripts/release/notes.sh "$TAG" > "$RUNNER_TEMP/notes.md"
+      - name: create the draft release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+          REPO: ${{ github.repository }}
+        run: |
+          gh release create "$TAG" --repo "$REPO" --draft --verify-tag \
+            --title "simple-icons-swift ${TAG#v}" --notes-file "$RUNNER_TEMP/notes.md"
+          {
+            echo "Draft release $TAG created. Read it on GitHub, then publish it."
+            echo
+            echo "Immutable releases are on: once published, the release and its tag can never change."
+          } >> "$GITHUB_STEP_SUMMARY"

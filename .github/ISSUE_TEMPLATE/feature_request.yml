@@ -1,0 +1,25 @@
+# SPDX-FileCopyrightText: simple-icons-swift contributors
+# SPDX-License-Identifier: MIT
+name: Feature request
+description: Propose a new capability or an improvement to the package. A new icon belongs to Simple Icons instead.
+type: Feature
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The type is already Feature, and a maintainer sets the priority during
+        triage, so you do not need to choose one.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: The problem you want to solve, and who it affects.
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: What you want the package to do, with a code example of how you would use it.
+    validations:
+      required: true

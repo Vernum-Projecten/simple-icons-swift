@@ -1,0 +1,6 @@
+# Swift Package Index: builds the DocC documentation of both products and
+# shows it at swiftpackageindex.com/Vernum-Projecten/simple-icons-swift.
+version: 1
+builder:
+  configs:
+    - documentation_targets: [SimpleIcons, SimpleIconsSwiftUI]

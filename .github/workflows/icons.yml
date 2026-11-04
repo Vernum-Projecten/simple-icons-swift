@@ -1,0 +1,140 @@
+name: Icons
+
+# Keeps watch on Simple Icons, which releases weekly (usually on Sunday) and
+# a major about every six months. Every day this asks npm for the latest
+# simple-icons release. When it is newer than the pin in simple-icons.json,
+# it opens an issue "Update the icons to Simple Icons X.Y.Z" listing the new
+# and removed icons, or brings the open one up to that version.
+#
+# It only files the issue. The update itself is made by a person (or a
+# Claude session) with scripts/dev/update-icons.sh and lands through a
+# normal pull request (docs/updating-icons.md). So the workflow needs no
+# token beyond its own, may only write issues, and never touches the code.
+
+on:
+  schedule:
+    - cron: "23 6 * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: icons
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    name: a newer Simple Icons release becomes an issue
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: is there a newer release?
+        id: check
+        run: |
+          pinned="$(jq -r .simpleIconsVersion simple-icons.json)"
+          if latest="$(bash scripts/dev/update-icons.sh --check)"; then
+            echo "simple-icons $pinned is the latest; nothing to do."
+            echo "newer=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          [[ "$latest" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "::error::npm answered '$latest'"; exit 1; }
+          {
+            echo "newer=true"
+            echo "latest=$latest"
+            echo "pinned=$pinned"
+            echo "major=$([ "${pinned%%.*}" != "${latest%%.*}" ] && echo true || echo false)"
+          } >> "$GITHUB_OUTPUT"
+
+      # Both releases' slugs, from their npm tarballs, each checked against
+      # the sha512 the registry publishes. Nothing is built or run from them.
+      - name: what changes
+        if: steps.check.outputs.newer == 'true'
+        env:
+          PINNED: ${{ steps.check.outputs.pinned }}
+          LATEST: ${{ steps.check.outputs.latest }}
+        run: |
+          slugs() {
+            local version=$1 metadata tarball integrity actual dir
+            metadata="$(curl -fsSL --proto '=https' "https://registry.npmjs.org/simple-icons/$version")"
+            tarball="$(jq -r .dist.tarball <<<"$metadata")"
+            integrity="$(jq -r .dist.integrity <<<"$metadata")"
+            [[ "$tarball" == https://registry.npmjs.org/* ]] || { echo "::error::unexpected tarball $tarball"; exit 1; }
+            dir="$RUNNER_TEMP/$version"
+            mkdir -p "$dir"
+            curl -fsSL --proto '=https' -o "$dir/package.tgz" "$tarball"
+            actual="sha512-$(openssl dgst -sha512 -binary "$dir/package.tgz" | openssl base64 -A)"
+            [[ "$actual" == "$integrity" ]] || { echo "::error::simple-icons $version is $actual, the registry says $integrity"; exit 1; }
+            tar -xzf "$dir/package.tgz" -C "$dir" package/data/simple-icons.json
+            jq -r '.[].slug' "$dir/package/data/simple-icons.json" | sort
+          }
+          slugs "$PINNED" > "$RUNNER_TEMP/before"
+          slugs "$LATEST" > "$RUNNER_TEMP/after"
+          comm -13 "$RUNNER_TEMP/before" "$RUNNER_TEMP/after" > "$RUNNER_TEMP/added"
+          comm -23 "$RUNNER_TEMP/before" "$RUNNER_TEMP/after" > "$RUNNER_TEMP/removed"
+
+      - name: open or update the issue
+        if: steps.check.outputs.newer == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PINNED: ${{ steps.check.outputs.pinned }}
+          LATEST: ${{ steps.check.outputs.latest }}
+          MAJOR: ${{ steps.check.outputs.major }}
+        run: |
+          added="$(grep -c . "$RUNNER_TEMP/added" || true)"
+          removed="$(grep -c . "$RUNNER_TEMP/removed" || true)"
+          breaking=false
+          if [ "$MAJOR" = "true" ] || [ "$removed" -gt 0 ]; then breaking=true; fi
+          title="Update the icons to Simple Icons $LATEST"
+
+          {
+            echo "[Simple Icons $LATEST](https://github.com/simple-icons/simple-icons/releases/tag/$LATEST) is out; the package pins $PINNED."
+            echo
+            echo "- New icons: $added"
+            # shellcheck disable=SC2016 # the backticks are Markdown, not expansions
+            [ "$added" -gt 0 ] && sed 's/^/  - `/; s/$/`/' "$RUNNER_TEMP/added"
+            echo "- Removed icons: $removed"
+            # shellcheck disable=SC2016 # the backticks are Markdown, not expansions
+            [ "$removed" -gt 0 ] && sed 's/^/  - `/; s/$/`/' "$RUNNER_TEMP/removed"
+            echo
+            if [ "$breaking" = "true" ]; then
+              echo "> [!WARNING]"
+              echo "> Icons are removed: their constants go, so the release after this update is a **major** one (docs/releasing.md)."
+              echo
+            fi
+            echo "## Steps"
+            echo
+            echo "1. On a branch \`chore/simple-icons-$LATEST\`: \`bash scripts/dev/update-icons.sh $LATEST\`. It checks the npm tarball's sha512, regenerates the icons, and writes \`simple-icons.json\` and the changelog fragment."
+            echo "2. \`swift test\`, and the other gates in CONTRIBUTING.md."
+            echo "3. A pull request that closes this issue, labelled \`icons\` (and \`breaking\` when icons are removed)."
+            echo
+            echo "docs/updating-icons.md has the details, and what to do when the generator refuses."
+          } > "$RUNNER_TEMP/body.md"
+
+          labels=(--label icons)
+          if [ "$breaking" = "true" ]; then labels+=(--label breaking); fi
+
+          number="$(gh issue list --repo "$REPO" --label icons --state open --json number --jq '.[0].number // empty')"
+          if [ -n "$number" ]; then
+            if [ "$(gh issue view "$number" --repo "$REPO" --json title --jq .title)" = "$title" ]; then
+              echo "#$number already asks for $LATEST; nothing to do."
+              exit 0
+            fi
+            gh issue edit "$number" --repo "$REPO" --title "$title" --body-file "$RUNNER_TEMP/body.md" "${labels[@]/--label/--add-label}"
+            gh issue comment "$number" --repo "$REPO" --body "Simple Icons $LATEST is out; this issue now asks for it."
+            echo "updated #$number to Simple Icons $LATEST" >> "$GITHUB_STEP_SUMMARY"
+          else
+            # fields.sh sets type, priority and effort when the token may read
+            # the organisation's issue types; the workflow's own token may not,
+            # so then the issue keeps its labels and the type is set at pickup.
+            bash scripts/gh/fields.sh new task medium low --title "$title" \
+              --body-file "$RUNNER_TEMP/body.md" "${labels[@]}" --label chore
+            echo "opened an issue for Simple Icons $LATEST" >> "$GITHUB_STEP_SUMMARY"
+          fi
