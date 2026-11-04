@@ -86,6 +86,9 @@ self_test() {
   printf -- '- An entry.\n' > "$work/changelog.d/2-new.added.md"
   unreleased $'\n### Added\n\n- Written by hand.\n'
   commit "a fragment and a line under [Unreleased]"
+  branch blank
+  unreleased $'\n'
+  commit "a blank line under [Unreleased]"
   branch readme
   echo more >> "$work/Sources/App/App.swift"
   echo more >> "$work/changelog.d/README.md"
@@ -112,6 +115,7 @@ self_test() {
   expect "a line under [Unreleased]" 1 unreleased
   grep -q 'under \[Unreleased\]' "$work/out" || { echo "changelog-guard: self-test failed: the [Unreleased] refusal does not say why." >&2; exit 1; }
   expect "a line under [Unreleased], waived" 1 unreleased --waived
+  expect "a blank line under [Unreleased]" 0 blank
   expect "a README edit only" 1 readme
   expect "a fragment it did not add" 1 reworded
   expect "the release cut" 0 cut
@@ -154,7 +158,8 @@ if git cat-file -e "$head:CHANGELOG.md" 2> /dev/null; then
     /^@@ / { split($3, range, ","); line = substr(range[1], 2) + 0; next }
     /^\+\+\+ / { next }
     /^\+/ {
-      if (line >= first && line <= last && $0 ~ /[^[:space:]]/) print "  CHANGELOG.md:" line ": " substr($0, 2)
+      # The text after the "+": a blank line added there is no entry.
+      if (line >= first && line <= last && substr($0, 2) ~ /[^[:space:]]/) print "  CHANGELOG.md:" line ": " substr($0, 2)
       line++
     }
   ')"
