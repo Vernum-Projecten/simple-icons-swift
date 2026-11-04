@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
+  <title>simple-icons-swift</title>
+  <rect width="1280" height="640" fill="#FBFBFD"/>
+  <rect x="0" y="0" width="1280" height="8" fill="#FF6B35"/>
+
+  <!-- Our mark: a grid of tiles, one orange (docs/images/logo-light.svg), at 2x. -->
+  <g transform="translate(112 192) scale(2)">
+    <rect x="4" y="4" width="120" height="120" rx="28" fill="none" stroke="#1D1D1F" stroke-width="6"/>
+    <g fill="#1D1D1F">
+      <rect x="26" y="26" width="20" height="20" rx="5"/>
+      <rect x="54" y="26" width="20" height="20" rx="5"/>
+      <rect x="82" y="26" width="20" height="20" rx="5"/>
+      <rect x="26" y="54" width="20" height="20" rx="5"/>
+      <rect x="82" y="54" width="20" height="20" rx="5"/>
+      <rect x="26" y="82" width="20" height="20" rx="5"/>
+      <rect x="54" y="82" width="20" height="20" rx="5"/>
+      <rect x="82" y="82" width="20" height="20" rx="5"/>
+    </g>
+    <rect x="54" y="54" width="20" height="20" rx="5" fill="#FF6B35"/>
+  </g>
+
+  <g font-family="Helvetica Neue, Helvetica, Arial, sans-serif" fill="#1D1D1F">
+    <text x="440" y="268" font-size="64" font-weight="700">simple-icons-swift</text>
+    <text x="440" y="326" font-size="30" fill="#515154">Every Simple Icons brand icon for Swift</text>
+    <text x="440" y="366" font-size="30" fill="#515154">and SwiftUI, as typed constants.</text>
+  </g>
+
+  <rect x="440" y="404" width="452" height="64" rx="14" fill="#1D1D1F"/>
+  <text x="466" y="446" font-family="Menlo, SF Mono, monospace" font-size="26" fill="#F5F5F7">SimpleIconView(<tspan fill="#FF6B35">.swift</tspan>)</text>
+
+  <text x="440" y="540" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" fill="#86868B">iOS, macOS, tvOS, watchOS, visionOS and Linux</text>
+</svg>
