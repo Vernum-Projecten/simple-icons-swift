@@ -21,6 +21,7 @@
 </div>
 
 ```swift
+import SimpleIcons
 import SimpleIconsSwiftUI
 
 Label {
@@ -64,6 +65,13 @@ and the product you need to your target:
 ```swift
 .product(name: "SimpleIconsSwiftUI", package: "simple-icons-swift"),  // views, and the icons
 .product(name: "SimpleIcons", package: "simple-icons-swift"),         // the icons only, no UI
+```
+
+Then import the icons, and the views where you draw them:
+
+```swift
+import SimpleIcons          // SimpleIcon.swift, .allCases, .svg, …
+import SimpleIconsSwiftUI   // SimpleIconView, SimpleIconShape, Color(simpleIcon:)
 ```
 
 In Xcode: **File > Add Package Dependencies…**, paste
@@ -193,6 +201,19 @@ for element in SimpleIcon.swift.svgPath.elements {
 
 Every example above is compiled and run by the tests
 (`Tests/SimpleIconsSwiftUITests/ReadmeExamples.swift`).
+
+### Example app
+
+[`Examples/IconBrowser`](Examples/IconBrowser) is a small SwiftUI app:
+every icon in a searchable grid, and a page per icon with its color,
+license, guidelines and SVG to share. Run it on a Mac:
+
+```bash
+swift run --package-path Examples/IconBrowser
+```
+
+Its screens are the `IconBrowserFeature` library, so an iOS or visionOS
+app shows them with `IconBrowserView()`.
 
 ## Staying up to date
 

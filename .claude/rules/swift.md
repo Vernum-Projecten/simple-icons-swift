@@ -69,6 +69,12 @@ So the public surface is small and every part of it is designed.
   this package's modules share; the rest `internal` or `private`. Tests use
   `@testable import` for internals, never a wider access level. No `open`:
   nothing here is designed for subclassing.
+- **Users import both modules.** `SimpleIconsSwiftUI` does not re-export
+  `SimpleIcons`: there is no official re-export, and under
+  `MemberImportVisibility` (a later Swift's default) a member such as
+  `.swift` or `.allCases` needs its defining module imported anyway, so a
+  type alias would only postpone the error. Every example in the README and
+  DocC shows `import SimpleIcons` next to `import SimpleIconsSwiftUI`.
 - **A plain `import` is internal** (`InternalImportsByDefault`). Write
   `public import X` only when a `public` declaration's signature uses a type
   from X (`SimpleIconsSwiftUI` re-exposes `SwiftUI` and `SimpleIcons`), so
