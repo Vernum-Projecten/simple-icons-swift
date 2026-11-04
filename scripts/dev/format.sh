@@ -17,6 +17,9 @@ root="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$root"
 
 files=(
+  Examples/IconBrowser/Package.swift
+  Examples/IconBrowser/Sources
+  Examples/IconBrowser/Tests
   Package.swift
   Sources/SimpleIconsSwiftUI
   Tests
