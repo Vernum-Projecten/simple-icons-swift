@@ -76,9 +76,9 @@ jobs:
       # Warnings are errors: Swift 6 mode and the upcoming features keep the
       # code clean only if nothing slips back.
       - name: swift build
-        run: swift build -Xswiftc -warnings-as-errors
+        run: swift build --force-resolved-versions -Xswiftc -warnings-as-errors
       - name: swift test
-        run: swift test -Xswiftc -warnings-as-errors
+        run: swift test --force-resolved-versions -Xswiftc -warnings-as-errors
 
   platforms:
     name: build for ${{ matrix.platform }}
@@ -122,8 +122,8 @@ jobs:
       # for iOS, the way an app on another platform uses them.
       - name: swift build and test
         run: |
-          swift build --package-path Examples/IconBrowser -Xswiftc -warnings-as-errors
-          swift test --package-path Examples/IconBrowser -Xswiftc -warnings-as-errors
+          swift build --package-path Examples/IconBrowser --force-resolved-versions -Xswiftc -warnings-as-errors
+          swift test --package-path Examples/IconBrowser --force-resolved-versions -Xswiftc -warnings-as-errors
       - name: the screens build for iOS
         working-directory: Examples/IconBrowser
         run: |
@@ -150,7 +150,7 @@ jobs:
       # SimpleIconsSwiftUI compiles to nothing here; SimpleIcons is tested in
       # full, which proves the core module needs no Apple framework.
       - name: swift test
-        run: swift test -Xswiftc -warnings-as-errors
+        run: swift test --force-resolved-versions -Xswiftc -warnings-as-errors
 
   docs:
     name: documentation
