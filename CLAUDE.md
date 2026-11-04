@@ -37,6 +37,12 @@ the entry and what has to be true before it is requested.
 - `Tests/`: Swift Testing. `SimpleIconsTests` (lookup, metadata, SVG
   escaping, the parser command by command, and every icon parsed and inside
   its box) and `SimpleIconsSwiftUITests` (color, shape geometry).
+- `Examples/SizeProbe/`: two release-built programs that use six icons
+  (`SimpleIcons` only, and `SimpleIconsSwiftUI`), measured by
+  `scripts/checks/size-probe.sh`: under 1 MiB, without the path of an unused
+  icon, with the path of a used one. CI's "app size" jobs run it on macOS
+  and Linux; `SIZE_PROBE_PACKAGE` points it at another copy to prove it
+  fails.
 - `Examples/IconBrowser/`: the example app, a package of its own (users
   never fetch it): `IconBrowserFeature` (`IconCatalog`, an `@Observable`
   model that filters on the search text; `IconBrowserView`, `IconDetailView`)
@@ -115,6 +121,11 @@ months, which removes icons (`VERSIONING.md` upstream).
   or changing its meaning, is a major version. Prefer adding.
 - **Typed constants, no optionals in the public API.** No string lookup
   and no `?` on icon metadata (`.claude/rules/swift.md`, The public API).
+- **An app contains only the icons it names.** Every icon and `allCases`
+  are `@_alwaysEmitIntoClient` computed properties; nothing in
+  `SimpleIcons` may store or conform its way to every icon (no
+  `static let` of icons, no `CaseIterable`): the linker keeps such a global
+  in every app, all 6 MB of it (#12). The size check guards it.
 - **No crash in `Sources/`**: no force unwrap, `try!` or `fatalError` a
   user's input can reach.
 - **The core module stays Foundation-only** and builds on Linux.

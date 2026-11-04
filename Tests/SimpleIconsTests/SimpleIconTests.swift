@@ -17,6 +17,15 @@ import Testing
         #expect(SimpleIcon.backstage_casting.slug == "backstage_casting")
     }
 
+    @Test func `allCases works on a thread with a small stack`() async {
+        // A detached task runs on the cooperative pool, whose threads have a
+        // 512 KB stack. Built as one array literal, allCases needed more in a
+        // debug build and crashed there; it is built in parts now.
+        let count = await Task.detached { SimpleIcon.allCases.count }.value
+        #expect(count == SimpleIcon.allCases.count)
+        #expect(count > 3_000)
+    }
+
     @Test func `Every slug is unique`() {
         let slugs = SimpleIcon.allCases.map(\.slug)
         #expect(Set(slugs).count == slugs.count)

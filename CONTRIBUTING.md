@@ -47,6 +47,15 @@ actionlint
 bash scripts/release/changelog.sh --check
 ```
 
+A change to the generator, to `SimpleIcon` or to the package layout also
+runs the size check, which builds `Examples/SizeProbe` in release and fails
+when an app with six icons grows past 1 MiB or contains an icon it does not
+use:
+
+```bash
+bash scripts/checks/size-probe.sh
+```
+
 A change to `SimpleIconsSwiftUI` also builds for the other platforms:
 
 ```bash

@@ -19,6 +19,10 @@ icon.svg     // the SVG document, as Simple Icons publishes it
 SimpleIcon.allCases.count  // every icon
 ```
 
+An app contains only the icons it names: each icon is compiled into the
+app where it is used, so six icons add about 0.5 MB. ``SimpleIcon/allCases``
+needs every icon and adds about 6 MB; use it only where you show them all.
+
 Every icon is a constant named after its slug, so the compiler checks each
 name and Xcode completes it; no lookup can fail and nothing is optional.
 
