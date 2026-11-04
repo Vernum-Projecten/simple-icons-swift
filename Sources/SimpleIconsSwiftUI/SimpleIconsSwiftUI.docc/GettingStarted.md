@@ -10,7 +10,7 @@ In Xcode choose **File > Add Package Dependencies…**, paste
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/Vernum-Projecten/simple-icons-swift.git", from: "1.0.0"),
+    .package(url: "https://github.com/Vernum-Projecten/simple-icons-swift.git", from: "16.36.0"),
 ],
 targets: [
     .target(
@@ -20,7 +20,9 @@ targets: [
 ]
 ```
 
-`SimpleIconsSwiftUI` brings the icons with it. Add only `SimpleIcons` for
+The package's version is the Simple Icons version it holds: 16.36.0 has
+the icons of Simple Icons 16.36.0. `SimpleIconsSwiftUI` brings the icons
+with it. Add only `SimpleIcons` for
 code without a user interface, such as a server.
 
 ## Find an icon's name

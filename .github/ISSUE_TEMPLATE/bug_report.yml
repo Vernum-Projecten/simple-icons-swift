@@ -34,7 +34,7 @@ body:
     id: versions
     attributes:
       label: Versions
-      description: The package version, Xcode or Swift version, and platform (for example 1.0.0, Xcode 27.1, iOS 27).
+      description: The package version, Xcode or Swift version, and platform (for example 16.36.0, Xcode 27.1, iOS 27).
     validations:
       required: true
   - type: textarea

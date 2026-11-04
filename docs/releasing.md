@@ -15,28 +15,41 @@ is left to click.
 
 ## Versions
 
-Semantic Versioning of our own, starting at 1.0.0. The package's version
-is not the Simple Icons version: that one is in `simple-icons.json`, in
-`SimpleIcon.simpleIconsVersion` and in the README badge. Because every icon
-is a public constant, a Simple Icons release changes our API the way its
-own [versioning](https://github.com/simple-icons/simple-icons/blob/develop/VERSIONING.md)
-says, so it folds into ours like this:
+**The package's version is the version of the Simple Icons release it
+holds.** simple-icons-swift 16.36.0 has the icons of Simple Icons 16.36.0,
+so nobody has to look up which icons a version contains, and the version
+column of the Simple Icons listing matches our releases. `check-version.sh`
+refuses a tag that differs from `simpleIconsVersion` in `simple-icons.json`.
 
-| Simple Icons release | What it does | Our release |
+This is still Semantic Versioning, because Simple Icons'
+[versioning](https://github.com/simple-icons/simple-icons/blob/develop/VERSIONING.md)
+changes our public API the same way it changes theirs: every icon is a
+public constant.
+
+| Simple Icons release | What it does | For code using the package |
 | :-- | :-- | :-- |
-| Major | Removes icons, changes slugs | **Major**: those constants are gone, so code that used them stops compiling |
-| Minor | Adds icons, changes titles | **Minor**: new constants, nothing breaks |
-| Patch | Updates paths and metadata | **Patch** |
+| Major | Removes icons, changes slugs | The removed constants are gone: code that used them stops compiling |
+| Minor | Adds icons, changes titles | New constants; nothing breaks |
+| Patch | Updates paths and metadata | Nothing breaks |
 
-Our own changes follow SemVer as usual: removing or renaming public API, or
-changing what it means, is a major release (the pull request carries the
-`breaking` label); new API is a minor one; a fix is a patch. A release takes
-the largest step any of its changes needs.
+What follows from it:
+
+- **One release per Simple Icons release**, soon after the icon update
+  issue is done. Simple Icons releases weekly.
+- **Our own changes ship with the next Simple Icons release.** A fix or a
+  new API waits for the next weekly release; there is no version number
+  of our own to give it.
+- **Breaking API of our own waits for a Simple Icons major** (about every
+  six months), the only releases that may break code. Until then, add
+  next to the old API and deprecate it.
+- **1.0.0** is the first release, made before this rule; it holds Simple
+  Icons 16.36.0, the same code as 16.36.0. It stays as it is: releases and
+  their tags are immutable.
 
 Simple Icons supports only its latest major and the last release of the
 one before, and its README lists only libraries that keep up with at least
-the previous major. Release soon after an icon update is merged, so the
-listing's version column stays current.
+the previous major: releasing with every Simple Icons release keeps the
+listing's version column current.
 
 ## Once per repository
 
@@ -48,7 +61,8 @@ listing's version column stays current.
 
 ## Cut a release
 
-1. Decide the version from the table above and the open fragments:
+1. The version is `simpleIconsVersion` in `simple-icons.json` on `main`,
+   after the icon update is merged:
    `bash scripts/release/changelog.sh --preview X.Y.Z` prints the section.
 2. On a branch `release/X.Y.Z`:
 
@@ -80,8 +94,13 @@ listing's version column stays current.
 
 ## When a release goes wrong
 
-- **The workflow failed:** nothing was published. Fix the cause on `main`
-  through a pull request. The tag cannot be moved (the `release-tags`
-  ruleset), so release the fix as the next patch version.
-- **A published release is wrong:** it is immutable. Fix forward with a new
-  patch release.
+- **The workflow failed on something passing** (a runner, the network):
+  re-run the failed jobs from the run's page.
+- **The workflow failed on the code or the changelog:** nothing was
+  published. Fix it on `main` through a pull request. The version cannot
+  move (it is the Simple Icons version), so the owner deletes the
+  unpublished tag, as a repository admin past the `release-tags` ruleset,
+  and tags the fixed `main` again. Do this only while no release exists
+  for the tag.
+- **A published release is wrong:** it is immutable. The fix ships with
+  the next Simple Icons release.

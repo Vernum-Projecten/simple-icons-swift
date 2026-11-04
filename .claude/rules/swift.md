@@ -76,9 +76,10 @@ So the public surface is small and every part of it is designed.
   `@_implementationOnly`.
 - **Typed, never optional.** Every icon is a constant (`SimpleIcon.swift`),
   so the compiler checks the name and nothing can fail at run time. There
-  is no string lookup such as `init?(slug:)`: adding one later is a minor
-  release, removing one is a major, so it comes only when someone needs it
-  and the owner agrees. Metadata that can be absent is modeled, not left
+  is no string lookup such as `init?(slug:)`: adding one later breaks
+  nothing, removing one can only happen in a Simple Icons major (our
+  version is theirs, `docs/releasing.md`), so it comes only when someone
+  needs it and the owner agrees. Metadata that can be absent is modeled, not left
   optional: an enum with an `.unknown` case (`License`, `Guidelines`), an
   empty list (`Aliases`), or the main brand's value (`Duplicate`).
 - **Value types.** Public types are `struct`s and `enum`s, `Sendable` and

@@ -59,7 +59,9 @@ the package promises. Each message says what to change:
   is a change to the public API, so it is its own pull request.
 - **"has a custom license without an address"** or **"an SPDX license with
   an address"**: a new shape of license data. Model it in
-  `SimpleIcon.License` (a new case is a minor release) and the generator.
+  `SimpleIcon.License` and the generator. A new case breaks a `switch`
+  without `default` in users' code, so it waits for a Simple Icons major
+  unless it comes with one.
 - A path that does not parse fails the test `Every icon parses completely`:
   the parser in `Sources/SimpleIcons/Path/` misses part of the SVG path
   grammar. Fix the parser, never the icon.

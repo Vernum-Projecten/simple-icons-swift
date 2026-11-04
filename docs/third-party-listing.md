@@ -10,8 +10,9 @@ not open it; the hook refuses).
 
 ## Before asking
 
-- [ ] A release is published (`docs/releasing.md`) and resolves with
-  `.package(url: "https://github.com/Vernum-Projecten/simple-icons-swift", from: "1.0.0")`.
+- [ ] A release with the Simple Icons version is published
+  (`docs/releasing.md`) and resolves with
+  `.package(url: "https://github.com/Vernum-Projecten/simple-icons-swift.git", from: "16.36.0")`.
 - [ ] The repository is public, CI is green on `main`, and the README shows
   install, usage and the legal disclaimer.
 - [ ] The package is on the [Swift Package Index](https://swiftpackageindex.com)
