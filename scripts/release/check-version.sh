@@ -5,8 +5,9 @@
 #
 # Run by release.yml before anything is published, and by hand before the
 # owner tags: the tag is SemVer, CHANGELOG.md has a dated section for it
-# that is not empty, no changelog fragment is left behind, and the icons
-# match the pin. Exit 0 when everything agrees, 1 otherwise.
+# that is not empty, no changelog fragment is left behind, the icons
+# match the pin, and the version is the Simple Icons version they hold.
+# Exit 0 when everything agrees, 1 otherwise.
 
 set -euo pipefail
 
@@ -46,4 +47,11 @@ if [ "$pinned" != "$generated" ]; then
   exit 1
 fi
 
-echo "ok: $tag has its CHANGELOG.md section, no fragment is left, and the icons are simple-icons $pinned"
+# The package's version is the Simple Icons version it holds
+# (docs/releasing.md, Versions).
+if [ "$version" != "$pinned" ]; then
+  echo "tag $tag, but the package holds Simple Icons $pinned: a release carries the Simple Icons version, so tag v$pinned (docs/releasing.md, Versions)" >&2
+  exit 1
+fi
+
+echo "ok: $tag has its CHANGELOG.md section, no fragment is left, and holds Simple Icons $pinned"

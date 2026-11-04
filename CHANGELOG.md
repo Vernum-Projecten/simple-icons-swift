@@ -10,6 +10,14 @@ fragments in `changelog.d/` until the release cut writes them here.
 
 ## [Unreleased]
 
+## [16.36.0] - 2026-11-04
+
+### Changed
+
+- The package's version is now the version of the Simple Icons release it holds: this is
+  16.36.0, with the icons of Simple Icons 16.36.0, and the same code as 1.0.0. Depend on
+  `from: "16.36.0"`; there is a release for every Simple Icons release from now on.
+
 ## [1.0.0] - 2026-11-04
 
 ### Added
@@ -22,6 +30,6 @@ fragments in `changelog.d/` until the release cut writes them here.
 - `SimpleIconsSwiftUI`: `SimpleIconView`, `SimpleIconShape`, `Path(_:)` and
   `Color(simpleIcon:)` for iOS, macOS, tvOS, watchOS and visionOS.
 
-
-[Unreleased]: https://github.com/Vernum-Projecten/simple-icons-swift/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/Vernum-Projecten/simple-icons-swift/compare/v16.36.0...HEAD
+[16.36.0]: https://github.com/Vernum-Projecten/simple-icons-swift/compare/v1.0.0...v16.36.0
 [1.0.0]: https://github.com/Vernum-Projecten/simple-icons-swift/releases/tag/v1.0.0

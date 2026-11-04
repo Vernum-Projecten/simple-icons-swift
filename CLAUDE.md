@@ -97,7 +97,8 @@ months, which removes icons (`VERSIONING.md` upstream).
   rerun. When the generator refuses (an SVG it cannot rebuild, a slug that
   is no Swift name), `docs/updating-icons.md` says what to change.
 - A simple-icons major removes constants, which breaks code that used
-  them: it is a major release here too (`docs/releasing.md`).
+  them; our version is the Simple Icons version, so it is a major here
+  too (`docs/releasing.md`).
 
 ## Hard rules
 
@@ -180,13 +181,16 @@ has the `no-changelog` label.
 
 ## Releases
 
-Semantic Versioning of our own, starting at 1.0.0, with the Simple Icons
-release folded in: a simple-icons major (icons removed) is our major, a
-minor (icons added) our minor, a patch (paths and metadata) our patch; our
-own API changes follow SemVer as usual. `docs/releasing.md` has the
+**The package's version is the Simple Icons version it holds**:
+simple-icons-swift 16.36.0 has the icons of Simple Icons 16.36.0, and
+`check-version.sh` refuses any other tag. One release per Simple Icons
+release; our own changes ship with the next one, and breaking API of our
+own waits for a Simple Icons major (deprecate in between). 1.0.0 was the
+first release, before this rule; it holds 16.36.0. `docs/releasing.md` has the
 procedure: `changelog.sh --assemble X.Y.Z YYYY-MM-DD` on a release branch,
 merge, then the owner tags `vX.Y.Z` on `main`; `release.yml` checks the tag
 against the changelog, runs the tests and publishes the release itself.
 Immutable releases are on: a published release, its notes and its tag
 never change, so the notes are final once the release pull request is
-merged, and a mistake is fixed with a new patch release. Swift Package Index picks up the tag by itself.
+merged, and a mistake is fixed in the next release. Swift Package Index
+picks up the tag by itself.

@@ -55,7 +55,7 @@ Add the package to `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/Vernum-Projecten/simple-icons-swift.git", from: "1.0.0"),
+    .package(url: "https://github.com/Vernum-Projecten/simple-icons-swift.git", from: "16.36.0"),
 ],
 ```
 
@@ -205,11 +205,12 @@ pull request and the tests like any other change. The pinned version is in
 [`simple-icons.json`](simple-icons.json) and in
 `SimpleIcon.simpleIconsVersion`.
 
-The package follows [Semantic Versioning](https://semver.org) with the
-Simple Icons release folded in: new icons are a minor release, updated
-icons a patch, and a Simple Icons major, which removes icons and so the
-constants that name them, is a major release here too
-([docs/releasing.md](docs/releasing.md)).
+**The package's version is the Simple Icons version**: simple-icons-swift
+16.36.0 holds the icons of Simple Icons 16.36.0, and there is a release for
+every Simple Icons release. Simple Icons follows
+[Semantic Versioning](https://semver.org) the way it affects your code: a
+minor release adds icons, a patch updates them, and a major removes icons,
+so the constants that name them go too ([docs/releasing.md](docs/releasing.md)).
 
 ## Legal
 
