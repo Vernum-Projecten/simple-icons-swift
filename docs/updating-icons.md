@@ -6,47 +6,43 @@ edited by hand.
 
 ## How an update happens
 
-Every day `.github/workflows/icons.yml` asks npm for the latest release.
-When it is newer than the pin in `simple-icons.json`, the workflow:
+Two steps, on purpose kept apart:
 
-1. runs `scripts/dev/update-icons.sh X.Y.Z`, which downloads the tarball,
-   checks it against the sha512 the npm registry publishes, unpacks it into
-   a temporary folder and runs `Tools/IconGenerator`;
-2. builds and runs every test, so a release the package cannot take fails
-   here and never becomes a pull request;
-3. writes a changelog fragment (`changelog.d/0-simple-icons-X-Y-Z.changed.md`,
-   and `.removed.md` listing the removed slugs when there are any);
-4. pushes the branch `chore/simple-icons-update` and opens a pull request,
-   or updates the open one, with the new and removed icons listed. One
-   that removes icons carries the `breaking` label: the next release is a
-   major one (`docs/releasing.md`).
+1. **The workflow notices.** Every day `.github/workflows/icons.yml` asks
+   npm for the latest release. When it is newer than the pin in
+   `simple-icons.json`, it downloads both releases' tarballs, checks each
+   against the sha512 the registry publishes, and opens an issue "Update
+   the icons to Simple Icons X.Y.Z" listing the new and removed icons
+   (labels `icons`, and `breaking` when icons are removed). When such an
+   issue is already open, it moves that one to the newest version instead
+   of opening another. Run it by hand from Actions, Icons, Run workflow.
+2. **A person (or a Claude session) updates.** The workflow writes no code
+   and opens no pull request: it runs with the workflow's own token and
+   `issues: write` only, so no extra token with write access to the code
+   exists anywhere. The update goes through a pull request like every
+   other change, with CI running as usual.
 
-Review the list of new and removed icons, let CI pass, and merge. Run the
-workflow by hand (Actions, Icons, Run workflow) to update at once or to a
-specific version.
-
-### CI on the icon pull requests
-
-GitHub does not start workflows for a pull request that the default
-`GITHUB_TOKEN` opened. Two ways round it:
-
-- Add an `ICONS_TOKEN` Actions secret: a fine-grained personal access
-  token, or a GitHub App installation token, for this repository with
-  **Contents: read and write** and **Pull requests: read and write**. The
-  workflow then opens the pull request with it and CI runs as usual.
-- Without it, close and reopen the pull request; the pull request says so.
-
-## By hand
+## Doing an update issue
 
 ```bash
 export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
-bash scripts/dev/update-icons.sh --check     # prints the latest; exit 1 when newer than the pin
-bash scripts/dev/update-icons.sh --latest    # or: update-icons.sh 16.37.0
-swift test
+git switch -c chore/simple-icons-X.Y.Z main
+bash scripts/dev/update-icons.sh X.Y.Z       # or --latest
+swift test -Xswiftc -warnings-as-errors      # and the other gates
 ```
 
-Without an argument the script regenerates the pinned version; CI uses that
-to prove the committed code is exactly what the generator makes.
+`update-icons.sh` downloads the tarball, checks its sha512, regenerates
+`Sources/SimpleIcons/Generated/`, writes `simple-icons.json`, and writes
+the changelog fragments: `changelog.d/0-simple-icons-X-Y-Z.changed.md`,
+and `.removed.md` listing the removed slugs when there are any. Then open a
+pull request that closes the issue, labelled `icons` (and `breaking` when
+icons are removed): the next release is then a major one
+(`docs/releasing.md`).
+
+`--check` prints the latest release and exits 1 when it is newer than the
+pin. Without an argument the script regenerates the pinned version and
+writes no fragment; CI uses that to prove the committed code is exactly
+what the generator makes.
 
 ## When the generator refuses
 

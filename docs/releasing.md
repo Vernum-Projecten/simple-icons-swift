@@ -46,8 +46,6 @@ listing's version column stays current.
 - `bash scripts/release/protect-tags.sh` creates the ruleset that stops a
   `v*` tag from being moved or deleted: SwiftPM would otherwise hand two
   apps different code for the same version.
-- Optional, so CI runs on the icon pull requests: an `ICONS_TOKEN` secret
-  (`docs/updating-icons.md`).
 
 ## Cut a release
 

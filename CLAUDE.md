@@ -62,8 +62,8 @@ the entry and what has to be true before it is requested.
   test` on macOS with warnings as errors, a build for iOS, tvOS, watchOS and
   visionOS, `swift test` on Linux, the DocC build, and the generated code
   against the pin), `changelog.yml` (the fragment guard, also when a label
-  changes), `icons.yml` (daily: a new simple-icons release becomes a pull
-  request) and `release.yml` (a `v*` tag: checks and tests, then a draft
+  changes), `icons.yml` (daily: a new simple-icons release becomes an
+  issue; it only writes issues, never code) and `release.yml` (a `v*` tag: checks and tests, then a draft
   GitHub release with the changelog section as notes, for the owner to
   publish).
 - `docs/`: `releasing.md` (versioning and the release procedure),
@@ -84,10 +84,14 @@ months, which removes icons (`VERSIONING.md` upstream).
   npm package, checks its sha512 against the registry, regenerates
   `Generated/` and writes `simple-icons.json`. Without an argument it
   regenerates the pinned version, which must change nothing: CI checks
-  that. `--check` says whether a newer release exists.
-- `icons.yml` runs that every day and opens a pull request
-  `chore/simple-icons-X.Y.Z` with a changelog fragment, or updates the open
-  one. Review the icon diff (new, changed, removed slugs) and merge.
+  that. `--check` says whether a newer release exists. Moving to another
+  release also writes its changelog fragments (issue 0).
+- `icons.yml` checks npm every day and opens an issue "Update the icons to
+  Simple Icons X.Y.Z" (labels `icons`, and `breaking` when icons go) with
+  the new and removed slugs, or moves the open one to the newest version.
+  It has `issues: write` only and no token of ours, on purpose. Doing such
+  an issue: branch `chore/simple-icons-X.Y.Z`, run
+  `update-icons.sh X.Y.Z`, the gates, and a pull request that closes it.
 - Never edit `Generated/` or `simple-icons.json` by hand; the
   `protect_generated.sh` hook refuses it. Change `Tools/IconGenerator` and
   rerun. When the generator refuses (an SVG it cannot rebuild, a slug that

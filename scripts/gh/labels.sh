@@ -248,9 +248,10 @@ label dependencies 0366d6 "Dependency updates (used by Dependabot)."
 label security     ee0701 "Security fix or hardening."
 label no-changelog ededed "No user-visible change; skips the changelog fragment check"
 
-# The pull requests of .github/workflows/icons.yml carry `icons`; one that
-# moves to a new simple-icons major (icons removed) also carries `breaking`,
-# which makes the next release a major one (docs/releasing.md).
+# The issues of .github/workflows/icons.yml, and the pull requests that do
+# them, carry `icons`; one that removes icons (a new simple-icons major) also
+# carries `breaking`, which makes the next release a major one
+# (docs/releasing.md).
 label icons    1F883D "An update of the icons to a new Simple Icons release."
 label breaking B60205 "Removes or changes public API; the next release is a major one."
 

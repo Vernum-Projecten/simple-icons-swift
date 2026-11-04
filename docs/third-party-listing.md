@@ -17,8 +17,8 @@ not open it; the hook refuses).
 - [ ] The package is on the [Swift Package Index](https://swiftpackageindex.com)
   with its documentation (`.spi.yml`), so the link from the table has
   docs and the platform and Swift compatibility (issue #1 has the steps).
-- [ ] `icons.yml` has run and an icon update has been merged and released,
-  showing that the package keeps up.
+- [ ] `icons.yml` has filed an icon update, and it has been done, merged and
+  released, showing that the package keeps up.
 - [ ] `simple-icons.json` on `main` has the current Simple Icons version:
   the table's version column reads it.
 
@@ -56,9 +56,10 @@ typed constant, the SVG byte for byte, a parsed path for any graphics API
 (Linux included), and a SwiftUI view and shape for iOS, macOS, tvOS,
 watchOS and visionOS.
 
-It follows every Simple Icons release automatically: a daily workflow
-regenerates the icons from the npm package (checked against its sha512)
-and opens a pull request. The version badge reads simple-icons.json on main.
+It follows every Simple Icons release: a daily workflow files each new
+release as an issue, and the icons are regenerated from the npm package
+(checked against its sha512). The version badge reads simple-icons.json on
+main.
 
 - Repository: https://github.com/Vernum-Projecten/simple-icons-swift
 - Documentation: https://swiftpackageindex.com/Vernum-Projecten/simple-icons-swift/documentation

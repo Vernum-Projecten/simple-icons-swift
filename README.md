@@ -42,8 +42,9 @@ Label {
 - **Every platform Swift runs on.** The `SimpleIcons` module needs only
   Foundation: icons, SVG and a parsed path on iOS, macOS, tvOS, watchOS,
   visionOS and Linux. `SimpleIconsSwiftUI` adds the views.
-- **Always current.** A daily workflow picks up each Simple Icons release,
-  checks the npm package against its sha512 and opens a pull request.
+- **Always current.** A daily workflow spots each Simple Icons release and
+  files it as an issue; the update is regenerated from the npm package,
+  checked against its sha512, and released.
 - **Swift 6 throughout.** Strict concurrency, everything `Sendable`, no
   force unwraps, no unsafe code, documented with DocC and tested with Swift
   Testing.
@@ -196,9 +197,11 @@ Every example above is compiled and run by the tests
 ## Staying up to date
 
 Simple Icons releases new and updated icons every week. Every day
-[`icons.yml`](.github/workflows/icons.yml) checks for a new release,
-regenerates the icons, runs the tests and opens a pull request that lists
-the new and removed icons. The pinned version is in
+[`icons.yml`](.github/workflows/icons.yml) checks for a new release and
+opens an issue that lists the new and removed icons. The update is made
+with `scripts/dev/update-icons.sh`, which checks the npm package against
+its sha512, regenerates the icons and the changelog, and goes through a
+pull request and the tests like any other change. The pinned version is in
 [`simple-icons.json`](simple-icons.json) and in
 `SimpleIcon.simpleIconsVersion`.
 
