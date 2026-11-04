@@ -20,8 +20,8 @@ targets: [
 ]
 ```
 
-The package's version is the Simple Icons version it holds: 16.36.0 has
-the icons of Simple Icons 16.36.0. `SimpleIconsSwiftUI` brings the icons
+The package's `MAJOR.MINOR` is the Simple Icons release it holds: 16.36.x
+has the icons of Simple Icons 16.36; the last number counts our releases. `SimpleIconsSwiftUI` brings the icons
 with it; import both modules in a file that uses them, `SimpleIcons` for
 the icons (`SimpleIcon.swift`, `.allCases`, `.title`) and
 `SimpleIconsSwiftUI` for the views. Add only `SimpleIcons` for

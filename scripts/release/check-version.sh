@@ -47,10 +47,16 @@ if [ "$pinned" != "$generated" ]; then
   exit 1
 fi
 
-# The package's version is the Simple Icons version it holds
-# (docs/releasing.md, Versions).
-if [ "$version" != "$pinned" ]; then
-  echo "tag $tag, but the package holds Simple Icons $pinned: a release carries the Simple Icons version, so tag v$pinned (docs/releasing.md, Versions)" >&2
+# MAJOR.MINOR is the Simple Icons release the package holds; PATCH is ours,
+# the next free number (docs/releasing.md, Versions).
+if [ "${version%.*}" != "${pinned%.*}" ]; then
+  echo "tag $tag, but the package holds Simple Icons $pinned: the version starts with its MAJOR.MINOR, ${pinned%.*} (docs/releasing.md, Versions)" >&2
+  exit 1
+fi
+patch="${version##*.}"
+highest="$(git tag -l "v${version%.*}.*" | grep -vx "$tag" | sed 's/^v[0-9]*\.[0-9]*\.//' | grep -E '^[0-9]+$' | sort -n | tail -n 1 || true)"
+if [ -n "$highest" ] && [ "$patch" -le "$highest" ]; then
+  echo "tag $tag, but v${version%.*}.$highest exists: the next patch is ${version%.*}.$((highest + 1)) (docs/releasing.md, Versions)" >&2
   exit 1
 fi
 
