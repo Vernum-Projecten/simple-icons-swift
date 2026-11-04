@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: simple-icons-swift contributors
+# SPDX-License-Identifier: MIT
+
+# Text is stored and checked out with LF line endings.
+* text=auto eol=lf
+*.swift text eol=lf
+*.md text eol=lf
+*.sh text eol=lf
+*.json text eol=lf
+
+# The generated icons are data: collapsed in pull request diffs and left out
+# of the language bar, so a review sees the generator and the summary.
+Sources/SimpleIcons/Generated/** linguist-generated=true
+simple-icons.json linguist-generated=true

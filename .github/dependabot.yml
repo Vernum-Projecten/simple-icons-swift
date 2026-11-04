@@ -1,0 +1,20 @@
+# SPDX-FileCopyrightText: simple-icons-swift contributors
+# SPDX-License-Identifier: MIT
+#
+# Weekly version updates of the GitHub Actions, one grouped pull request.
+# They stay pinned to a commit SHA: Dependabot updates the SHA and the version
+# comment on the same line. The package has no Swift dependencies; the icons
+# are updated by .github/workflows/icons.yml, not by Dependabot.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ["*"]
+    labels: [dependencies, no-changelog]
+    commit-message:
+      prefix: ci
+      include: scope

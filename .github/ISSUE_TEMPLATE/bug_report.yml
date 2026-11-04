@@ -1,0 +1,46 @@
+# SPDX-FileCopyrightText: simple-icons-swift contributors
+# SPDX-License-Identifier: MIT
+name: Bug report
+description: Report a defect in simple-icons-swift. A wrong or missing icon belongs to Simple Icons instead.
+type: Bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. The type is already Bug, and a maintainer
+        sets the priority during triage, so you do not need to choose one.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What goes wrong, in one or two sentences.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: The exact steps or command that show the bug.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+      description: What you expected to happen.
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: The package version, Xcode or Swift version, and platform (for example 1.0.0, Xcode 27.1, iOS 27).
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behaviour
+      description: What happened instead. Include the error output.
+    validations:
+      required: true

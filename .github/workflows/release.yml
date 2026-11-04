@@ -1,0 +1,69 @@
+name: Release
+
+# A tag vX.Y.Z on main publishes the GitHub release "simple-icons-swift
+# X.Y.Z" with its CHANGELOG.md section as notes. A Swift package ships as
+# source: SwiftPM and Swift Package Index read the tag itself, so there is
+# nothing to build or upload. Before publishing, the tag is checked against
+# the changelog and the pinned icons (scripts/release/check-version.sh) and
+# the tests run once more on the tagged commit. docs/releasing.md has the
+# procedure.
+
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+
+permissions: {}
+
+env:
+  DEVELOPER_DIR: /Applications/Xcode_27.1.app/Contents/Developer
+
+jobs:
+  check:
+    name: tag matches the changelog, tests pass
+    runs-on: xcode-27
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: the tag is on main
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          git fetch --no-tags origin main
+          git merge-base --is-ancestor "$TAG" origin/main || { echo "::error::$TAG is not on main"; exit 1; }
+      - name: check-version.sh
+        env:
+          TAG: ${{ github.ref_name }}
+        run: bash scripts/release/check-version.sh "$TAG"
+      - name: swift test
+        run: swift test -Xswiftc -warnings-as-errors
+
+  publish:
+    name: GitHub release
+    needs: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: release notes from the changelog
+        env:
+          TAG: ${{ github.ref_name }}
+        run: bash scripts/release/notes.sh "$TAG" > "$RUNNER_TEMP/notes.md"
+      - name: create the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+          REPO: ${{ github.repository }}
+        run: |
+          gh release create "$TAG" --repo "$REPO" --verify-tag \
+            --title "simple-icons-swift ${TAG#v}" --notes-file "$RUNNER_TEMP/notes.md"
+          echo "released $TAG" >> "$GITHUB_STEP_SUMMARY"

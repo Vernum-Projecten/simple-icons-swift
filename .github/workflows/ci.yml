@@ -1,0 +1,163 @@
+name: CI
+
+# Every pull request and every push to main: the shell scripts and the
+# workflows are linted and prove themselves, the Swift is formatted, the
+# package is built and tested on macOS with warnings as errors, built for
+# iOS, tvOS, watchOS and visionOS, tested on Linux, and its documentation
+# builds; the generated icons are checked against the pin. No job needs a
+# secret. The changelog fragment check is changelog.yml: it also runs when a
+# label changes, which must not restart (and cancel) this whole workflow.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions: {}
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # The xcode-27 image is Apple Silicon on macOS 27 with Xcode 27.
+  DEVELOPER_DIR: /Applications/Xcode_27.1.app/Contents/Developer
+
+jobs:
+  guards:
+    name: shell scripts and workflows
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: shellcheck (style floor)
+        run: shellcheck --severity=style scripts/*/*.sh .claude/hooks/*.sh .githooks/*
+      - name: the scripts prove themselves
+        run: |
+          bash scripts/release/changelog.sh --self-test
+          bash scripts/checks/changelog-guard.sh --self-test
+          bash scripts/gh/fields.sh --self-test
+          bash scripts/gh/labels.sh --self-test
+      - name: every changelog fragment is well formed
+        run: bash scripts/release/changelog.sh --check
+      - name: actionlint
+        env:
+          ACTIONLINT_VERSION: 1.7.12
+          # sha256 of actionlint_<version>_linux_amd64.tar.gz from the release's
+          # checksums.txt; update both lines together.
+          ACTIONLINT_SHA256: 8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8
+        run: |
+          archive="$RUNNER_TEMP/actionlint.tar.gz"
+          curl -fsSL --proto '=https' --tlsv1.2 -o "$archive" \
+            "https://github.com/rhysd/actionlint/releases/download/v$ACTIONLINT_VERSION/actionlint_${ACTIONLINT_VERSION}_linux_amd64.tar.gz"
+          echo "$ACTIONLINT_SHA256  $archive" | sha256sum --check --strict
+          tar -xzf "$archive" -C "$RUNNER_TEMP" actionlint
+          "$RUNNER_TEMP/actionlint" -color
+
+  macos:
+    name: macOS build, tests and format
+    runs-on: xcode-27
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: swift format
+        run: bash scripts/dev/format.sh --check
+      # Warnings are errors: Swift 6 mode and the upcoming features keep the
+      # code clean only if nothing slips back.
+      - name: swift build
+        run: swift build -Xswiftc -warnings-as-errors
+      - name: swift test
+        run: swift test -Xswiftc -warnings-as-errors
+
+  platforms:
+    name: build for ${{ matrix.platform }}
+    runs-on: xcode-27
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [iOS, tvOS, watchOS, visionOS]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: xcodebuild build
+        env:
+          PLATFORM: ${{ matrix.platform }}
+        run: |
+          xcodebuild build -quiet -scheme simple-icons-swift-Package \
+            -destination "generic/platform=$PLATFORM" -derivedDataPath build/DerivedData \
+            SWIFT_TREAT_WARNINGS_AS_ERRORS=YES
+
+  linux:
+    name: Linux tests (Swift ${{ matrix.swift }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        # The floor (swift-tools-version) and the newest release.
+        swift: ["6.2", "6.4"]
+    container: swift:${{ matrix.swift }}-noble
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # SimpleIconsSwiftUI compiles to nothing here; SimpleIcons is tested in
+      # full, which proves the core module needs no Apple framework.
+      - name: swift test
+        run: swift test -Xswiftc -warnings-as-errors
+
+  docs:
+    name: documentation
+    runs-on: xcode-27
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # DocC reports a broken symbol link as a warning; it fails the job.
+      - name: xcodebuild docbuild
+        run: |
+          mkdir -p build
+          xcodebuild docbuild -scheme simple-icons-swift-Package \
+            -destination 'platform=macOS' -derivedDataPath build/DerivedData 2>&1 | tee build/docbuild.log
+          if grep -E '(warning|error): ' build/docbuild.log | grep -v 'multiple matching destinations'; then
+            echo "::error::DocC reported the warnings above."
+            exit 1
+          fi
+
+  generated:
+    name: generated icons match the pin
+    runs-on: xcode-27
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # Regenerates the pinned simple-icons release, after checking the npm
+      # tarball's sha512 against simple-icons.json. Any difference is a hand
+      # edit or a generator change that was not run.
+      - name: update-icons.sh changes nothing
+        run: |
+          bash scripts/dev/update-icons.sh
+          if ! git diff --exit-code --stat -- Sources simple-icons.json; then
+            echo "::error::The generated icons are not what Tools/IconGenerator makes from the pinned release. Run bash scripts/dev/update-icons.sh and commit the result."
+            exit 1
+          fi

@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: simple-icons-swift contributors
+# SPDX-License-Identifier: MIT
+# GitHub adds "Report a vulnerability" to the chooser by itself while private
+# vulnerability reporting is on (SECURITY.md).
+blank_issues_enabled: false
+contact_links:
+  - name: A new icon, or a wrong one
+    url: https://github.com/simple-icons/simple-icons/issues/new/choose
+    about: The icons come unchanged from Simple Icons. Request or fix an icon there; this package picks it up with the next release.
+  - name: Documentation
+    url: https://swiftpackageindex.com/Vernum-Projecten/simple-icons-swift/documentation
+    about: The API documentation of SimpleIcons and SimpleIconsSwiftUI.
