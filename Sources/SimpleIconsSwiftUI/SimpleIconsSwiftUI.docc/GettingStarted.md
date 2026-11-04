@@ -22,7 +22,9 @@ targets: [
 
 The package's version is the Simple Icons version it holds: 16.36.0 has
 the icons of Simple Icons 16.36.0. `SimpleIconsSwiftUI` brings the icons
-with it. Add only `SimpleIcons` for
+with it; import both modules in a file that uses them, `SimpleIcons` for
+the icons (`SimpleIcon.swift`, `.allCases`, `.title`) and
+`SimpleIconsSwiftUI` for the views. Add only `SimpleIcons` for
 code without a user interface, such as a server.
 
 ## Find an icon's name
@@ -39,6 +41,7 @@ in the foreground style and has the brand's name as its accessibility
 label.
 
 ```swift
+import SimpleIcons
 import SimpleIconsSwiftUI
 
 struct BuiltWith: View {

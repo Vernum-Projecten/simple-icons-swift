@@ -55,7 +55,7 @@ jobs:
         with:
           persist-credentials: false
       - name: swift test
-        run: swift test -Xswiftc -warnings-as-errors
+        run: swift test --force-resolved-versions -Xswiftc -warnings-as-errors
 
   publish:
     name: publish the release

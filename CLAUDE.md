@@ -37,6 +37,11 @@ the entry and what has to be true before it is requested.
 - `Tests/`: Swift Testing. `SimpleIconsTests` (lookup, metadata, SVG
   escaping, the parser command by command, and every icon parsed and inside
   its box) and `SimpleIconsSwiftUITests` (color, shape geometry).
+- `Examples/IconBrowser/`: the example app, a package of its own (users
+  never fetch it): `IconBrowserFeature` (`IconCatalog`, an `@Observable`
+  model that filters on the search text; `IconBrowserView`, `IconDetailView`)
+  for any Apple platform, the macOS app `IconBrowser`, and its tests. CI
+  builds and tests it, and builds the screens for iOS.
 - `Tools/IconGenerator/`: a package of its own (so users never fetch it)
   with the `generate-icons` executable that writes `Generated/`.
 - `simple-icons.json`: the pinned simple-icons version and the npm

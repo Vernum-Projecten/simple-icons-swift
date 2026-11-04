@@ -9,6 +9,7 @@ square, in the foreground style, and labeled with the brand's name for
 VoiceOver.
 
 ```swift
+import SimpleIcons
 import SimpleIconsSwiftUI
 
 Label {
