@@ -120,10 +120,14 @@ jobs:
           persist-credentials: false
       # Examples/IconBrowser: the macOS app and its tests, and its screens
       # for iOS, the way an app on another platform uses them.
+      # The example's only dependency is this repository, by local path:
+      # nothing is downloaded, so there is no version to lock and SwiftPM
+      # writes no Package.resolved. NOSONAR marks Sonar's githubactions:S7694
+      # (unlocked dependencies) on these two lines as not applicable.
       - name: swift build and test
         run: |
-          swift build --package-path Examples/IconBrowser --force-resolved-versions -Xswiftc -warnings-as-errors
-          swift test --package-path Examples/IconBrowser --force-resolved-versions -Xswiftc -warnings-as-errors
+          swift build --package-path Examples/IconBrowser --force-resolved-versions -Xswiftc -warnings-as-errors # NOSONAR
+          swift test --package-path Examples/IconBrowser --force-resolved-versions -Xswiftc -warnings-as-errors # NOSONAR
       - name: the screens build for iOS
         working-directory: Examples/IconBrowser
         run: |
