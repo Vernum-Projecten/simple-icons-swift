@@ -10,6 +10,26 @@ fragments in `changelog.d/` until the release cut writes them here.
 
 ## [Unreleased]
 
+## [16.36.1] - 2026-11-04
+
+### Changed
+
+- An app now contains only the icons it uses: a release build with six icons is 0.5 MB
+  instead of 8.2 MB. Every icon is compiled into the app where it is used, and the others
+  never reach the binary. `SimpleIcon.allCases` still lists every icon; an app that uses it
+  contains them all (#12).
+
+### Removed
+
+- `SimpleIcon` is no longer `CaseIterable`: the conformance kept every icon in every app.
+  `SimpleIcon.allCases` stays and works as before; generic code that needs the protocol can
+  add `extension SimpleIcon: @retroactive CaseIterable {}` itself (#12).
+
+### Fixed
+
+- The README and the documentation show `import SimpleIcons` next to `import SimpleIconsSwiftUI`:
+  with only the second, a member such as `SimpleIcon.allCases` does not compile.
+
 ## [16.36.0] - 2026-11-04
 
 ### Changed
@@ -30,6 +50,7 @@ fragments in `changelog.d/` until the release cut writes them here.
 - `SimpleIconsSwiftUI`: `SimpleIconView`, `SimpleIconShape`, `Path(_:)` and
   `Color(simpleIcon:)` for iOS, macOS, tvOS, watchOS and visionOS.
 
-[Unreleased]: https://github.com/Vernum-Projecten/simple-icons-swift/compare/v16.36.0...HEAD
+[Unreleased]: https://github.com/Vernum-Projecten/simple-icons-swift/compare/v16.36.1...HEAD
+[16.36.1]: https://github.com/Vernum-Projecten/simple-icons-swift/compare/v16.36.0...v16.36.1
 [16.36.0]: https://github.com/Vernum-Projecten/simple-icons-swift/compare/v1.0.0...v16.36.0
 [1.0.0]: https://github.com/Vernum-Projecten/simple-icons-swift/releases/tag/v1.0.0
