@@ -63,8 +63,9 @@ the entry and what has to be true before it is requested.
   visionOS, `swift test` on Linux, the DocC build, and the generated code
   against the pin), `changelog.yml` (the fragment guard, also when a label
   changes), `icons.yml` (daily: a new simple-icons release becomes a pull
-  request) and `release.yml` (a `v*` tag: checks, then a GitHub release with
-  the changelog section as notes).
+  request) and `release.yml` (a `v*` tag: checks and tests, then a draft
+  GitHub release with the changelog section as notes, for the owner to
+  publish).
 - `docs/`: `releasing.md` (versioning and the release procedure),
   `third-party-listing.md` (the Simple Icons README entry), `updating-icons.md`
   (how the icon updates work and what to do when the generator refuses).
@@ -111,8 +112,9 @@ months, which removes icons (`VERSIONING.md` upstream).
 - **No AI attribution in commits, PRs or issues.** No `Co-authored-by`, no
   "Generated with", no robot emoji. The `commit-msg` hook strips it and the
   Claude Bash hook refuses the command.
-- **The owner opens anything in `simple-icons/simple-icons`** and pushes
-  release tags; the Claude Bash hook refuses both.
+- **The owner opens anything in `simple-icons/simple-icons`**, pushes
+  release tags and publishes releases (immutable once published); the
+  Claude Bash hook refuses all three.
 - **Prose has no AI tells**, in docs, DocC, commits and PRs: no em dashes,
   no middle dot "·" as a separator, no "not X but Y", no buzzwords.
 - **Our own branding only.** The README and docs use our logo
@@ -179,6 +181,8 @@ release folded in: a simple-icons major (icons removed) is our major, a
 minor (icons added) our minor, a patch (paths and metadata) our patch; our
 own API changes follow SemVer as usual. `docs/releasing.md` has the
 procedure: `changelog.sh --assemble X.Y.Z YYYY-MM-DD` on a release branch,
-merge, then the owner tags `vX.Y.Z` on `main`, and `release.yml` checks the
-tag against the changelog and publishes the GitHub release. Swift Package
-Index picks up the tag by itself.
+merge, then the owner tags `vX.Y.Z` on `main`; `release.yml` checks the tag
+against the changelog, runs the tests and makes a **draft** release, which
+the owner reads and publishes. Immutable releases are on: a published
+release and its tag never change, so a mistake is fixed with a new patch
+release. Swift Package Index picks up the tag by itself.

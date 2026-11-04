@@ -7,8 +7,9 @@
 #   - a pull request or issue in simple-icons/simple-icons: the request to
 #     be listed among the third-party libraries is the owner's to open
 #     (docs/third-party-listing.md)
-#   - a release tag pushed by hand: releases go through the release cut
-#     and the Release workflow (docs/releasing.md)
+#   - a release tag pushed, or a GitHub release created, edited or deleted:
+#     the repository has immutable releases, so publishing is final and the
+#     owner's (docs/releasing.md)
 #   - security commands that would export or delete signing identities
 
 set -euo pipefail
@@ -47,6 +48,11 @@ fi
 
 if printf '%s' "$cmd" | grep -qE 'git[[:space:]]+push[^;|&]*[[:space:]](refs/tags/)?v[0-9]+\.[0-9]+\.[0-9]+|git[[:space:]]+push[^;|&]*--tags'; then
   echo "BLOCKED: release tags are the owner's; follow docs/releasing.md." >&2
+  exit 2
+fi
+
+if printf '%s' "$cmd" | grep -qE 'gh[[:space:]]+release[[:space:]]+(create|edit|delete|upload)'; then
+  echo "BLOCKED: releases are immutable once published; the Release workflow makes the draft and the owner publishes it (docs/releasing.md)." >&2
   exit 2
 fi
 
