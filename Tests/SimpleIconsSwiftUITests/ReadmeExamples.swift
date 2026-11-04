@@ -41,10 +41,12 @@ private struct OutlinedLogo: View {
 }
 
 private struct AllIcons: View {
+    private static let icons = SimpleIcon.allCases
+
     var body: some View {
         ScrollView {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 44))]) {
-                ForEach(SimpleIcon.allCases) { icon in
+                ForEach(Self.icons) { icon in
                     SimpleIconView(icon)
                         .foregroundStyle(Color(simpleIcon: icon))
                         .frame(width: 32, height: 32)

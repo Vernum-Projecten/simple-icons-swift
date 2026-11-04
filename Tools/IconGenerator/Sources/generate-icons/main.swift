@@ -257,12 +257,19 @@ for icon in icons {
     let name = swiftName(for: icon.slug)
     names.append(name)
     let path = pathData(of: icon)
-    let body = arguments(for: icon, path: path).map { "        \($0)" }.joined(separator: ",\n")
+    // Emitted into the client (`@_alwaysEmitIntoClient`) as a computed
+    // property: the library holds no symbol for an icon, so an app compiles
+    // in only the icons it names. A stored `static let` is a global the
+    // linker keeps in every app, all icons included (#12).
+    let body = arguments(for: icon, path: path).map { "            \($0)" }.joined(separator: ",\n")
     let declaration = """
             /// The \(icon.title) icon, brand color `#\(icon.hex)`.
-            public static let \(name) = SimpleIcon(
+            @_alwaysEmitIntoClient
+            public static var \(name): SimpleIcon {
+                SimpleIcon(
         \(body)
-            )
+                )
+            }
         """
     groups[fileGroup(for: icon.slug), default: []].append(declaration)
 }
@@ -291,15 +298,47 @@ for (group, declarations) in groups {
     )
 }
 
+/// `allCases` in parts of this many icons; see the note in the output.
+let chunkSize = 200
+let chunks = stride(from: 0, to: names.count, by: chunkSize).map {
+    Array(names[$0..<min($0 + chunkSize, names.count)])
+}
+
 write(
     "SimpleIcon+AllCases.swift",
     header + """
 
         extension SimpleIcon {
             /// Every icon in Simple Icons, in its order: by title.
-            public static let allCases: [SimpleIcon] = [
-        \(names.map { "        .\($0)," }.joined(separator: "\n"))
-            ]
+            ///
+            /// Use it where you need every icon, such as a picker or a search;
+            /// an app that uses it contains every icon (about 6 MB). An app
+            /// that names only the icons it shows contains only those.
+            ///
+            /// - Complexity: O(*n*): builds the array on every access, so keep
+            ///   it, for example in a `static let` of your own, rather than
+            ///   reading it in a view's `body`.
+            @_alwaysEmitIntoClient
+            public static var allCases: [SimpleIcon] {
+                var icons: [SimpleIcon] = []
+                icons.reserveCapacity(\(names.count))
+        \(chunks.indices.map { "        icons += allCasesPart\($0)" }.joined(separator: "\n"))
+                return icons
+            }
+        \(chunks.enumerated().map { index, chunk in
+            """
+
+                // Part of allCases. In parts, because a debug build puts every
+                // element of an array literal on the stack: all icons at once
+                // overflow the 512 KB stack of a secondary thread.
+                @_alwaysEmitIntoClient @usableFromInline
+                static var allCasesPart\(index): [SimpleIcon] {
+                    [
+            \(chunk.map { "            .\($0)," }.joined(separator: "\n"))
+                    ]
+                }
+            """
+        }.joined(separator: "\n"))
 
             /// The version of Simple Icons these icons come from.
             public static let simpleIconsVersion = \(literal(version))

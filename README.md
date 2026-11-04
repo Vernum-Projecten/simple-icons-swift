@@ -78,6 +78,22 @@ In Xcode: **File > Add Package Dependencies…**, paste
 `https://github.com/Vernum-Projecten/simple-icons-swift.git`, and add
 `SimpleIconsSwiftUI` (or `SimpleIcons`) to your app.
 
+### App size
+
+An app contains only the icons it names: each icon is compiled into the
+app where it is used, and the rest never reach the binary. Measured with
+a release build that uses six icons (`Examples/SizeProbe`, checked by CI on
+every pull request):
+
+| The app uses | Binary size (arm64) |
+| :-- | --: |
+| Six icons, `SimpleIcons` | 0.5 MB on macOS, 0.6 MB on Linux |
+| Six icons, drawn with `SimpleIconsSwiftUI` | 0.6 MB on macOS |
+| `SimpleIcon.allCases` (every icon) | 6 MB |
+
+So use the constants of the icons you show, and `allCases` only where you
+need every icon, such as an icon picker.
+
 | Requirement | |
 | :-- | :-- |
 | Swift | 6.2 or later (Xcode 26 or later) |
@@ -119,16 +135,23 @@ SimpleIconShape(.figma)
     .frame(width: 120, height: 120)
 ```
 
-Every icon, in a grid:
+Every icon, in a grid. `allCases` builds the list on each read, so keep
+it once rather than reading it in `body`:
 
 ```swift
-ScrollView {
-    LazyVGrid(columns: [GridItem(.adaptive(minimum: 44))]) {
-        ForEach(SimpleIcon.allCases) { icon in
-            SimpleIconView(icon)
-                .foregroundStyle(Color(simpleIcon: icon))
-                .frame(width: 32, height: 32)
-                .help(icon.title)
+struct AllIcons: View {
+    private static let icons = SimpleIcon.allCases
+
+    var body: some View {
+        ScrollView {
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 44))]) {
+                ForEach(Self.icons) { icon in
+                    SimpleIconView(icon)
+                        .foregroundStyle(Color(simpleIcon: icon))
+                        .frame(width: 32, height: 32)
+                        .help(icon.title)
+                }
+            }
         }
     }
 }

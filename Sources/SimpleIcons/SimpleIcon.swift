@@ -1,7 +1,9 @@
 /// A brand icon from Simple Icons, with its metadata and SVG path.
 ///
-/// Every icon in the collection is a static constant named after its slug,
-/// checked by the compiler and completed by Xcode:
+/// Every icon in the collection is a static property named after its slug,
+/// checked by the compiler and completed by Xcode. Each one is compiled
+/// into your app only when you use it, so an app with a few icons stays
+/// small:
 ///
 /// ```swift
 /// let icon = SimpleIcon.swift
@@ -17,7 +19,8 @@
 /// let await = SimpleIcon.`await`
 /// ```
 ///
-/// ``allCases`` lists every icon, to show them all or to search them.
+/// ``allCases`` lists every icon, to show them all or to search them; an app
+/// that uses it contains every icon.
 ///
 /// - Important: Simple Icons is CC0, but the brands are not yours. Read the
 ///   [Simple Icons disclaimer](https://github.com/simple-icons/simple-icons/blob/develop/DISCLAIMER.md),
@@ -163,7 +166,10 @@ extension SimpleIcon {
 
 // MARK: - Identity
 
-extension SimpleIcon: Identifiable, Hashable, CaseIterable {
+// Not `CaseIterable`: a conformance is kept in every app, and its
+// `allCases` would keep every icon with it, 6 MB more in an app that shows
+// a handful (#12). `allCases` is a plain static property instead.
+extension SimpleIcon: Identifiable, Hashable {
     /// The slug, which is unique within Simple Icons.
     public var id: String { slug }
 

@@ -88,7 +88,7 @@ tar -xzf "$work/package.tgz" -C "$work/unpacked"
 # The slugs before and after, for the changelog fragment.
 all_cases="$root/Sources/SimpleIcons/Generated/SimpleIcon+AllCases.swift"
 # shellcheck disable=SC2016 # the backticks are Swift's, not expansions
-slugs() { sed -n 's/^        \.`\{0,1\}\([a-z0-9_]*\)`\{0,1\},$/\1/p' "$all_cases" | sort; }
+slugs() { sed -n 's/^ *\.`\{0,1\}\([a-z0-9_]*\)`\{0,1\},$/\1/p' "$all_cases" | sort; }
 previous="$(pinned simpleIconsVersion)"
 slugs >"$work/before"
 

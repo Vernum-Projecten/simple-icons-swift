@@ -20,6 +20,8 @@ files=(
   Examples/IconBrowser/Package.swift
   Examples/IconBrowser/Sources
   Examples/IconBrowser/Tests
+  Examples/SizeProbe/Package.swift
+  Examples/SizeProbe/Sources
   Package.swift
   Sources/SimpleIconsSwiftUI
   Tests

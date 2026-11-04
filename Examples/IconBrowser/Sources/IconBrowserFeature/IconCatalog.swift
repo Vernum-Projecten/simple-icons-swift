@@ -19,7 +19,11 @@ public final class IconCatalog {
     }
 
     /// The icons that match ``query``, in Simple Icons' order (by title).
-    public private(set) var visibleIcons: [SimpleIcon] = SimpleIcon.allCases
+    public private(set) var visibleIcons: [SimpleIcon] = IconCatalog.allIcons
+
+    /// Every icon, kept once: `SimpleIcon.allCases` builds the list on each
+    /// read.
+    private static let allIcons = SimpleIcon.allCases
 
     /// Creates a catalog that shows every icon.
     public init() {}
@@ -28,8 +32,8 @@ public final class IconCatalog {
     /// ignoring case and diacritics. Every icon for empty text.
     static func icons(matching text: String) -> [SimpleIcon] {
         let text = text.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !text.isEmpty else { return SimpleIcon.allCases }
-        return SimpleIcon.allCases.filter { icon in
+        guard !text.isEmpty else { return allIcons }
+        return allIcons.filter { icon in
             icon.title.localizedStandardContains(text)
                 || icon.slug.localizedStandardContains(text)
                 || icon.aliases.alsoKnownAs.contains { $0.localizedStandardContains(text) }

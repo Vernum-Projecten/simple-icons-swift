@@ -157,6 +157,18 @@ From Apple's `swiftui-specialist`; read it for the examples.
 
 ## Generated code
 
+Every icon is an `@_alwaysEmitIntoClient public static var`, and so is
+`allCases`: the library holds no symbol for an icon, so an app compiles in
+only the icons it names (8.2 MB down to 0.5 MB for six icons, #12). The
+attribute is underscored but stable; the standard library uses it for the
+same reason, and `@inlinable` is not enough (it still emits the symbol in
+the library). It is the one underscored attribute allowed here, and only in
+generated code. Nothing may store icons in a global (`static let`) or make
+`SimpleIcon` `CaseIterable`: the linker keeps both, with every icon, in
+every app. `allCases` is built in parts of 200 icons, because a debug build
+puts each element of an array literal on the stack and all of them
+overflow a secondary thread's 512 KB.
+
 `Sources/SimpleIcons/Generated/` and `simple-icons.json` come from
 `scripts/dev/update-icons.sh`, never from a hand edit (the
 `protect_generated.sh` hook refuses one). To change what is generated,
