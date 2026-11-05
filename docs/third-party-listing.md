@@ -53,7 +53,7 @@ A body:
 
 ```markdown
 Adds simple-icons-swift, a Swift package with every Simple Icons icon as a
-typed constant, the SVG byte for byte, a parsed path for any graphics API
+typed static function, the SVG byte for byte, a parsed path for any graphics API
 (Linux included), and a SwiftUI view and shape for iOS, macOS, tvOS,
 watchOS and visionOS.
 

@@ -4,7 +4,7 @@
 extension SimpleIcon {
     /// The Z.ai icon, brand color `#2D2D2D`.
     @_alwaysEmitIntoClient
-    public static var zdotai: SimpleIcon {
+    public static func zdotai() -> SimpleIcon {
         SimpleIcon(
             title: "Z.ai",
             slug: "zdotai",
@@ -16,7 +16,7 @@ extension SimpleIcon {
 
     /// The Żabka icon, brand color `#006420`.
     @_alwaysEmitIntoClient
-    public static var zabka: SimpleIcon {
+    public static func zabka() -> SimpleIcon {
         SimpleIcon(
             title: "Żabka",
             slug: "zabka",
@@ -28,7 +28,7 @@ extension SimpleIcon {
 
     /// The Zaim icon, brand color `#50A135`.
     @_alwaysEmitIntoClient
-    public static var zaim: SimpleIcon {
+    public static func zaim() -> SimpleIcon {
         SimpleIcon(
             title: "Zaim",
             slug: "zaim",
@@ -40,7 +40,7 @@ extension SimpleIcon {
 
     /// The Zalando icon, brand color `#FF6900`.
     @_alwaysEmitIntoClient
-    public static var zalando: SimpleIcon {
+    public static func zalando() -> SimpleIcon {
         SimpleIcon(
             title: "Zalando",
             slug: "zalando",
@@ -52,7 +52,7 @@ extension SimpleIcon {
 
     /// The Zalo icon, brand color `#0068FF`.
     @_alwaysEmitIntoClient
-    public static var zalo: SimpleIcon {
+    public static func zalo() -> SimpleIcon {
         SimpleIcon(
             title: "Zalo",
             slug: "zalo",
@@ -64,7 +64,7 @@ extension SimpleIcon {
 
     /// The ZAP icon, brand color `#00549E`.
     @_alwaysEmitIntoClient
-    public static var zap: SimpleIcon {
+    public static func zap() -> SimpleIcon {
         SimpleIcon(
             title: "ZAP",
             slug: "zap",
@@ -77,7 +77,7 @@ extension SimpleIcon {
 
     /// The Zapier icon, brand color `#FF4F00`.
     @_alwaysEmitIntoClient
-    public static var zapier: SimpleIcon {
+    public static func zapier() -> SimpleIcon {
         SimpleIcon(
             title: "Zapier",
             slug: "zapier",
@@ -90,7 +90,7 @@ extension SimpleIcon {
 
     /// The Zara icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var zara: SimpleIcon {
+    public static func zara() -> SimpleIcon {
         SimpleIcon(
             title: "Zara",
             slug: "zara",
@@ -102,7 +102,7 @@ extension SimpleIcon {
 
     /// The Zazzle icon, brand color `#212121`.
     @_alwaysEmitIntoClient
-    public static var zazzle: SimpleIcon {
+    public static func zazzle() -> SimpleIcon {
         SimpleIcon(
             title: "Zazzle",
             slug: "zazzle",
@@ -115,7 +115,7 @@ extension SimpleIcon {
 
     /// The Zcash icon, brand color `#F3B724`.
     @_alwaysEmitIntoClient
-    public static var zcash: SimpleIcon {
+    public static func zcash() -> SimpleIcon {
         SimpleIcon(
             title: "Zcash",
             slug: "zcash",
@@ -129,7 +129,7 @@ extension SimpleIcon {
 
     /// The ZCOOL icon, brand color `#FFF200`.
     @_alwaysEmitIntoClient
-    public static var zcool: SimpleIcon {
+    public static func zcool() -> SimpleIcon {
         SimpleIcon(
             title: "ZCOOL",
             slug: "zcool",
@@ -141,7 +141,7 @@ extension SimpleIcon {
 
     /// The ZDF icon, brand color `#FA7D19`.
     @_alwaysEmitIntoClient
-    public static var zdf: SimpleIcon {
+    public static func zdf() -> SimpleIcon {
         SimpleIcon(
             title: "ZDF",
             slug: "zdf",
@@ -153,7 +153,7 @@ extension SimpleIcon {
 
     /// The ZebPay icon, brand color `#2072EF`.
     @_alwaysEmitIntoClient
-    public static var zebpay: SimpleIcon {
+    public static func zebpay() -> SimpleIcon {
         SimpleIcon(
             title: "ZebPay",
             slug: "zebpay",
@@ -165,7 +165,7 @@ extension SimpleIcon {
 
     /// The Zebra Technologies icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var zebratechnologies: SimpleIcon {
+    public static func zebratechnologies() -> SimpleIcon {
         SimpleIcon(
             title: "Zebra Technologies",
             slug: "zebratechnologies",
@@ -177,7 +177,7 @@ extension SimpleIcon {
 
     /// The ZecTrix icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var zectrix: SimpleIcon {
+    public static func zectrix() -> SimpleIcon {
         SimpleIcon(
             title: "ZecTrix",
             slug: "zectrix",
@@ -189,7 +189,7 @@ extension SimpleIcon {
 
     /// The Zed Industries icon, brand color `#084CCF`.
     @_alwaysEmitIntoClient
-    public static var zedindustries: SimpleIcon {
+    public static func zedindustries() -> SimpleIcon {
         SimpleIcon(
             title: "Zed Industries",
             slug: "zedindustries",
@@ -201,7 +201,7 @@ extension SimpleIcon {
 
     /// The Zelle icon, brand color `#6D1ED4`.
     @_alwaysEmitIntoClient
-    public static var zelle: SimpleIcon {
+    public static func zelle() -> SimpleIcon {
         SimpleIcon(
             title: "Zelle",
             slug: "zelle",
@@ -213,7 +213,7 @@ extension SimpleIcon {
 
     /// The Zen Browser icon, brand color `#F76F53`.
     @_alwaysEmitIntoClient
-    public static var zenbrowser: SimpleIcon {
+    public static func zenbrowser() -> SimpleIcon {
         SimpleIcon(
             title: "Zen Browser",
             slug: "zenbrowser",
@@ -225,7 +225,7 @@ extension SimpleIcon {
 
     /// The Zend icon, brand color `#0679EA`.
     @_alwaysEmitIntoClient
-    public static var zend: SimpleIcon {
+    public static func zend() -> SimpleIcon {
         SimpleIcon(
             title: "Zend",
             slug: "zend",
@@ -237,7 +237,7 @@ extension SimpleIcon {
 
     /// The Zendesk icon, brand color `#03363D`.
     @_alwaysEmitIntoClient
-    public static var zendesk: SimpleIcon {
+    public static func zendesk() -> SimpleIcon {
         SimpleIcon(
             title: "Zendesk",
             slug: "zendesk",
@@ -250,7 +250,7 @@ extension SimpleIcon {
 
     /// The Zenn icon, brand color `#3EA8FF`.
     @_alwaysEmitIntoClient
-    public static var zenn: SimpleIcon {
+    public static func zenn() -> SimpleIcon {
         SimpleIcon(
             title: "Zenn",
             slug: "zenn",
@@ -262,7 +262,7 @@ extension SimpleIcon {
 
     /// The Zenodo icon, brand color `#1682D4`.
     @_alwaysEmitIntoClient
-    public static var zenodo: SimpleIcon {
+    public static func zenodo() -> SimpleIcon {
         SimpleIcon(
             title: "Zenodo",
             slug: "zenodo",
@@ -275,7 +275,7 @@ extension SimpleIcon {
 
     /// The Zensar icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var zensar: SimpleIcon {
+    public static func zensar() -> SimpleIcon {
         SimpleIcon(
             title: "Zensar",
             slug: "zensar",
@@ -287,7 +287,7 @@ extension SimpleIcon {
 
     /// The Zensical icon, brand color `#FFA656`.
     @_alwaysEmitIntoClient
-    public static var zensical: SimpleIcon {
+    public static func zensical() -> SimpleIcon {
         SimpleIcon(
             title: "Zensical",
             slug: "zensical",
@@ -299,7 +299,7 @@ extension SimpleIcon {
 
     /// The Zerodha icon, brand color `#387ED1`.
     @_alwaysEmitIntoClient
-    public static var zerodha: SimpleIcon {
+    public static func zerodha() -> SimpleIcon {
         SimpleIcon(
             title: "Zerodha",
             slug: "zerodha",
@@ -311,7 +311,7 @@ extension SimpleIcon {
 
     /// The ZeroTier icon, brand color `#FFB441`.
     @_alwaysEmitIntoClient
-    public static var zerotier: SimpleIcon {
+    public static func zerotier() -> SimpleIcon {
         SimpleIcon(
             title: "ZeroTier",
             slug: "zerotier",
@@ -324,7 +324,7 @@ extension SimpleIcon {
 
     /// The Zettlr icon, brand color `#1CB27E`.
     @_alwaysEmitIntoClient
-    public static var zettlr: SimpleIcon {
+    public static func zettlr() -> SimpleIcon {
         SimpleIcon(
             title: "Zettlr",
             slug: "zettlr",
@@ -337,7 +337,7 @@ extension SimpleIcon {
 
     /// The Zhihu icon, brand color `#0084FF`.
     @_alwaysEmitIntoClient
-    public static var zhihu: SimpleIcon {
+    public static func zhihu() -> SimpleIcon {
         SimpleIcon(
             title: "Zhihu",
             slug: "zhihu",
@@ -349,7 +349,7 @@ extension SimpleIcon {
 
     /// The Zig icon, brand color `#F7A41D`.
     @_alwaysEmitIntoClient
-    public static var zig: SimpleIcon {
+    public static func zig() -> SimpleIcon {
         SimpleIcon(
             title: "Zig",
             slug: "zig",
@@ -362,7 +362,7 @@ extension SimpleIcon {
 
     /// The Zigbee icon, brand color `#EB0443`.
     @_alwaysEmitIntoClient
-    public static var zigbee: SimpleIcon {
+    public static func zigbee() -> SimpleIcon {
         SimpleIcon(
             title: "Zigbee",
             slug: "zigbee",
@@ -374,7 +374,7 @@ extension SimpleIcon {
 
     /// The Zigbee2MQTT icon, brand color `#FFC135`.
     @_alwaysEmitIntoClient
-    public static var zigbee2mqtt: SimpleIcon {
+    public static func zigbee2mqtt() -> SimpleIcon {
         SimpleIcon(
             title: "Zigbee2MQTT",
             slug: "zigbee2mqtt",
@@ -386,7 +386,7 @@ extension SimpleIcon {
 
     /// The Ziggo icon, brand color `#F48C00`.
     @_alwaysEmitIntoClient
-    public static var ziggo: SimpleIcon {
+    public static func ziggo() -> SimpleIcon {
         SimpleIcon(
             title: "Ziggo",
             slug: "ziggo",
@@ -398,7 +398,7 @@ extension SimpleIcon {
 
     /// The Zilch icon, brand color `#00D287`.
     @_alwaysEmitIntoClient
-    public static var zilch: SimpleIcon {
+    public static func zilch() -> SimpleIcon {
         SimpleIcon(
             title: "Zilch",
             slug: "zilch",
@@ -410,7 +410,7 @@ extension SimpleIcon {
 
     /// The Zillow icon, brand color `#006AFF`.
     @_alwaysEmitIntoClient
-    public static var zillow: SimpleIcon {
+    public static func zillow() -> SimpleIcon {
         SimpleIcon(
             title: "Zillow",
             slug: "zillow",
@@ -422,7 +422,7 @@ extension SimpleIcon {
 
     /// The ZincSearch icon, brand color `#5BA37F`.
     @_alwaysEmitIntoClient
-    public static var zincsearch: SimpleIcon {
+    public static func zincsearch() -> SimpleIcon {
         SimpleIcon(
             title: "ZincSearch",
             slug: "zincsearch",
@@ -434,7 +434,7 @@ extension SimpleIcon {
 
     /// The Zingat icon, brand color `#009CFB`.
     @_alwaysEmitIntoClient
-    public static var zingat: SimpleIcon {
+    public static func zingat() -> SimpleIcon {
         SimpleIcon(
             title: "Zingat",
             slug: "zingat",
@@ -446,7 +446,7 @@ extension SimpleIcon {
 
     /// The Zod icon, brand color `#408AFF`.
     @_alwaysEmitIntoClient
-    public static var zod: SimpleIcon {
+    public static func zod() -> SimpleIcon {
         SimpleIcon(
             title: "Zod",
             slug: "zod",
@@ -459,7 +459,7 @@ extension SimpleIcon {
 
     /// The Zoho icon, brand color `#E42527`.
     @_alwaysEmitIntoClient
-    public static var zoho: SimpleIcon {
+    public static func zoho() -> SimpleIcon {
         SimpleIcon(
             title: "Zoho",
             slug: "zoho",
@@ -471,7 +471,7 @@ extension SimpleIcon {
 
     /// The Zoiper icon, brand color `#F47920`.
     @_alwaysEmitIntoClient
-    public static var zoiper: SimpleIcon {
+    public static func zoiper() -> SimpleIcon {
         SimpleIcon(
             title: "Zoiper",
             slug: "zoiper",
@@ -483,7 +483,7 @@ extension SimpleIcon {
 
     /// The Zola icon, brand color `#EAE7D6`.
     @_alwaysEmitIntoClient
-    public static var zola: SimpleIcon {
+    public static func zola() -> SimpleIcon {
         SimpleIcon(
             title: "Zola",
             slug: "zola",
@@ -496,7 +496,7 @@ extension SimpleIcon {
 
     /// The Zomato icon, brand color `#E23744`.
     @_alwaysEmitIntoClient
-    public static var zomato: SimpleIcon {
+    public static func zomato() -> SimpleIcon {
         SimpleIcon(
             title: "Zomato",
             slug: "zomato",
@@ -508,7 +508,7 @@ extension SimpleIcon {
 
     /// The Zoom icon, brand color `#0B5CFF`.
     @_alwaysEmitIntoClient
-    public static var zoom: SimpleIcon {
+    public static func zoom() -> SimpleIcon {
         SimpleIcon(
             title: "Zoom",
             slug: "zoom",
@@ -521,7 +521,7 @@ extension SimpleIcon {
 
     /// The Zorin icon, brand color `#15A6F0`.
     @_alwaysEmitIntoClient
-    public static var zorin: SimpleIcon {
+    public static func zorin() -> SimpleIcon {
         SimpleIcon(
             title: "Zorin",
             slug: "zorin",
@@ -533,7 +533,7 @@ extension SimpleIcon {
 
     /// The Zotero icon, brand color `#CC2936`.
     @_alwaysEmitIntoClient
-    public static var zotero: SimpleIcon {
+    public static func zotero() -> SimpleIcon {
         SimpleIcon(
             title: "Zotero",
             slug: "zotero",
@@ -545,7 +545,7 @@ extension SimpleIcon {
 
     /// The Zsh icon, brand color `#F15A24`.
     @_alwaysEmitIntoClient
-    public static var zsh: SimpleIcon {
+    public static func zsh() -> SimpleIcon {
         SimpleIcon(
             title: "Zsh",
             slug: "zsh",
@@ -557,7 +557,7 @@ extension SimpleIcon {
 
     /// The Zulip icon, brand color `#6492FE`.
     @_alwaysEmitIntoClient
-    public static var zulip: SimpleIcon {
+    public static func zulip() -> SimpleIcon {
         SimpleIcon(
             title: "Zulip",
             slug: "zulip",
@@ -569,7 +569,7 @@ extension SimpleIcon {
 
     /// The zx icon, brand color `#F11A7B`.
     @_alwaysEmitIntoClient
-    public static var zx: SimpleIcon {
+    public static func zx() -> SimpleIcon {
         SimpleIcon(
             title: "zx",
             slug: "zx",
@@ -581,7 +581,7 @@ extension SimpleIcon {
 
     /// The Zyte icon, brand color `#B02CCE`.
     @_alwaysEmitIntoClient
-    public static var zyte: SimpleIcon {
+    public static func zyte() -> SimpleIcon {
         SimpleIcon(
             title: "Zyte",
             slug: "zyte",

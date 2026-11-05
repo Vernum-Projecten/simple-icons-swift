@@ -8,8 +8,8 @@ public import SimpleIcons
 /// color you give it:
 ///
 /// ```swift
-/// SimpleIconShape(.swift)
-///     .fill(Color(simpleIcon: .swift))
+/// SimpleIconShape(.swift())
+///     .fill(Color(simpleIcon: .swift()))
 ///     .frame(width: 32, height: 32)
 /// ```
 ///

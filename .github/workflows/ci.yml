@@ -135,9 +135,10 @@ jobs:
             -destination 'generic/platform=iOS' -derivedDataPath build/DerivedData \
             SWIFT_TREAT_WARNINGS_AS_ERRORS=YES
 
-  # An app that names six icons must contain only those six (#12, #13):
-  # under 1 MiB, without the path of an icon it does not use. The measured
-  # sizes go to the job summary.
+  # An app that names six icons must contain only those six (#12, #13, #17):
+  # under 384 KiB on macOS and 512 KiB on Linux with its symbol table, at
+  # most 500 exported symbols, and without the path of an icon it does not
+  # use. The measured sizes go to the job summary.
   size-macos:
     name: app size (macOS)
     runs-on: xcode-27

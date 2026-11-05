@@ -4,7 +4,7 @@
 extension SimpleIcon {
     /// The U.S. News icon, brand color `#005EA6`.
     @_alwaysEmitIntoClient
-    public static var udotsdotnews: SimpleIcon {
+    public static func udotsdotnews() -> SimpleIcon {
         SimpleIcon(
             title: "U.S. News",
             slug: "udotsdotnews",
@@ -16,7 +16,7 @@ extension SimpleIcon {
 
     /// The Uber icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var uber: SimpleIcon {
+    public static func uber() -> SimpleIcon {
         SimpleIcon(
             title: "Uber",
             slug: "uber",
@@ -29,7 +29,7 @@ extension SimpleIcon {
 
     /// The Uber Eats icon, brand color `#06C167`.
     @_alwaysEmitIntoClient
-    public static var ubereats: SimpleIcon {
+    public static func ubereats() -> SimpleIcon {
         SimpleIcon(
             title: "Uber Eats",
             slug: "ubereats",
@@ -42,7 +42,7 @@ extension SimpleIcon {
 
     /// The Ubiquiti icon, brand color `#0559C9`.
     @_alwaysEmitIntoClient
-    public static var ubiquiti: SimpleIcon {
+    public static func ubiquiti() -> SimpleIcon {
         SimpleIcon(
             title: "Ubiquiti",
             slug: "ubiquiti",
@@ -54,7 +54,7 @@ extension SimpleIcon {
 
     /// The Ubisoft icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var ubisoft: SimpleIcon {
+    public static func ubisoft() -> SimpleIcon {
         SimpleIcon(
             title: "Ubisoft",
             slug: "ubisoft",
@@ -66,7 +66,7 @@ extension SimpleIcon {
 
     /// The uBlock Origin icon, brand color `#800000`.
     @_alwaysEmitIntoClient
-    public static var ublockorigin: SimpleIcon {
+    public static func ublockorigin() -> SimpleIcon {
         SimpleIcon(
             title: "uBlock Origin",
             slug: "ublockorigin",
@@ -78,7 +78,7 @@ extension SimpleIcon {
 
     /// The Ubuntu icon, brand color `#E95420`.
     @_alwaysEmitIntoClient
-    public static var ubuntu: SimpleIcon {
+    public static func ubuntu() -> SimpleIcon {
         SimpleIcon(
             title: "Ubuntu",
             slug: "ubuntu",
@@ -91,7 +91,7 @@ extension SimpleIcon {
 
     /// The Ubuntu MATE icon, brand color `#84A454`.
     @_alwaysEmitIntoClient
-    public static var ubuntumate: SimpleIcon {
+    public static func ubuntumate() -> SimpleIcon {
         SimpleIcon(
             title: "Ubuntu MATE",
             slug: "ubuntumate",
@@ -103,7 +103,7 @@ extension SimpleIcon {
 
     /// The Udacity icon, brand color `#02B3E4`.
     @_alwaysEmitIntoClient
-    public static var udacity: SimpleIcon {
+    public static func udacity() -> SimpleIcon {
         SimpleIcon(
             title: "Udacity",
             slug: "udacity",
@@ -115,7 +115,7 @@ extension SimpleIcon {
 
     /// The Udemy icon, brand color `#A435F0`.
     @_alwaysEmitIntoClient
-    public static var udemy: SimpleIcon {
+    public static func udemy() -> SimpleIcon {
         SimpleIcon(
             title: "Udemy",
             slug: "udemy",
@@ -128,7 +128,7 @@ extension SimpleIcon {
 
     /// The UFC icon, brand color `#D20A0A`.
     @_alwaysEmitIntoClient
-    public static var ufc: SimpleIcon {
+    public static func ufc() -> SimpleIcon {
         SimpleIcon(
             title: "UFC",
             slug: "ufc",
@@ -140,7 +140,7 @@ extension SimpleIcon {
 
     /// The UIkit icon, brand color `#2396F3`.
     @_alwaysEmitIntoClient
-    public static var uikit: SimpleIcon {
+    public static func uikit() -> SimpleIcon {
         SimpleIcon(
             title: "UIkit",
             slug: "uikit",
@@ -152,7 +152,7 @@ extension SimpleIcon {
 
     /// The UiPath icon, brand color `#FA4616`.
     @_alwaysEmitIntoClient
-    public static var uipath: SimpleIcon {
+    public static func uipath() -> SimpleIcon {
         SimpleIcon(
             title: "UiPath",
             slug: "uipath",
@@ -165,7 +165,7 @@ extension SimpleIcon {
 
     /// The UKCA icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var ukca: SimpleIcon {
+    public static func ukca() -> SimpleIcon {
         SimpleIcon(
             title: "UKCA",
             slug: "ukca",
@@ -178,7 +178,7 @@ extension SimpleIcon {
 
     /// The Ultralytics icon, brand color `#111F68`.
     @_alwaysEmitIntoClient
-    public static var ultralytics: SimpleIcon {
+    public static func ultralytics() -> SimpleIcon {
         SimpleIcon(
             title: "Ultralytics",
             slug: "ultralytics",
@@ -191,7 +191,7 @@ extension SimpleIcon {
 
     /// The Ulule icon, brand color `#18A5D6`.
     @_alwaysEmitIntoClient
-    public static var ulule: SimpleIcon {
+    public static func ulule() -> SimpleIcon {
         SimpleIcon(
             title: "Ulule",
             slug: "ulule",
@@ -203,7 +203,7 @@ extension SimpleIcon {
 
     /// The Umami icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var umami: SimpleIcon {
+    public static func umami() -> SimpleIcon {
         SimpleIcon(
             title: "Umami",
             slug: "umami",
@@ -216,7 +216,7 @@ extension SimpleIcon {
 
     /// The Umbraco icon, brand color `#3544B1`.
     @_alwaysEmitIntoClient
-    public static var umbraco: SimpleIcon {
+    public static func umbraco() -> SimpleIcon {
         SimpleIcon(
             title: "Umbraco",
             slug: "umbraco",
@@ -228,7 +228,7 @@ extension SimpleIcon {
 
     /// The Umbrel icon, brand color `#5351FB`.
     @_alwaysEmitIntoClient
-    public static var umbrel: SimpleIcon {
+    public static func umbrel() -> SimpleIcon {
         SimpleIcon(
             title: "Umbrel",
             slug: "umbrel",
@@ -240,7 +240,7 @@ extension SimpleIcon {
 
     /// The UML icon, brand color `#FABD14`.
     @_alwaysEmitIntoClient
-    public static var uml: SimpleIcon {
+    public static func uml() -> SimpleIcon {
         SimpleIcon(
             title: "UML",
             slug: "uml",
@@ -253,7 +253,7 @@ extension SimpleIcon {
 
     /// The Unacademy icon, brand color `#08BD80`.
     @_alwaysEmitIntoClient
-    public static var unacademy: SimpleIcon {
+    public static func unacademy() -> SimpleIcon {
         SimpleIcon(
             title: "Unacademy",
             slug: "unacademy",
@@ -265,7 +265,7 @@ extension SimpleIcon {
 
     /// The Under Armour icon, brand color `#1D1D1D`.
     @_alwaysEmitIntoClient
-    public static var underarmour: SimpleIcon {
+    public static func underarmour() -> SimpleIcon {
         SimpleIcon(
             title: "Under Armour",
             slug: "underarmour",
@@ -277,7 +277,7 @@ extension SimpleIcon {
 
     /// The Underscore.js icon, brand color `#0371B5`.
     @_alwaysEmitIntoClient
-    public static var underscoredotjs: SimpleIcon {
+    public static func underscoredotjs() -> SimpleIcon {
         SimpleIcon(
             title: "Underscore.js",
             slug: "underscoredotjs",
@@ -289,7 +289,7 @@ extension SimpleIcon {
 
     /// The Undertale icon, brand color `#E71D29`.
     @_alwaysEmitIntoClient
-    public static var undertale: SimpleIcon {
+    public static func undertale() -> SimpleIcon {
         SimpleIcon(
             title: "Undertale",
             slug: "undertale",
@@ -301,7 +301,7 @@ extension SimpleIcon {
 
     /// The Unicode icon, brand color `#5455FE`.
     @_alwaysEmitIntoClient
-    public static var unicode: SimpleIcon {
+    public static func unicode() -> SimpleIcon {
         SimpleIcon(
             title: "Unicode",
             slug: "unicode",
@@ -313,7 +313,7 @@ extension SimpleIcon {
 
     /// The Unilever icon, brand color `#1F36C7`.
     @_alwaysEmitIntoClient
-    public static var unilever: SimpleIcon {
+    public static func unilever() -> SimpleIcon {
         SimpleIcon(
             title: "Unilever",
             slug: "unilever",
@@ -325,7 +325,7 @@ extension SimpleIcon {
 
     /// The Uniqlo icon, brand color `#FF0000`.
     @_alwaysEmitIntoClient
-    public static var uniqlo: SimpleIcon {
+    public static func uniqlo() -> SimpleIcon {
         SimpleIcon(
             title: "Uniqlo",
             slug: "uniqlo",
@@ -337,7 +337,7 @@ extension SimpleIcon {
 
     /// The Uniqlo icon, brand color `#FF0000`.
     @_alwaysEmitIntoClient
-    public static var uniqlo_ja: SimpleIcon {
+    public static func uniqlo_ja() -> SimpleIcon {
         SimpleIcon(
             title: "Uniqlo",
             slug: "uniqlo_ja",
@@ -350,7 +350,7 @@ extension SimpleIcon {
 
     /// The United Airlines icon, brand color `#002244`.
     @_alwaysEmitIntoClient
-    public static var unitedairlines: SimpleIcon {
+    public static func unitedairlines() -> SimpleIcon {
         SimpleIcon(
             title: "United Airlines",
             slug: "unitedairlines",
@@ -362,7 +362,7 @@ extension SimpleIcon {
 
     /// The United Nations icon, brand color `#009EDB`.
     @_alwaysEmitIntoClient
-    public static var unitednations: SimpleIcon {
+    public static func unitednations() -> SimpleIcon {
         SimpleIcon(
             title: "United Nations",
             slug: "unitednations",
@@ -375,7 +375,7 @@ extension SimpleIcon {
 
     /// The Unity icon, brand color `#FFFFFF`.
     @_alwaysEmitIntoClient
-    public static var unity: SimpleIcon {
+    public static func unity() -> SimpleIcon {
         SimpleIcon(
             title: "Unity",
             slug: "unity",
@@ -388,7 +388,7 @@ extension SimpleIcon {
 
     /// The UnJS icon, brand color `#ECDC5A`.
     @_alwaysEmitIntoClient
-    public static var unjs: SimpleIcon {
+    public static func unjs() -> SimpleIcon {
         SimpleIcon(
             title: "UnJS",
             slug: "unjs",
@@ -402,7 +402,7 @@ extension SimpleIcon {
 
     /// The Unlicense icon, brand color `#808080`.
     @_alwaysEmitIntoClient
-    public static var unlicense: SimpleIcon {
+    public static func unlicense() -> SimpleIcon {
         SimpleIcon(
             title: "Unlicense",
             slug: "unlicense",
@@ -414,7 +414,7 @@ extension SimpleIcon {
 
     /// The UnoCSS icon, brand color `#333333`.
     @_alwaysEmitIntoClient
-    public static var unocss: SimpleIcon {
+    public static func unocss() -> SimpleIcon {
         SimpleIcon(
             title: "UnoCSS",
             slug: "unocss",
@@ -426,7 +426,7 @@ extension SimpleIcon {
 
     /// The unpkg icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var unpkg: SimpleIcon {
+    public static func unpkg() -> SimpleIcon {
         SimpleIcon(
             title: "unpkg",
             slug: "unpkg",
@@ -438,7 +438,7 @@ extension SimpleIcon {
 
     /// The Unraid icon, brand color `#F15A2C`.
     @_alwaysEmitIntoClient
-    public static var unraid: SimpleIcon {
+    public static func unraid() -> SimpleIcon {
         SimpleIcon(
             title: "Unraid",
             slug: "unraid",
@@ -450,7 +450,7 @@ extension SimpleIcon {
 
     /// The Unreal Engine icon, brand color `#0E1128`.
     @_alwaysEmitIntoClient
-    public static var unrealengine: SimpleIcon {
+    public static func unrealengine() -> SimpleIcon {
         SimpleIcon(
             title: "Unreal Engine",
             slug: "unrealengine",
@@ -463,7 +463,7 @@ extension SimpleIcon {
 
     /// The Unsplash icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var unsplash: SimpleIcon {
+    public static func unsplash() -> SimpleIcon {
         SimpleIcon(
             title: "Unsplash",
             slug: "unsplash",
@@ -475,7 +475,7 @@ extension SimpleIcon {
 
     /// The Unstop icon, brand color `#1C4980`.
     @_alwaysEmitIntoClient
-    public static var unstop: SimpleIcon {
+    public static func unstop() -> SimpleIcon {
         SimpleIcon(
             title: "Unstop",
             slug: "unstop",
@@ -488,7 +488,7 @@ extension SimpleIcon {
 
     /// The Untappd icon, brand color `#FFC000`.
     @_alwaysEmitIntoClient
-    public static var untappd: SimpleIcon {
+    public static func untappd() -> SimpleIcon {
         SimpleIcon(
             title: "Untappd",
             slug: "untappd",
@@ -500,7 +500,7 @@ extension SimpleIcon {
 
     /// The UpCloud icon, brand color `#7B00FF`.
     @_alwaysEmitIntoClient
-    public static var upcloud: SimpleIcon {
+    public static func upcloud() -> SimpleIcon {
         SimpleIcon(
             title: "UpCloud",
             slug: "upcloud",
@@ -513,7 +513,7 @@ extension SimpleIcon {
 
     /// The Uphold icon, brand color `#49CC68`.
     @_alwaysEmitIntoClient
-    public static var uphold: SimpleIcon {
+    public static func uphold() -> SimpleIcon {
         SimpleIcon(
             title: "Uphold",
             slug: "uphold",
@@ -526,7 +526,7 @@ extension SimpleIcon {
 
     /// The UpLabs icon, brand color `#3930D8`.
     @_alwaysEmitIntoClient
-    public static var uplabs: SimpleIcon {
+    public static func uplabs() -> SimpleIcon {
         SimpleIcon(
             title: "UpLabs",
             slug: "uplabs",
@@ -538,7 +538,7 @@ extension SimpleIcon {
 
     /// The Upptime icon, brand color `#1ABC9C`.
     @_alwaysEmitIntoClient
-    public static var upptime: SimpleIcon {
+    public static func upptime() -> SimpleIcon {
         SimpleIcon(
             title: "Upptime",
             slug: "upptime",
@@ -550,7 +550,7 @@ extension SimpleIcon {
 
     /// The UPS icon, brand color `#150400`.
     @_alwaysEmitIntoClient
-    public static var ups: SimpleIcon {
+    public static func ups() -> SimpleIcon {
         SimpleIcon(
             title: "UPS",
             slug: "ups",
@@ -562,7 +562,7 @@ extension SimpleIcon {
 
     /// The Upstash icon, brand color `#00E9A3`.
     @_alwaysEmitIntoClient
-    public static var upstash: SimpleIcon {
+    public static func upstash() -> SimpleIcon {
         SimpleIcon(
             title: "Upstash",
             slug: "upstash",
@@ -574,7 +574,7 @@ extension SimpleIcon {
 
     /// The Uptime Kuma icon, brand color `#5CDD8B`.
     @_alwaysEmitIntoClient
-    public static var uptimekuma: SimpleIcon {
+    public static func uptimekuma() -> SimpleIcon {
         SimpleIcon(
             title: "Uptime Kuma",
             slug: "uptimekuma",
@@ -586,7 +586,7 @@ extension SimpleIcon {
 
     /// The Upwork icon, brand color `#6FDA44`.
     @_alwaysEmitIntoClient
-    public static var upwork: SimpleIcon {
+    public static func upwork() -> SimpleIcon {
         SimpleIcon(
             title: "Upwork",
             slug: "upwork",
@@ -598,7 +598,7 @@ extension SimpleIcon {
 
     /// The UserVoice icon, brand color `#FF6720`.
     @_alwaysEmitIntoClient
-    public static var uservoice: SimpleIcon {
+    public static func uservoice() -> SimpleIcon {
         SimpleIcon(
             title: "UserVoice",
             slug: "uservoice",
@@ -610,7 +610,7 @@ extension SimpleIcon {
 
     /// The USPS icon, brand color `#333366`.
     @_alwaysEmitIntoClient
-    public static var usps: SimpleIcon {
+    public static func usps() -> SimpleIcon {
         SimpleIcon(
             title: "USPS",
             slug: "usps",
@@ -622,7 +622,7 @@ extension SimpleIcon {
 
     /// The uTorrent icon, brand color `#76B83F`.
     @_alwaysEmitIntoClient
-    public static var utorrent: SimpleIcon {
+    public static func utorrent() -> SimpleIcon {
         SimpleIcon(
             title: "uTorrent",
             slug: "utorrent",
@@ -634,7 +634,7 @@ extension SimpleIcon {
 
     /// The uv icon, brand color `#DE5FE9`.
     @_alwaysEmitIntoClient
-    public static var uv: SimpleIcon {
+    public static func uv() -> SimpleIcon {
         SimpleIcon(
             title: "uv",
             slug: "uv",

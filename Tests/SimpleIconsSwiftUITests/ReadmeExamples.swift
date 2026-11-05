@@ -14,7 +14,7 @@ private struct BuiltWithSwift: View {
         Label {
             Text("Built with Swift")
         } icon: {
-            SimpleIconView(.swift)
+            SimpleIconView(.swift())
         }
     }
 }
@@ -22,11 +22,11 @@ private struct BuiltWithSwift: View {
 private struct SignInButtons: View {
     var body: some View {
         HStack(spacing: 16) {
-            SimpleIconView(.github)
-                .foregroundStyle(Color(simpleIcon: .github))
+            SimpleIconView(.github())
+                .foregroundStyle(Color(simpleIcon: .github()))
                 .frame(width: 44, height: 44)
 
-            SimpleIconView(.apple)
+            SimpleIconView(.apple())
                 .frame(width: 44, height: 44)
         }
     }
@@ -34,8 +34,8 @@ private struct SignInButtons: View {
 
 private struct OutlinedLogo: View {
     var body: some View {
-        SimpleIconShape(.figma)
-            .stroke(Color(simpleIcon: .figma), lineWidth: 0.5)
+        SimpleIconShape(.figma())
+            .stroke(Color(simpleIcon: .figma()), lineWidth: 0.5)
             .frame(width: 120, height: 120)
     }
 }
@@ -61,7 +61,7 @@ private struct AllIcons: View {
 
 @Suite struct ReadmeExamples {
     @Test func `Metadata`() {
-        let icon = SimpleIcon.swift
+        let icon = SimpleIcon.swift()
         _ = icon.title  // "Swift"
         _ = icon.hex  // "F05138"
         _ = icon.source  // where the icon comes from
@@ -78,25 +78,25 @@ private struct AllIcons: View {
     }
 
     @Test func `SVG`() {
-        let svg = SimpleIcon.swift.svg  // exactly the file Simple Icons publishes
-        let white = SimpleIcon.swift.svg(fill: "white")
-        let brand = SimpleIcon.swift.svg(fill: "#\(SimpleIcon.swift.hex)")
+        let svg = SimpleIcon.swift().svg  // exactly the file Simple Icons publishes
+        let white = SimpleIcon.swift().svg(fill: "white")
+        let brand = SimpleIcon.swift().svg(fill: "#\(SimpleIcon.swift().hex)")
         #expect(!svg.isEmpty && !white.isEmpty && !brand.isEmpty)
     }
 
     @Test func `Names that are not plain Swift names`() {
-        let names = [SimpleIcon.`1password`, .`await`, .dotnet, .nodedotjs]
+        let names = [SimpleIcon.`1password`(), .`await`(), .dotnet(), .nodedotjs()]
         #expect(names.count == 4)
     }
 
     @Test func `Core Graphics`() {
-        let path: CGPath = Path(SimpleIcon.swift).cgPath  // 24 by 24 points
+        let path: CGPath = Path(SimpleIcon.swift()).cgPath  // 24 by 24 points
         #expect(!path.isEmpty)
     }
 
     @Test func `Any graphics API`() {
         var commands = 0
-        for element in SimpleIcon.swift.svgPath.elements {
+        for element in SimpleIcon.swift().svgPath.elements {
             switch element {
             case .move(let point): _ = point
             case .line(let point): _ = point
@@ -111,7 +111,7 @@ private struct AllIcons: View {
 
     @Test func `Search`() {
         let matches = SimpleIcon.allCases.filter { $0.title.localizedStandardContains("git") }
-        #expect(matches.contains(.github))
+        #expect(matches.contains(.github()))
     }
 
     @MainActor @Test func `The views build`() {

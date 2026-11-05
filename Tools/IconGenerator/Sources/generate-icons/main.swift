@@ -257,15 +257,17 @@ for icon in icons {
     let name = swiftName(for: icon.slug)
     names.append(name)
     let path = pathData(of: icon)
-    // Emitted into the client (`@_alwaysEmitIntoClient`) as a computed
-    // property: the library holds no symbol for an icon, so an app compiles
+    // Emitted into the client (`@_alwaysEmitIntoClient`) as a static
+    // function: the library holds no symbol for an icon, so an app compiles
     // in only the icons it names. A stored `static let` is a global the
-    // linker keeps in every app, all icons included (#12).
+    // linker keeps in every app, all icons included (#12), and even a
+    // computed `static var` exports a property descriptor, whose name every
+    // app keeps in its symbol table (#17).
     let body = arguments(for: icon, path: path).map { "            \($0)" }.joined(separator: ",\n")
     let declaration = """
             /// The \(icon.title) icon, brand color `#\(icon.hex)`.
             @_alwaysEmitIntoClient
-            public static var \(name): SimpleIcon {
+            public static func \(name)() -> SimpleIcon {
                 SimpleIcon(
         \(body)
                 )
@@ -322,7 +324,7 @@ write(
             public static var allCases: [SimpleIcon] {
                 var icons: [SimpleIcon] = []
                 icons.reserveCapacity(\(names.count))
-        \(chunks.indices.map { "        icons += allCasesPart\($0)" }.joined(separator: "\n"))
+        \(chunks.indices.map { "        icons += allCasesPart\($0)()" }.joined(separator: "\n"))
                 return icons
             }
         \(chunks.enumerated().map { index, chunk in
@@ -332,9 +334,9 @@ write(
                 // element of an array literal on the stack: all icons at once
                 // overflow the 512 KB stack of a secondary thread.
                 @_alwaysEmitIntoClient @usableFromInline
-                static var allCasesPart\(index): [SimpleIcon] {
+                static func allCasesPart\(index)() -> [SimpleIcon] {
                     [
-            \(chunk.map { "            .\($0)," }.joined(separator: "\n"))
+            \(chunk.map { "            .\($0)()," }.joined(separator: "\n"))
                     ]
                 }
             """

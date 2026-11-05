@@ -23,7 +23,7 @@ the entry and what has to be true before it is requested.
     Linux: `SimpleIcon` (the struct: `title`, `slug`, `hex`, `source`,
     `guidelines` and `license` as enums with an `.unknown` case, `aliases`
     with empty lists when there are none, `path`; `Identifiable`,
-    `Hashable` by slug, `CaseIterable`; one typed constant per icon and no
+    `Hashable` by slug, `allCases`; one typed static function per icon and no
     optional anywhere in the API), `SimpleIcon+SVG` (`svg`, byte for byte the upstream
     file, and `svg(fill:)`), `Path/` (`SVGPath`, the parsed path as five
     absolute elements; `SVGPathParser`, the SVG 2 path grammar with SVG's
@@ -107,7 +107,7 @@ months, which removes icons (`VERSIONING.md` upstream).
   `protect_generated.sh` hook refuses it. Change `Tools/IconGenerator` and
   rerun. When the generator refuses (an SVG it cannot rebuild, a slug that
   is no Swift name), `docs/updating-icons.md` says what to change.
-- A simple-icons major removes constants, which breaks code that used
+- A simple-icons major removes icon functions, which breaks code that used
   them; our `MAJOR` is Simple Icons', so it is a major here too
   (`docs/releasing.md`).
 
@@ -119,13 +119,15 @@ months, which removes icons (`VERSIONING.md` upstream).
   icon; never weaken that check.
 - **The public API is a promise.** Removing or renaming a public symbol,
   or changing its meaning, is a major version. Prefer adding.
-- **Typed constants, no optionals in the public API.** No string lookup
+- **Typed icons, no optionals in the public API.** No string lookup
   and no `?` on icon metadata (`.claude/rules/swift.md`, The public API).
 - **An app contains only the icons it names.** Every icon and `allCases`
-  are `@_alwaysEmitIntoClient` computed properties; nothing in
+  are `@_alwaysEmitIntoClient` (an icon a `static func`, since a public
+  `static var` exports a property descriptor per icon, #17); nothing in
   `SimpleIcons` may store or conform its way to every icon (no
   `static let` of icons, no `CaseIterable`): the linker keeps such a global
-  in every app, all 6 MB of it (#12). The size check guards it.
+  in every app, all 6 MB of it (#12). The size check guards both, and the
+  number of exported symbols.
 - **No crash in `Sources/`**: no force unwrap, `try!` or `fatalError` a
   user's input can reach.
 - **The core module stays Foundation-only** and builds on Linux.
@@ -202,9 +204,9 @@ is ours**, the next free number: simple-icons-swift 16.36.x has the icons
 of Simple Icons 16.36, and both a Simple Icons patch and a fix of our own
 take the next patch. `check-version.sh` refuses a tag whose `MAJOR.MINOR`
 is not the pin's or whose `PATCH` is not new. Breaking API of our own
-waits for a Simple Icons major (deprecate in between); 16.36.1 was the one
-exception, before anyone used the package. 1.0.0 was the first release,
-before this rule; it holds 16.36.0. `docs/releasing.md` has the
+waits for a Simple Icons major (deprecate in between); 16.36.1 and
+16.36.2 were the exceptions, on the owner's decision, while the package
+was new. 1.0.0 was the first release, before this rule; it holds 16.36.0. `docs/releasing.md` has the
 procedure: `changelog.sh --assemble X.Y.Z YYYY-MM-DD` on a release branch,
 merge, then the owner tags `vX.Y.Z` on `main`; `release.yml` checks the tag
 against the changelog, runs the tests and publishes the release itself.

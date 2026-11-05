@@ -4,7 +4,7 @@
 extension SimpleIcon {
     /// The Y Combinator icon, brand color `#F0652F`.
     @_alwaysEmitIntoClient
-    public static var ycombinator: SimpleIcon {
+    public static func ycombinator() -> SimpleIcon {
         SimpleIcon(
             title: "Y Combinator",
             slug: "ycombinator",
@@ -16,7 +16,7 @@ extension SimpleIcon {
 
     /// The Yaak icon, brand color `#814EDF`.
     @_alwaysEmitIntoClient
-    public static var yaak: SimpleIcon {
+    public static func yaak() -> SimpleIcon {
         SimpleIcon(
             title: "Yaak",
             slug: "yaak",
@@ -28,7 +28,7 @@ extension SimpleIcon {
 
     /// The yabai icon, brand color `#00364B`.
     @_alwaysEmitIntoClient
-    public static var yabai: SimpleIcon {
+    public static func yabai() -> SimpleIcon {
         SimpleIcon(
             title: "yabai",
             slug: "yabai",
@@ -40,7 +40,7 @@ extension SimpleIcon {
 
     /// The Yale icon, brand color `#FFD900`.
     @_alwaysEmitIntoClient
-    public static var yale: SimpleIcon {
+    public static func yale() -> SimpleIcon {
         SimpleIcon(
             title: "Yale",
             slug: "yale",
@@ -52,7 +52,7 @@ extension SimpleIcon {
 
     /// The Yamaha Corporation icon, brand color `#4B1E78`.
     @_alwaysEmitIntoClient
-    public static var yamahacorporation: SimpleIcon {
+    public static func yamahacorporation() -> SimpleIcon {
         SimpleIcon(
             title: "Yamaha Corporation",
             slug: "yamahacorporation",
@@ -64,7 +64,7 @@ extension SimpleIcon {
 
     /// The Yamaha Motor Corporation icon, brand color `#E60012`.
     @_alwaysEmitIntoClient
-    public static var yamahamotorcorporation: SimpleIcon {
+    public static func yamahamotorcorporation() -> SimpleIcon {
         SimpleIcon(
             title: "Yamaha Motor Corporation",
             slug: "yamahamotorcorporation",
@@ -76,7 +76,7 @@ extension SimpleIcon {
 
     /// The YAML icon, brand color `#CB171E`.
     @_alwaysEmitIntoClient
-    public static var yaml: SimpleIcon {
+    public static func yaml() -> SimpleIcon {
         SimpleIcon(
             title: "YAML",
             slug: "yaml",
@@ -88,7 +88,7 @@ extension SimpleIcon {
 
     /// The Yandex Cloud icon, brand color `#5282FF`.
     @_alwaysEmitIntoClient
-    public static var yandexcloud: SimpleIcon {
+    public static func yandexcloud() -> SimpleIcon {
         SimpleIcon(
             title: "Yandex Cloud",
             slug: "yandexcloud",
@@ -101,7 +101,7 @@ extension SimpleIcon {
 
     /// The Yarn icon, brand color `#2C8EBB`.
     @_alwaysEmitIntoClient
-    public static var yarn: SimpleIcon {
+    public static func yarn() -> SimpleIcon {
         SimpleIcon(
             title: "Yarn",
             slug: "yarn",
@@ -115,7 +115,7 @@ extension SimpleIcon {
 
     /// The Yelp icon, brand color `#FF1A1A`.
     @_alwaysEmitIntoClient
-    public static var yelp: SimpleIcon {
+    public static func yelp() -> SimpleIcon {
         SimpleIcon(
             title: "Yelp",
             slug: "yelp",
@@ -128,7 +128,7 @@ extension SimpleIcon {
 
     /// The Yeti icon, brand color `#00263C`.
     @_alwaysEmitIntoClient
-    public static var yeti: SimpleIcon {
+    public static func yeti() -> SimpleIcon {
         SimpleIcon(
             title: "Yeti",
             slug: "yeti",
@@ -140,7 +140,7 @@ extension SimpleIcon {
 
     /// The Yew icon, brand color `#009A5B`.
     @_alwaysEmitIntoClient
-    public static var yew: SimpleIcon {
+    public static func yew() -> SimpleIcon {
         SimpleIcon(
             title: "Yew",
             slug: "yew",
@@ -152,7 +152,7 @@ extension SimpleIcon {
 
     /// The Yii icon, brand color `#40B3D8`.
     @_alwaysEmitIntoClient
-    public static var yii: SimpleIcon {
+    public static func yii() -> SimpleIcon {
         SimpleIcon(
             title: "Yii",
             slug: "yii",
@@ -164,7 +164,7 @@ extension SimpleIcon {
 
     /// The Yoast icon, brand color `#A61E69`.
     @_alwaysEmitIntoClient
-    public static var yoast: SimpleIcon {
+    public static func yoast() -> SimpleIcon {
         SimpleIcon(
             title: "Yoast",
             slug: "yoast",
@@ -177,7 +177,7 @@ extension SimpleIcon {
 
     /// The YOLO icon, brand color `#111F68`.
     @_alwaysEmitIntoClient
-    public static var yolo: SimpleIcon {
+    public static func yolo() -> SimpleIcon {
         SimpleIcon(
             title: "YOLO",
             slug: "yolo",
@@ -190,7 +190,7 @@ extension SimpleIcon {
 
     /// The YouHodler icon, brand color `#546DF9`.
     @_alwaysEmitIntoClient
-    public static var youhodler: SimpleIcon {
+    public static func youhodler() -> SimpleIcon {
         SimpleIcon(
             title: "YouHodler",
             slug: "youhodler",
@@ -202,7 +202,7 @@ extension SimpleIcon {
 
     /// The YouTube icon, brand color `#FF0000`.
     @_alwaysEmitIntoClient
-    public static var youtube: SimpleIcon {
+    public static func youtube() -> SimpleIcon {
         SimpleIcon(
             title: "YouTube",
             slug: "youtube",
@@ -215,7 +215,7 @@ extension SimpleIcon {
 
     /// The YouTube Gaming icon, brand color `#FF0000`.
     @_alwaysEmitIntoClient
-    public static var youtubegaming: SimpleIcon {
+    public static func youtubegaming() -> SimpleIcon {
         SimpleIcon(
             title: "YouTube Gaming",
             slug: "youtubegaming",
@@ -227,7 +227,7 @@ extension SimpleIcon {
 
     /// The YouTube Kids icon, brand color `#FF0000`.
     @_alwaysEmitIntoClient
-    public static var youtubekids: SimpleIcon {
+    public static func youtubekids() -> SimpleIcon {
         SimpleIcon(
             title: "YouTube Kids",
             slug: "youtubekids",
@@ -239,7 +239,7 @@ extension SimpleIcon {
 
     /// The YouTube Music icon, brand color `#FF0000`.
     @_alwaysEmitIntoClient
-    public static var youtubemusic: SimpleIcon {
+    public static func youtubemusic() -> SimpleIcon {
         SimpleIcon(
             title: "YouTube Music",
             slug: "youtubemusic",
@@ -251,7 +251,7 @@ extension SimpleIcon {
 
     /// The YouTube Shorts icon, brand color `#FF0000`.
     @_alwaysEmitIntoClient
-    public static var youtubeshorts: SimpleIcon {
+    public static func youtubeshorts() -> SimpleIcon {
         SimpleIcon(
             title: "YouTube Shorts",
             slug: "youtubeshorts",
@@ -263,7 +263,7 @@ extension SimpleIcon {
 
     /// The YouTube Studio icon, brand color `#FF0000`.
     @_alwaysEmitIntoClient
-    public static var youtubestudio: SimpleIcon {
+    public static func youtubestudio() -> SimpleIcon {
         SimpleIcon(
             title: "YouTube Studio",
             slug: "youtubestudio",
@@ -275,7 +275,7 @@ extension SimpleIcon {
 
     /// The YouTube TV icon, brand color `#FF0000`.
     @_alwaysEmitIntoClient
-    public static var youtubetv: SimpleIcon {
+    public static func youtubetv() -> SimpleIcon {
         SimpleIcon(
             title: "YouTube TV",
             slug: "youtubetv",
@@ -287,7 +287,7 @@ extension SimpleIcon {
 
     /// The Yr icon, brand color `#00B9F1`.
     @_alwaysEmitIntoClient
-    public static var yr: SimpleIcon {
+    public static func yr() -> SimpleIcon {
         SimpleIcon(
             title: "Yr",
             slug: "yr",
@@ -299,7 +299,7 @@ extension SimpleIcon {
 
     /// The Yubico icon, brand color `#84BD00`.
     @_alwaysEmitIntoClient
-    public static var yubico: SimpleIcon {
+    public static func yubico() -> SimpleIcon {
         SimpleIcon(
             title: "Yubico",
             slug: "yubico",
@@ -311,7 +311,7 @@ extension SimpleIcon {
 
     /// The YunoHost icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var yunohost: SimpleIcon {
+    public static func yunohost() -> SimpleIcon {
         SimpleIcon(
             title: "YunoHost",
             slug: "yunohost",

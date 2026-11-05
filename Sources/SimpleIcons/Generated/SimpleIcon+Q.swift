@@ -4,7 +4,7 @@
 extension SimpleIcon {
     /// The Qantas icon, brand color `#E40000`.
     @_alwaysEmitIntoClient
-    public static var qantas: SimpleIcon {
+    public static func qantas() -> SimpleIcon {
         SimpleIcon(
             title: "Qantas",
             slug: "qantas",
@@ -16,7 +16,7 @@ extension SimpleIcon {
 
     /// The Qase icon, brand color `#4F46DC`.
     @_alwaysEmitIntoClient
-    public static var qase: SimpleIcon {
+    public static func qase() -> SimpleIcon {
         SimpleIcon(
             title: "Qase",
             slug: "qase",
@@ -29,7 +29,7 @@ extension SimpleIcon {
 
     /// The Qatar Airways icon, brand color `#5C0D34`.
     @_alwaysEmitIntoClient
-    public static var qatarairways: SimpleIcon {
+    public static func qatarairways() -> SimpleIcon {
         SimpleIcon(
             title: "Qatar Airways",
             slug: "qatarairways",
@@ -41,7 +41,7 @@ extension SimpleIcon {
 
     /// The qbittorrent icon, brand color `#2F67BA`.
     @_alwaysEmitIntoClient
-    public static var qbittorrent: SimpleIcon {
+    public static func qbittorrent() -> SimpleIcon {
         SimpleIcon(
             title: "qbittorrent",
             slug: "qbittorrent",
@@ -53,7 +53,7 @@ extension SimpleIcon {
 
     /// The Qdrant icon, brand color `#DC244C`.
     @_alwaysEmitIntoClient
-    public static var qdrant: SimpleIcon {
+    public static func qdrant() -> SimpleIcon {
         SimpleIcon(
             title: "Qdrant",
             slug: "qdrant",
@@ -66,7 +66,7 @@ extension SimpleIcon {
 
     /// The QEMU icon, brand color `#FF6600`.
     @_alwaysEmitIntoClient
-    public static var qemu: SimpleIcon {
+    public static func qemu() -> SimpleIcon {
         SimpleIcon(
             title: "QEMU",
             slug: "qemu",
@@ -78,7 +78,7 @@ extension SimpleIcon {
 
     /// The QGIS icon, brand color `#589632`.
     @_alwaysEmitIntoClient
-    public static var qgis: SimpleIcon {
+    public static func qgis() -> SimpleIcon {
         SimpleIcon(
             title: "QGIS",
             slug: "qgis",
@@ -91,7 +91,7 @@ extension SimpleIcon {
 
     /// The Qi icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var qi: SimpleIcon {
+    public static func qi() -> SimpleIcon {
         SimpleIcon(
             title: "Qi",
             slug: "qi",
@@ -104,7 +104,7 @@ extension SimpleIcon {
 
     /// The Qiita icon, brand color `#55C500`.
     @_alwaysEmitIntoClient
-    public static var qiita: SimpleIcon {
+    public static func qiita() -> SimpleIcon {
         SimpleIcon(
             title: "Qiita",
             slug: "qiita",
@@ -117,7 +117,7 @@ extension SimpleIcon {
 
     /// The Qiskit icon, brand color `#6929C4`.
     @_alwaysEmitIntoClient
-    public static var qiskit: SimpleIcon {
+    public static func qiskit() -> SimpleIcon {
         SimpleIcon(
             title: "Qiskit",
             slug: "qiskit",
@@ -129,7 +129,7 @@ extension SimpleIcon {
 
     /// The QIWI icon, brand color `#FF8C00`.
     @_alwaysEmitIntoClient
-    public static var qiwi: SimpleIcon {
+    public static func qiwi() -> SimpleIcon {
         SimpleIcon(
             title: "QIWI",
             slug: "qiwi",
@@ -141,7 +141,7 @@ extension SimpleIcon {
 
     /// The Qlik icon, brand color `#009848`.
     @_alwaysEmitIntoClient
-    public static var qlik: SimpleIcon {
+    public static func qlik() -> SimpleIcon {
         SimpleIcon(
             title: "Qlik",
             slug: "qlik",
@@ -154,7 +154,7 @@ extension SimpleIcon {
 
     /// The Qlty icon, brand color `#66FAEC`.
     @_alwaysEmitIntoClient
-    public static var qlty: SimpleIcon {
+    public static func qlty() -> SimpleIcon {
         SimpleIcon(
             title: "Qlty",
             slug: "qlty",
@@ -167,7 +167,7 @@ extension SimpleIcon {
 
     /// The QMK icon, brand color `#333333`.
     @_alwaysEmitIntoClient
-    public static var qmk: SimpleIcon {
+    public static func qmk() -> SimpleIcon {
         SimpleIcon(
             title: "QMK",
             slug: "qmk",
@@ -179,7 +179,7 @@ extension SimpleIcon {
 
     /// The QNAP icon, brand color `#0C2E82`.
     @_alwaysEmitIntoClient
-    public static var qnap: SimpleIcon {
+    public static func qnap() -> SimpleIcon {
         SimpleIcon(
             title: "QNAP",
             slug: "qnap",
@@ -193,7 +193,7 @@ extension SimpleIcon {
 
     /// The Qodo icon, brand color `#7968FA`.
     @_alwaysEmitIntoClient
-    public static var qodo: SimpleIcon {
+    public static func qodo() -> SimpleIcon {
         SimpleIcon(
             title: "Qodo",
             slug: "qodo",
@@ -205,7 +205,7 @@ extension SimpleIcon {
 
     /// The QQ icon, brand color `#1EBAFC`.
     @_alwaysEmitIntoClient
-    public static var qq: SimpleIcon {
+    public static func qq() -> SimpleIcon {
         SimpleIcon(
             title: "QQ",
             slug: "qq",
@@ -218,7 +218,7 @@ extension SimpleIcon {
 
     /// The Qt icon, brand color `#41CD52`.
     @_alwaysEmitIntoClient
-    public static var qt: SimpleIcon {
+    public static func qt() -> SimpleIcon {
         SimpleIcon(
             title: "Qt",
             slug: "qt",
@@ -231,7 +231,7 @@ extension SimpleIcon {
 
     /// The Quad9 icon, brand color `#DC205E`.
     @_alwaysEmitIntoClient
-    public static var quad9: SimpleIcon {
+    public static func quad9() -> SimpleIcon {
         SimpleIcon(
             title: "Quad9",
             slug: "quad9",
@@ -244,7 +244,7 @@ extension SimpleIcon {
 
     /// The Qualcomm icon, brand color `#3253DC`.
     @_alwaysEmitIntoClient
-    public static var qualcomm: SimpleIcon {
+    public static func qualcomm() -> SimpleIcon {
         SimpleIcon(
             title: "Qualcomm",
             slug: "qualcomm",
@@ -256,7 +256,7 @@ extension SimpleIcon {
 
     /// The Qualtrics icon, brand color `#00B4EF`.
     @_alwaysEmitIntoClient
-    public static var qualtrics: SimpleIcon {
+    public static func qualtrics() -> SimpleIcon {
         SimpleIcon(
             title: "Qualtrics",
             slug: "qualtrics",
@@ -269,7 +269,7 @@ extension SimpleIcon {
 
     /// The Qualys icon, brand color `#ED2E26`.
     @_alwaysEmitIntoClient
-    public static var qualys: SimpleIcon {
+    public static func qualys() -> SimpleIcon {
         SimpleIcon(
             title: "Qualys",
             slug: "qualys",
@@ -282,7 +282,7 @@ extension SimpleIcon {
 
     /// The Quantcast icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var quantcast: SimpleIcon {
+    public static func quantcast() -> SimpleIcon {
         SimpleIcon(
             title: "Quantcast",
             slug: "quantcast",
@@ -294,7 +294,7 @@ extension SimpleIcon {
 
     /// The QuantConnect icon, brand color `#F98309`.
     @_alwaysEmitIntoClient
-    public static var quantconnect: SimpleIcon {
+    public static func quantconnect() -> SimpleIcon {
         SimpleIcon(
             title: "QuantConnect",
             slug: "quantconnect",
@@ -307,7 +307,7 @@ extension SimpleIcon {
 
     /// The Quarkus icon, brand color `#4695EB`.
     @_alwaysEmitIntoClient
-    public static var quarkus: SimpleIcon {
+    public static func quarkus() -> SimpleIcon {
         SimpleIcon(
             title: "Quarkus",
             slug: "quarkus",
@@ -319,7 +319,7 @@ extension SimpleIcon {
 
     /// The Quarto icon, brand color `#39729E`.
     @_alwaysEmitIntoClient
-    public static var quarto: SimpleIcon {
+    public static func quarto() -> SimpleIcon {
         SimpleIcon(
             title: "Quarto",
             slug: "quarto",
@@ -332,7 +332,7 @@ extension SimpleIcon {
 
     /// The Quasar icon, brand color `#050A14`.
     @_alwaysEmitIntoClient
-    public static var quasar: SimpleIcon {
+    public static func quasar() -> SimpleIcon {
         SimpleIcon(
             title: "Quasar",
             slug: "quasar",
@@ -345,7 +345,7 @@ extension SimpleIcon {
 
     /// The Qubes OS icon, brand color `#3874D8`.
     @_alwaysEmitIntoClient
-    public static var qubesos: SimpleIcon {
+    public static func qubesos() -> SimpleIcon {
         SimpleIcon(
             title: "Qubes OS",
             slug: "qubesos",
@@ -357,7 +357,7 @@ extension SimpleIcon {
 
     /// The Quest icon, brand color `#FB4F14`.
     @_alwaysEmitIntoClient
-    public static var quest: SimpleIcon {
+    public static func quest() -> SimpleIcon {
         SimpleIcon(
             title: "Quest",
             slug: "quest",
@@ -370,7 +370,7 @@ extension SimpleIcon {
 
     /// The QuickBooks icon, brand color `#2CA01C`.
     @_alwaysEmitIntoClient
-    public static var quickbooks: SimpleIcon {
+    public static func quickbooks() -> SimpleIcon {
         SimpleIcon(
             title: "QuickBooks",
             slug: "quickbooks",
@@ -383,7 +383,7 @@ extension SimpleIcon {
 
     /// The QuickLook icon, brand color `#0078D3`.
     @_alwaysEmitIntoClient
-    public static var quicklook: SimpleIcon {
+    public static func quicklook() -> SimpleIcon {
         SimpleIcon(
             title: "QuickLook",
             slug: "quicklook",
@@ -396,7 +396,7 @@ extension SimpleIcon {
 
     /// The QuickTime icon, brand color `#1C69F0`.
     @_alwaysEmitIntoClient
-    public static var quicktime: SimpleIcon {
+    public static func quicktime() -> SimpleIcon {
         SimpleIcon(
             title: "QuickTime",
             slug: "quicktime",
@@ -408,7 +408,7 @@ extension SimpleIcon {
 
     /// The quicktype icon, brand color `#159588`.
     @_alwaysEmitIntoClient
-    public static var quicktype: SimpleIcon {
+    public static func quicktype() -> SimpleIcon {
         SimpleIcon(
             title: "quicktype",
             slug: "quicktype",
@@ -420,7 +420,7 @@ extension SimpleIcon {
 
     /// The Quizlet icon, brand color `#4255FF`.
     @_alwaysEmitIntoClient
-    public static var quizlet: SimpleIcon {
+    public static func quizlet() -> SimpleIcon {
         SimpleIcon(
             title: "Quizlet",
             slug: "quizlet",
@@ -432,7 +432,7 @@ extension SimpleIcon {
 
     /// The Quora icon, brand color `#B92B27`.
     @_alwaysEmitIntoClient
-    public static var quora: SimpleIcon {
+    public static func quora() -> SimpleIcon {
         SimpleIcon(
             title: "Quora",
             slug: "quora",
@@ -444,7 +444,7 @@ extension SimpleIcon {
 
     /// The Qwant icon, brand color `#282B2F`.
     @_alwaysEmitIntoClient
-    public static var qwant: SimpleIcon {
+    public static func qwant() -> SimpleIcon {
         SimpleIcon(
             title: "Qwant",
             slug: "qwant",
@@ -456,7 +456,7 @@ extension SimpleIcon {
 
     /// The QWen icon, brand color `#6950EF`.
     @_alwaysEmitIntoClient
-    public static var qwen: SimpleIcon {
+    public static func qwen() -> SimpleIcon {
         SimpleIcon(
             title: "QWen",
             slug: "qwen",
@@ -468,7 +468,7 @@ extension SimpleIcon {
 
     /// The Qwik icon, brand color `#AC7EF4`.
     @_alwaysEmitIntoClient
-    public static var qwik: SimpleIcon {
+    public static func qwik() -> SimpleIcon {
         SimpleIcon(
             title: "Qwik",
             slug: "qwik",
@@ -480,7 +480,7 @@ extension SimpleIcon {
 
     /// The Qwiklabs icon, brand color `#F5CD0E`.
     @_alwaysEmitIntoClient
-    public static var qwiklabs: SimpleIcon {
+    public static func qwiklabs() -> SimpleIcon {
         SimpleIcon(
             title: "Qwiklabs",
             slug: "qwiklabs",
@@ -492,7 +492,7 @@ extension SimpleIcon {
 
     /// The Qzone icon, brand color `#FECE00`.
     @_alwaysEmitIntoClient
-    public static var qzone: SimpleIcon {
+    public static func qzone() -> SimpleIcon {
         SimpleIcon(
             title: "Qzone",
             slug: "qzone",

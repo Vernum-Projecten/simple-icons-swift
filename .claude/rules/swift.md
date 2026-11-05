@@ -48,15 +48,15 @@ imports it, and breaking one needs a major version (`docs/releasing.md`).
 So the public surface is small and every part of it is designed.
 
 - **Clarity at the call site** is the test of a name (API Design
-  Guidelines, Fundamentals). Read it as it is used: `SimpleIconView(.swift)`,
-  `Color(simpleIcon: .github)`, `icon.svg(fill: "white")`.
+  Guidelines, Fundamentals). Read it as it is used: `SimpleIconView(.swift())`,
+  `Color(simpleIcon: .github())`, `icon.svg(fill: "white")`.
 - **Names by role, not type; no needless words.** `svg(fill:)`, not
   `svgString(withFillColor:)`. Booleans read as assertions (`isEmpty`).
   Factory methods start with `make`. Abbreviations only when they are the
   term of art (`svg`, `hex`).
 - **Argument labels.** A value-preserving conversion has no first label
   (`Path(icon)`); anything else gets one (`Color(simpleIcon:)`, which also
-  keeps `Color(.swift)` from being ambiguous with `Color`'s other
+  keeps `Color(.swift())` from being ambiguous with `Color`'s other
   initializers). Defaulted parameters go last and always have a label.
 - **Prefer properties and methods to free functions**, and one method with
   default arguments to a family of overloads.
@@ -72,7 +72,7 @@ So the public surface is small and every part of it is designed.
 - **Users import both modules.** `SimpleIconsSwiftUI` does not re-export
   `SimpleIcons`: there is no official re-export, and under
   `MemberImportVisibility` (a later Swift's default) a member such as
-  `.swift` or `.allCases` needs its defining module imported anyway, so a
+  `.swift()` or `.allCases` needs its defining module imported anyway, so a
   type alias would only postpone the error. Every example in the README and
   DocC shows `import SimpleIcons` next to `import SimpleIconsSwiftUI`.
 - **A plain `import` is internal** (`InternalImportsByDefault`). Write
@@ -80,7 +80,7 @@ So the public surface is small and every part of it is designed.
   from X (`SimpleIconsSwiftUI` re-exposes `SwiftUI` and `SimpleIcons`), so
   the module interface shows exactly what it exposes. Never `@_exported` or
   `@_implementationOnly`.
-- **Typed, never optional.** Every icon is a constant (`SimpleIcon.swift`),
+- **Typed, never optional.** Every icon has a function (`SimpleIcon.swift()`),
   so the compiler checks the name and nothing can fail at run time. There
   is no string lookup such as `init?(slug:)`: adding one later breaks
   nothing, removing one can only happen in a Simple Icons major (our
@@ -157,9 +157,15 @@ From Apple's `swiftui-specialist`; read it for the examples.
 
 ## Generated code
 
-Every icon is an `@_alwaysEmitIntoClient public static var`, and so is
-`allCases`: the library holds no symbol for an icon, so an app compiles in
-only the icons it names (8.2 MB down to 0.5 MB for six icons, #12). The
+Every icon is an `@_alwaysEmitIntoClient public static func` (`.swift()`),
+and `allCases` an `@_alwaysEmitIntoClient public static var`: the library
+holds no symbol for an icon, so an app compiles in only the icons it names
+(8.2 MB down to 0.15 MB for six icons, #12, #17). A function, not a
+computed `static var`: Swift 6.4 exports a property descriptor for every
+public static property, `@_alwaysEmitIntoClient` or not, and an app keeps
+the name of each one in its symbol table, 0.4 MB for all icons (#17). The
+icon functions are named after the slug, without `make`: the name is the
+brand, read at the call site as `SimpleIconView(.github())`. The
 attribute is underscored but stable; the standard library uses it for the
 same reason, and `@inlinable` is not enough (it still emits the symbol in
 the library). It is the one underscored attribute allowed here, and only in

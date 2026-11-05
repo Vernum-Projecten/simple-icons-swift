@@ -36,12 +36,12 @@ or whose `PATCH` is not above every earlier tag of that `MAJOR.MINOR`.
 This is still Semantic Versioning, because Simple Icons'
 [versioning](https://github.com/simple-icons/simple-icons/blob/develop/VERSIONING.md)
 changes our public API the same way it changes theirs: every icon is a
-public constant.
+public static function.
 
 | Simple Icons release | What it does | For code using the package |
 | :-- | :-- | :-- |
-| Major | Removes icons, changes slugs | The removed constants are gone: code that used them stops compiling |
-| Minor | Adds icons, changes titles | New constants; nothing breaks |
+| Major | Removes icons, changes slugs | The removed icons are gone: code that used them stops compiling |
+| Minor | Adds icons, changes titles | New icons; nothing breaks |
 | Patch | Updates paths and metadata | Nothing breaks |
 
 What follows from it:
@@ -51,8 +51,9 @@ What follows from it:
   our own** whenever a fix or improvement should not wait.
 - **Breaking API of our own waits for a Simple Icons major** (about every
   six months), the only releases that may break code. Until then, add
-  next to the old API and deprecate it. The one exception was 16.36.1,
-  released before anyone depended on the package (`CHANGELOG.md`).
+  next to the old API and deprecate it. The exceptions were 16.36.1 and
+  16.36.2, while the package was new, on the owner's decision
+  (`CHANGELOG.md`).
 - **1.0.0** is the first release, made before this rule; it holds Simple
   Icons 16.36.0, the same code as 16.36.0. It stays as it is: releases and
   their tags are immutable.

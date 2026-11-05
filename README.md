@@ -27,14 +27,14 @@ import SimpleIconsSwiftUI
 Label {
     Text("Built with Swift")
 } icon: {
-    SimpleIconView(.swift)
+    SimpleIconView(.swift())
 }
 ```
 
 ## Why this package
 
-- **Typed, never optional.** Each of the 3,000+ icons is a constant:
-  `SimpleIcon.swift`, `.github`, `.figma`. The compiler checks every name,
+- **Typed, never optional.** Each of the 3,000+ icons has its own typed
+  function: `SimpleIcon.swift()`, `.github()`, `.figma()`. The compiler checks every name,
   Xcode completes it, and a lookup can never fail at run time.
 - **Feels like SF Symbols.** `SimpleIconView` draws in the foreground style,
   scales to its frame, stays square, and tells VoiceOver the brand's name.
@@ -70,7 +70,7 @@ and the product you need to your target:
 Then import the icons, and the views where you draw them:
 
 ```swift
-import SimpleIcons          // SimpleIcon.swift, .allCases, .svg, …
+import SimpleIcons          // SimpleIcon.swift(), .allCases, .svg, …
 import SimpleIconsSwiftUI   // SimpleIconView, SimpleIconShape, Color(simpleIcon:)
 ```
 
@@ -81,18 +81,19 @@ In Xcode: **File > Add Package Dependencies…**, paste
 ### App size
 
 An app contains only the icons it names: each icon is compiled into the
-app where it is used, and the rest never reach the binary. Measured with
-a release build that uses six icons (`Examples/SizeProbe`, checked by CI on
-every pull request):
+app where it is used, and the rest never reach the binary, not even as a
+symbol name. Measured with a release build of a program that uses six icons
+(`Examples/SizeProbe`, checked by CI on every pull request): the whole
+executable, unstripped, with its symbol table and export trie.
 
-| The app uses | Binary size (arm64) |
+| The program uses | Executable size (arm64) |
 | :-- | --: |
-| Six icons, `SimpleIcons` | 0.5 MB on macOS, 0.6 MB on Linux |
-| Six icons, drawn with `SimpleIconsSwiftUI` | 0.6 MB on macOS |
+| Six icons, `SimpleIcons` | 0.15 MB on macOS, 0.35 MB on Linux |
+| Six icons, drawn with `SimpleIconsSwiftUI` | 0.2 MB on macOS |
 | `SimpleIcon.allCases` (every icon) | 6 MB |
 
-So use the constants of the icons you show, and `allCases` only where you
-need every icon, such as an icon picker.
+So name the icons you show, and use `allCases` only where you need every
+icon, such as an icon picker.
 
 | Requirement | |
 | :-- | :-- |
@@ -103,13 +104,13 @@ need every icon, such as an icon picker.
 
 ### Find an icon's name
 
-Search [simpleicons.org](https://simpleicons.org); the name of the constant
-is the icon's slug, which is the brand name in lowercase letters and
-digits: `Node.js` is `.nodedotjs`, `.NET` is `.dotnet`. A slug that starts
+Search [simpleicons.org](https://simpleicons.org); the name of the icon's
+function is its slug, which is the brand name in lowercase letters and
+digits: `Node.js` is `.nodedotjs()`, `.NET` is `.dotnet()`. A slug that starts
 with a digit or is a Swift keyword takes backticks:
 
 ```swift
-let names = [SimpleIcon.`1password`, .`await`, .dotnet, .nodedotjs]
+let names = [SimpleIcon.`1password`(), .`await`(), .dotnet(), .nodedotjs()]
 ```
 
 ### SwiftUI
@@ -118,11 +119,11 @@ let names = [SimpleIcon.`1password`, .`await`, .dotnet, .nodedotjs]
 
 ```swift
 HStack(spacing: 16) {
-    SimpleIconView(.github)
-        .foregroundStyle(Color(simpleIcon: .github))  // the brand color
+    SimpleIconView(.github())
+        .foregroundStyle(Color(simpleIcon: .github()))  // the brand color
         .frame(width: 44, height: 44)
 
-    SimpleIconView(.apple)                             // the foreground style
+    SimpleIconView(.apple())                             // the foreground style
         .frame(width: 44, height: 44)
 }
 ```
@@ -130,8 +131,8 @@ HStack(spacing: 16) {
 `SimpleIconShape` is the icon as a `Shape`, to fill, stroke, clip or animate:
 
 ```swift
-SimpleIconShape(.figma)
-    .stroke(Color(simpleIcon: .figma), lineWidth: 0.5)
+SimpleIconShape(.figma())
+    .stroke(Color(simpleIcon: .figma()), lineWidth: 0.5)
     .frame(width: 120, height: 120)
 ```
 
@@ -165,7 +166,7 @@ struct AllIcons: View {
 ### Metadata
 
 ```swift
-let icon = SimpleIcon.swift
+let icon = SimpleIcon.swift()
 icon.title    // "Swift"
 icon.hex      // "F05138"
 icon.source   // where the icon comes from
@@ -192,15 +193,15 @@ let matches = SimpleIcon.allCases.filter { $0.title.localizedStandardContains("g
 ### SVG
 
 ```swift
-let svg = SimpleIcon.swift.svg                                   // exactly the file Simple Icons publishes
-let white = SimpleIcon.swift.svg(fill: "white")
-let brand = SimpleIcon.swift.svg(fill: "#\(SimpleIcon.swift.hex)")
+let svg = SimpleIcon.swift().svg                                   // exactly the file Simple Icons publishes
+let white = SimpleIcon.swift().svg(fill: "white")
+let brand = SimpleIcon.swift().svg(fill: "#\(SimpleIcon.swift().hex)")
 ```
 
 ### UIKit, AppKit and Core Graphics
 
 ```swift
-let path: CGPath = Path(SimpleIcon.swift).cgPath  // 24 by 24 points
+let path: CGPath = Path(SimpleIcon.swift()).cgPath  // 24 by 24 points
 ```
 
 ### Any graphics API, on any platform
@@ -211,7 +212,7 @@ Foundation, so it works on Linux too, for example to render icons on a
 server.
 
 ```swift
-for element in SimpleIcon.swift.svgPath.elements {
+for element in SimpleIcon.swift().svgPath.elements {
     switch element {
     case .move(let point): ...
     case .line(let point): ...
@@ -255,7 +256,7 @@ is a release for every Simple Icons release. The last number is ours: it
 counts Simple Icons' patches and our own fixes alike. Simple Icons follows
 [Semantic Versioning](https://semver.org) the way it affects your code: a
 minor release adds icons, a patch updates them, and a major removes icons,
-so the constants that name them go too ([docs/releasing.md](docs/releasing.md)).
+so the functions that name them go too ([docs/releasing.md](docs/releasing.md)).
 
 ## Legal
 
