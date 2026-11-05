@@ -11,7 +11,7 @@ module holds all of them, generated from a pinned Simple Icons release:
 ```swift
 import SimpleIcons
 
-let icon = SimpleIcon.swift
+let icon = SimpleIcon.swift()
 icon.title   // "Swift"
 icon.hex     // "F05138"
 icon.svg     // the SVG document, as Simple Icons publishes it
@@ -20,10 +20,10 @@ SimpleIcon.allCases.count  // every icon
 ```
 
 An app contains only the icons it names: each icon is compiled into the
-app where it is used, so six icons add about 0.5 MB. ``SimpleIcon/allCases``
+app where it is used, so six icons add about 0.15 MB. ``SimpleIcon/allCases``
 needs every icon and adds about 6 MB; use it only where you show them all.
 
-Every icon is a constant named after its slug, so the compiler checks each
+Every icon is a static function named after its slug, so the compiler checks each
 name and Xcode completes it; no lookup can fail and nothing is optional.
 
 The module needs only Foundation, so it works on every platform Swift runs

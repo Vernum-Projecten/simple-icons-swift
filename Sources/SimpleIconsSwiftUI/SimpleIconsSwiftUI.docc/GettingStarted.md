@@ -29,9 +29,9 @@ code without a user interface, such as a server.
 
 ## Find an icon's name
 
-Search [simpleicons.org](https://simpleicons.org). The constant is named
-after the icon's slug: the brand name in lowercase letters and digits, so
-"Node.js" is `.nodedotjs` and ".NET" is `.dotnet`. Xcode completes the
+Search [simpleicons.org](https://simpleicons.org). The icon's function is
+named after its slug: the brand name in lowercase letters and digits, so
+"Node.js" is `.nodedotjs()` and ".NET" is `.dotnet()`. Xcode completes the
 names as you type `SimpleIcon.`.
 
 ## Show an icon
@@ -49,7 +49,7 @@ struct BuiltWith: View {
         Label {
             Text("Built with Swift")
         } icon: {
-            SimpleIconView(.swift)
+            SimpleIconView(.swift())
         }
     }
 }
@@ -59,8 +59,8 @@ Give it the brand color with `Color(simpleIcon:)`, and a size with
 `frame`:
 
 ```swift
-SimpleIconView(.github)
-    .foregroundStyle(Color(simpleIcon: .github))
+SimpleIconView(.github())
+    .foregroundStyle(Color(simpleIcon: .github()))
     .frame(width: 44, height: 44)
 ```
 

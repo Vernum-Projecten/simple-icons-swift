@@ -1,12 +1,12 @@
 /// A brand icon from Simple Icons, with its metadata and SVG path.
 ///
-/// Every icon in the collection is a static property named after its slug,
+/// Every icon in the collection is a static function named after its slug,
 /// checked by the compiler and completed by Xcode. Each one is compiled
 /// into your app only when you use it, so an app with a few icons stays
 /// small:
 ///
 /// ```swift
-/// let icon = SimpleIcon.swift
+/// let icon = SimpleIcon.swift()
 /// print(icon.title)  // "Swift"
 /// print(icon.hex)    // "F05138"
 /// ```
@@ -15,8 +15,8 @@
 /// backticks, as Swift's raw identifiers are:
 ///
 /// ```swift
-/// let password = SimpleIcon.`1password`
-/// let await = SimpleIcon.`await`
+/// let password = SimpleIcon.`1password`()
+/// let await = SimpleIcon.`await`()
 /// ```
 ///
 /// ``allCases`` lists every icon, to show them all or to search them; an app
@@ -30,7 +30,7 @@ public struct SimpleIcon: Sendable {
     public let title: String
 
     /// The unique identifier, such as `swift` or `dotnet`, which is also the
-    /// name of the icon's constant.
+    /// name of the icon's function.
     public let slug: String
 
     /// The brand color as six uppercase hexadecimal digits, without `#`.
@@ -53,7 +53,7 @@ public struct SimpleIcon: Sendable {
 
     /// Creates an icon from its metadata.
     ///
-    /// The generated constants call this; you only need it for an icon that
+    /// The generated icon functions call this; you only need it for an icon that
     /// is not in Simple Icons.
     public init(
         title: String,

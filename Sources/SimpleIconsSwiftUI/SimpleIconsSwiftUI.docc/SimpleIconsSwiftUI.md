@@ -15,11 +15,11 @@ import SimpleIconsSwiftUI
 Label {
     Text("Built with Swift")
 } icon: {
-    SimpleIconView(.swift)
+    SimpleIconView(.swift())
 }
 
-SimpleIconView(.github)
-    .foregroundStyle(Color(simpleIcon: .github))
+SimpleIconView(.github())
+    .foregroundStyle(Color(simpleIcon: .github()))
     .frame(width: 44, height: 44)
 ```
 

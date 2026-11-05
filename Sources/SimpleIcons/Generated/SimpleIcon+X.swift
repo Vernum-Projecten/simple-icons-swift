@@ -4,7 +4,7 @@
 extension SimpleIcon {
     /// The X icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var x: SimpleIcon {
+    public static func x() -> SimpleIcon {
         SimpleIcon(
             title: "X",
             slug: "x",
@@ -18,7 +18,7 @@ extension SimpleIcon {
 
     /// The X.Org icon, brand color `#F28834`.
     @_alwaysEmitIntoClient
-    public static var xdotorg: SimpleIcon {
+    public static func xdotorg() -> SimpleIcon {
         SimpleIcon(
             title: "X.Org",
             slug: "xdotorg",
@@ -30,7 +30,7 @@ extension SimpleIcon {
 
     /// The XAMPP icon, brand color `#FB7A24`.
     @_alwaysEmitIntoClient
-    public static var xampp: SimpleIcon {
+    public static func xampp() -> SimpleIcon {
         SimpleIcon(
             title: "XAMPP",
             slug: "xampp",
@@ -42,7 +42,7 @@ extension SimpleIcon {
 
     /// The Xcode icon, brand color `#147EFB`.
     @_alwaysEmitIntoClient
-    public static var xcode: SimpleIcon {
+    public static func xcode() -> SimpleIcon {
         SimpleIcon(
             title: "Xcode",
             slug: "xcode",
@@ -54,7 +54,7 @@ extension SimpleIcon {
 
     /// The XDA Developers icon, brand color `#EA7100`.
     @_alwaysEmitIntoClient
-    public static var xdadevelopers: SimpleIcon {
+    public static func xdadevelopers() -> SimpleIcon {
         SimpleIcon(
             title: "XDA Developers",
             slug: "xdadevelopers",
@@ -66,7 +66,7 @@ extension SimpleIcon {
 
     /// The Xendit icon, brand color `#4573FF`.
     @_alwaysEmitIntoClient
-    public static var xendit: SimpleIcon {
+    public static func xendit() -> SimpleIcon {
         SimpleIcon(
             title: "Xendit",
             slug: "xendit",
@@ -78,7 +78,7 @@ extension SimpleIcon {
 
     /// The Xero icon, brand color `#13B5EA`.
     @_alwaysEmitIntoClient
-    public static var xero: SimpleIcon {
+    public static func xero() -> SimpleIcon {
         SimpleIcon(
             title: "Xero",
             slug: "xero",
@@ -90,7 +90,7 @@ extension SimpleIcon {
 
     /// The XFCE icon, brand color `#2284F2`.
     @_alwaysEmitIntoClient
-    public static var xfce: SimpleIcon {
+    public static func xfce() -> SimpleIcon {
         SimpleIcon(
             title: "XFCE",
             slug: "xfce",
@@ -102,7 +102,7 @@ extension SimpleIcon {
 
     /// The Xiaohongshu icon, brand color `#FF2442`.
     @_alwaysEmitIntoClient
-    public static var xiaohongshu: SimpleIcon {
+    public static func xiaohongshu() -> SimpleIcon {
         SimpleIcon(
             title: "Xiaohongshu",
             slug: "xiaohongshu",
@@ -115,7 +115,7 @@ extension SimpleIcon {
 
     /// The Xiaomi icon, brand color `#FF6900`.
     @_alwaysEmitIntoClient
-    public static var xiaomi: SimpleIcon {
+    public static func xiaomi() -> SimpleIcon {
         SimpleIcon(
             title: "Xiaomi",
             slug: "xiaomi",
@@ -127,7 +127,7 @@ extension SimpleIcon {
 
     /// The Xing icon, brand color `#006567`.
     @_alwaysEmitIntoClient
-    public static var xing: SimpleIcon {
+    public static func xing() -> SimpleIcon {
         SimpleIcon(
             title: "Xing",
             slug: "xing",
@@ -139,7 +139,7 @@ extension SimpleIcon {
 
     /// The XML icon, brand color `#005FAD`.
     @_alwaysEmitIntoClient
-    public static var xml: SimpleIcon {
+    public static func xml() -> SimpleIcon {
         SimpleIcon(
             title: "XML",
             slug: "xml",
@@ -152,7 +152,7 @@ extension SimpleIcon {
 
     /// The XMPP icon, brand color `#002B5C`.
     @_alwaysEmitIntoClient
-    public static var xmpp: SimpleIcon {
+    public static func xmpp() -> SimpleIcon {
         SimpleIcon(
             title: "XMPP",
             slug: "xmpp",
@@ -164,7 +164,7 @@ extension SimpleIcon {
 
     /// The XO icon, brand color `#5ED9C7`.
     @_alwaysEmitIntoClient
-    public static var xo: SimpleIcon {
+    public static func xo() -> SimpleIcon {
         SimpleIcon(
             title: "XO",
             slug: "xo",
@@ -176,7 +176,7 @@ extension SimpleIcon {
 
     /// The XRP icon, brand color `#25A768`.
     @_alwaysEmitIntoClient
-    public static var xrp: SimpleIcon {
+    public static func xrp() -> SimpleIcon {
         SimpleIcon(
             title: "XRP",
             slug: "xrp",
@@ -188,7 +188,7 @@ extension SimpleIcon {
 
     /// The XSplit icon, brand color `#0095DE`.
     @_alwaysEmitIntoClient
-    public static var xsplit: SimpleIcon {
+    public static func xsplit() -> SimpleIcon {
         SimpleIcon(
             title: "XSplit",
             slug: "xsplit",
@@ -200,7 +200,7 @@ extension SimpleIcon {
 
     /// The XState icon, brand color `#2C3E50`.
     @_alwaysEmitIntoClient
-    public static var xstate: SimpleIcon {
+    public static func xstate() -> SimpleIcon {
         SimpleIcon(
             title: "XState",
             slug: "xstate",
@@ -212,7 +212,7 @@ extension SimpleIcon {
 
     /// The Xubuntu icon, brand color `#0044AA`.
     @_alwaysEmitIntoClient
-    public static var xubuntu: SimpleIcon {
+    public static func xubuntu() -> SimpleIcon {
         SimpleIcon(
             title: "Xubuntu",
             slug: "xubuntu",
@@ -224,7 +224,7 @@ extension SimpleIcon {
 
     /// The xyflow icon, brand color `#1A192B`.
     @_alwaysEmitIntoClient
-    public static var xyflow: SimpleIcon {
+    public static func xyflow() -> SimpleIcon {
         SimpleIcon(
             title: "xyflow",
             slug: "xyflow",

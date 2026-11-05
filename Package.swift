@@ -1,5 +1,5 @@
 // swift-tools-version: 6.2
-// The Swift 6.2 tools are the floor because the generated icon constants use
+// The Swift 6.2 tools are the floor because the generated icon functions use
 // raw identifiers (SE-0451) for slugs that start with a digit, such as
 // `1password`.
 

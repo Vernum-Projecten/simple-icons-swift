@@ -6,8 +6,8 @@ extension Color {
     /// Creates the brand color of an icon, in the sRGB color space.
     ///
     /// ```swift
-    /// SimpleIconView(.swift)
-    ///     .foregroundStyle(Color(simpleIcon: .swift))
+    /// SimpleIconView(.swift())
+    ///     .foregroundStyle(Color(simpleIcon: .swift()))
     /// ```
     ///
     /// Some brand colors are very dark or very light; check the contrast

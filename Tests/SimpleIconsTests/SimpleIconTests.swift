@@ -4,17 +4,17 @@ import Testing
 
 @Suite struct SimpleIconTests {
     @Test func `An icon is a typed constant`() {
-        let icon = SimpleIcon.swift
+        let icon = SimpleIcon.swift()
         #expect(icon.title == "Swift")
         #expect(icon.slug == "swift")
         #expect(icon.hex == "F05138")
     }
 
     @Test func `Slugs that are not plain Swift names work with backticks`() {
-        #expect(SimpleIcon.`1password`.slug == "1password")
-        #expect(SimpleIcon.`await`.slug == "await")
-        #expect(SimpleIcon.svg.slug == "svg")
-        #expect(SimpleIcon.backstage_casting.slug == "backstage_casting")
+        #expect(SimpleIcon.`1password`().slug == "1password")
+        #expect(SimpleIcon.`await`().slug == "await")
+        #expect(SimpleIcon.svg().slug == "svg")
+        #expect(SimpleIcon.backstage_casting().slug == "backstage_casting")
     }
 
     @Test func `allCases works on a thread with a small stack`() async {
@@ -54,7 +54,7 @@ import Testing
     // MARK: - Metadata
 
     @Test func `An SPDX license and guidelines come through`() {
-        let dotnet = SimpleIcon.dotnet
+        let dotnet = SimpleIcon.dotnet()
         #expect(dotnet.title == ".NET")
         #expect(dotnet.license == .spdx("CC0-1.0"))
         #expect(
@@ -76,13 +76,13 @@ import Testing
     }
 
     @Test func `What Simple Icons does not know is unknown`() {
-        let swift = SimpleIcon.swift
+        let swift = SimpleIcon.swift()
         #expect(swift.license == .unknown)
         #expect(swift.aliases == SimpleIcon.Aliases())
     }
 
     @Test func `Aliases come through`() {
-        #expect(SimpleIcon.dotenv.aliases.alsoKnownAs == ["Dotenv"])
+        #expect(SimpleIcon.dotenv().aliases.alsoKnownAs == ["Dotenv"])
     }
 
     @Test func `A duplicate shares what it leaves out with its brand`() throws {
@@ -102,8 +102,8 @@ import Testing
     }
 
     @Test func `Icons are identified by slug`() {
-        #expect(SimpleIcon.swift.id == "swift")
-        #expect(Set([SimpleIcon.swift, .swift, .github]).count == 2)
-        #expect(SimpleIcon.swift.description == "Swift (swift)")
+        #expect(SimpleIcon.swift().id == "swift")
+        #expect(Set([SimpleIcon.swift(), .swift(), .github()]).count == 2)
+        #expect(SimpleIcon.swift().description == "Swift (swift)")
     }
 }

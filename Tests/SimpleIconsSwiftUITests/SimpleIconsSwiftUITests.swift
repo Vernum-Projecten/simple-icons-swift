@@ -28,7 +28,7 @@ import Testing
         let side = min(rect.width, rect.height)
         let square = CGRect(x: rect.midX - side / 2, y: rect.midY - side / 2, width: side, height: side)
         // A square brand mark fills its square; check one that does.
-        let bounds = SimpleIconShape(.swift).path(in: rect).boundingRect
+        let bounds = SimpleIconShape(.swift()).path(in: rect).boundingRect
         #expect(abs(bounds.minX - square.minX) < 0.01)
         #expect(abs(bounds.minY - square.minY) < 0.01)
         #expect(abs(bounds.maxX - square.maxX) < 0.01)
@@ -36,14 +36,14 @@ import Testing
     }
 
     @Test func `The path is in 24 by 24 units`() {
-        let bounds = Path(SimpleIcon.swift).boundingRect
+        let bounds = Path(SimpleIcon.swift()).boundingRect
         #expect(bounds.minX >= -0.01 && bounds.maxX <= 24.01)
         #expect(bounds.minY >= -0.01 && bounds.maxY <= 24.01)
         #expect(bounds.width > 23)
     }
 
     @Test func `The shape proposes a square`() {
-        let size = SimpleIconShape(.swift).sizeThatFits(ProposedViewSize(width: 50, height: 30))
+        let size = SimpleIconShape(.swift()).sizeThatFits(ProposedViewSize(width: 50, height: 30))
         #expect(size == CGSize(width: 30, height: 30))
     }
 }

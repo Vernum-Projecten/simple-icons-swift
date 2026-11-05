@@ -11,8 +11,8 @@ extension SimpleIcon {
     /// The icon as an SVG document that draws in a color.
     ///
     /// ```swift
-    /// SimpleIcon.swift.svg(fill: "#\(SimpleIcon.swift.hex)")  // brand color
-    /// SimpleIcon.swift.svg(fill: "currentColor")             // CSS text color
+    /// SimpleIcon.swift().svg(fill: "#\(SimpleIcon.swift().hex)")  // brand color
+    /// SimpleIcon.swift().svg(fill: "currentColor")             // CSS text color
     /// ```
     ///
     /// - Parameter fill: Any SVG paint value, such as `#F05138`, `white`

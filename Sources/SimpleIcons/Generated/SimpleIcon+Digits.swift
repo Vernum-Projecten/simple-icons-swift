@@ -4,7 +4,7 @@
 extension SimpleIcon {
     /// The 1.1.1.1 icon, brand color `#221E68`.
     @_alwaysEmitIntoClient
-    public static var `1dot1dot1dot1`: SimpleIcon {
+    public static func `1dot1dot1dot1`() -> SimpleIcon {
         SimpleIcon(
             title: "1.1.1.1",
             slug: "1dot1dot1dot1",
@@ -16,7 +16,7 @@ extension SimpleIcon {
 
     /// The 1&1 icon, brand color `#003D8F`.
     @_alwaysEmitIntoClient
-    public static var `1and1`: SimpleIcon {
+    public static func `1and1`() -> SimpleIcon {
         SimpleIcon(
             title: "1&1",
             slug: "1and1",
@@ -28,7 +28,7 @@ extension SimpleIcon {
 
     /// The 1001Tracklists icon, brand color `#40AEF0`.
     @_alwaysEmitIntoClient
-    public static var `1001tracklists`: SimpleIcon {
+    public static func `1001tracklists`() -> SimpleIcon {
         SimpleIcon(
             title: "1001Tracklists",
             slug: "1001tracklists",
@@ -40,7 +40,7 @@ extension SimpleIcon {
 
     /// The 1Panel icon, brand color `#0854C1`.
     @_alwaysEmitIntoClient
-    public static var `1panel`: SimpleIcon {
+    public static func `1panel`() -> SimpleIcon {
         SimpleIcon(
             title: "1Panel",
             slug: "1panel",
@@ -52,7 +52,7 @@ extension SimpleIcon {
 
     /// The 1Password icon, brand color `#145FE4`.
     @_alwaysEmitIntoClient
-    public static var `1password`: SimpleIcon {
+    public static func `1password`() -> SimpleIcon {
         SimpleIcon(
             title: "1Password",
             slug: "1password",
@@ -65,7 +65,7 @@ extension SimpleIcon {
 
     /// The 2FAS icon, brand color `#EC1C24`.
     @_alwaysEmitIntoClient
-    public static var `2fas`: SimpleIcon {
+    public static func `2fas`() -> SimpleIcon {
         SimpleIcon(
             title: "2FAS",
             slug: "2fas",
@@ -78,7 +78,7 @@ extension SimpleIcon {
 
     /// The 2K icon, brand color `#DD0700`.
     @_alwaysEmitIntoClient
-    public static var `2k`: SimpleIcon {
+    public static func `2k`() -> SimpleIcon {
         SimpleIcon(
             title: "2K",
             slug: "2k",
@@ -90,7 +90,7 @@ extension SimpleIcon {
 
     /// The 30 seconds of code icon, brand color `#5395FD`.
     @_alwaysEmitIntoClient
-    public static var `30secondsofcode`: SimpleIcon {
+    public static func `30secondsofcode`() -> SimpleIcon {
         SimpleIcon(
             title: "30 seconds of code",
             slug: "30secondsofcode",
@@ -103,7 +103,7 @@ extension SimpleIcon {
 
     /// The 365 Data Science icon, brand color `#000C1F`.
     @_alwaysEmitIntoClient
-    public static var `365datascience`: SimpleIcon {
+    public static func `365datascience`() -> SimpleIcon {
         SimpleIcon(
             title: "365 Data Science",
             slug: "365datascience",
@@ -115,7 +115,7 @@ extension SimpleIcon {
 
     /// The 3M icon, brand color `#FF0000`.
     @_alwaysEmitIntoClient
-    public static var `3m`: SimpleIcon {
+    public static func `3m`() -> SimpleIcon {
         SimpleIcon(
             title: "3M",
             slug: "3m",
@@ -127,7 +127,7 @@ extension SimpleIcon {
 
     /// The 42 icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var `42`: SimpleIcon {
+    public static func `42`() -> SimpleIcon {
         SimpleIcon(
             title: "42",
             slug: "42",
@@ -139,7 +139,7 @@ extension SimpleIcon {
 
     /// The 4chan icon, brand color `#006600`.
     @_alwaysEmitIntoClient
-    public static var `4chan`: SimpleIcon {
+    public static func `4chan`() -> SimpleIcon {
         SimpleIcon(
             title: "4chan",
             slug: "4chan",
@@ -151,7 +151,7 @@ extension SimpleIcon {
 
     /// The 4D icon, brand color `#004088`.
     @_alwaysEmitIntoClient
-    public static var `4d`: SimpleIcon {
+    public static func `4d`() -> SimpleIcon {
         SimpleIcon(
             title: "4D",
             slug: "4d",
@@ -163,7 +163,7 @@ extension SimpleIcon {
 
     /// The 500px icon, brand color `#222222`.
     @_alwaysEmitIntoClient
-    public static var `500px`: SimpleIcon {
+    public static func `500px`() -> SimpleIcon {
         SimpleIcon(
             title: "500px",
             slug: "500px",
@@ -175,7 +175,7 @@ extension SimpleIcon {
 
     /// The 7Zip icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var `7zip`: SimpleIcon {
+    public static func `7zip`() -> SimpleIcon {
         SimpleIcon(
             title: "7Zip",
             slug: "7zip",
@@ -187,7 +187,7 @@ extension SimpleIcon {
 
     /// The 99designs icon, brand color `#FE5F50`.
     @_alwaysEmitIntoClient
-    public static var `99designs`: SimpleIcon {
+    public static func `99designs`() -> SimpleIcon {
         SimpleIcon(
             title: "99designs",
             slug: "99designs",
@@ -200,7 +200,7 @@ extension SimpleIcon {
 
     /// The 9GAG icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var `9gag`: SimpleIcon {
+    public static func `9gag`() -> SimpleIcon {
         SimpleIcon(
             title: "9GAG",
             slug: "9gag",

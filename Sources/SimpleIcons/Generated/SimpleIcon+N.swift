@@ -4,7 +4,7 @@
 extension SimpleIcon {
     /// The N26 icon, brand color `#48AC98`.
     @_alwaysEmitIntoClient
-    public static var n26: SimpleIcon {
+    public static func n26() -> SimpleIcon {
         SimpleIcon(
             title: "N26",
             slug: "n26",
@@ -16,7 +16,7 @@ extension SimpleIcon {
 
     /// The n8n icon, brand color `#EA4B71`.
     @_alwaysEmitIntoClient
-    public static var n8n: SimpleIcon {
+    public static func n8n() -> SimpleIcon {
         SimpleIcon(
             title: "n8n",
             slug: "n8n",
@@ -28,7 +28,7 @@ extension SimpleIcon {
 
     /// The Namebase icon, brand color `#0068FF`.
     @_alwaysEmitIntoClient
-    public static var namebase: SimpleIcon {
+    public static func namebase() -> SimpleIcon {
         SimpleIcon(
             title: "Namebase",
             slug: "namebase",
@@ -40,7 +40,7 @@ extension SimpleIcon {
 
     /// The Namecheap icon, brand color `#DE3723`.
     @_alwaysEmitIntoClient
-    public static var namecheap: SimpleIcon {
+    public static func namecheap() -> SimpleIcon {
         SimpleIcon(
             title: "Namecheap",
             slug: "namecheap",
@@ -52,7 +52,7 @@ extension SimpleIcon {
 
     /// The NameMC icon, brand color `#12161A`.
     @_alwaysEmitIntoClient
-    public static var namemc: SimpleIcon {
+    public static func namemc() -> SimpleIcon {
         SimpleIcon(
             title: "NameMC",
             slug: "namemc",
@@ -64,7 +64,7 @@ extension SimpleIcon {
 
     /// The NameSilo icon, brand color `#031B4E`.
     @_alwaysEmitIntoClient
-    public static var namesilo: SimpleIcon {
+    public static func namesilo() -> SimpleIcon {
         SimpleIcon(
             title: "NameSilo",
             slug: "namesilo",
@@ -76,7 +76,7 @@ extension SimpleIcon {
 
     /// The Namu Wiki icon, brand color `#008275`.
     @_alwaysEmitIntoClient
-    public static var namuwiki: SimpleIcon {
+    public static func namuwiki() -> SimpleIcon {
         SimpleIcon(
             title: "Namu Wiki",
             slug: "namuwiki",
@@ -89,7 +89,7 @@ extension SimpleIcon {
 
     /// The Nano icon, brand color `#209CE9`.
     @_alwaysEmitIntoClient
-    public static var nano: SimpleIcon {
+    public static func nano() -> SimpleIcon {
         SimpleIcon(
             title: "Nano",
             slug: "nano",
@@ -101,7 +101,7 @@ extension SimpleIcon {
 
     /// The Nano Stores icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var nanostores: SimpleIcon {
+    public static func nanostores() -> SimpleIcon {
         SimpleIcon(
             title: "Nano Stores",
             slug: "nanostores",
@@ -114,7 +114,7 @@ extension SimpleIcon {
 
     /// The Napster icon, brand color `#2259FF`.
     @_alwaysEmitIntoClient
-    public static var napster: SimpleIcon {
+    public static func napster() -> SimpleIcon {
         SimpleIcon(
             title: "Napster",
             slug: "napster",
@@ -126,7 +126,7 @@ extension SimpleIcon {
 
     /// The NASA icon, brand color `#E03C31`.
     @_alwaysEmitIntoClient
-    public static var nasa: SimpleIcon {
+    public static func nasa() -> SimpleIcon {
         SimpleIcon(
             title: "NASA",
             slug: "nasa",
@@ -139,7 +139,7 @@ extension SimpleIcon {
 
     /// The National Grid icon, brand color `#00148C`.
     @_alwaysEmitIntoClient
-    public static var nationalgrid: SimpleIcon {
+    public static func nationalgrid() -> SimpleIcon {
         SimpleIcon(
             title: "National Grid",
             slug: "nationalgrid",
@@ -151,7 +151,7 @@ extension SimpleIcon {
 
     /// The National Rail icon, brand color `#003366`.
     @_alwaysEmitIntoClient
-    public static var nationalrail: SimpleIcon {
+    public static func nationalrail() -> SimpleIcon {
         SimpleIcon(
             title: "National Rail",
             slug: "nationalrail",
@@ -164,7 +164,7 @@ extension SimpleIcon {
 
     /// The NativeScript icon, brand color `#65ADF1`.
     @_alwaysEmitIntoClient
-    public static var nativescript: SimpleIcon {
+    public static func nativescript() -> SimpleIcon {
         SimpleIcon(
             title: "NativeScript",
             slug: "nativescript",
@@ -176,7 +176,7 @@ extension SimpleIcon {
 
     /// The NATS.io icon, brand color `#27AAE1`.
     @_alwaysEmitIntoClient
-    public static var natsdotio: SimpleIcon {
+    public static func natsdotio() -> SimpleIcon {
         SimpleIcon(
             title: "NATS.io",
             slug: "natsdotio",
@@ -188,7 +188,7 @@ extension SimpleIcon {
 
     /// The Naver icon, brand color `#03C75A`.
     @_alwaysEmitIntoClient
-    public static var naver: SimpleIcon {
+    public static func naver() -> SimpleIcon {
         SimpleIcon(
             title: "Naver",
             slug: "naver",
@@ -202,7 +202,7 @@ extension SimpleIcon {
 
     /// The NBA icon, brand color `#253B73`.
     @_alwaysEmitIntoClient
-    public static var nba: SimpleIcon {
+    public static func nba() -> SimpleIcon {
         SimpleIcon(
             title: "NBA",
             slug: "nba",
@@ -214,7 +214,7 @@ extension SimpleIcon {
 
     /// The NBB icon, brand color `#FF7100`.
     @_alwaysEmitIntoClient
-    public static var nbb: SimpleIcon {
+    public static func nbb() -> SimpleIcon {
         SimpleIcon(
             title: "NBB",
             slug: "nbb",
@@ -226,7 +226,7 @@ extension SimpleIcon {
 
     /// The NBC icon, brand color `#222222`.
     @_alwaysEmitIntoClient
-    public static var nbc: SimpleIcon {
+    public static func nbc() -> SimpleIcon {
         SimpleIcon(
             title: "NBC",
             slug: "nbc",
@@ -238,7 +238,7 @@ extension SimpleIcon {
 
     /// The NDI icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var ndi: SimpleIcon {
+    public static func ndi() -> SimpleIcon {
         SimpleIcon(
             title: "NDI",
             slug: "ndi",
@@ -250,7 +250,7 @@ extension SimpleIcon {
 
     /// The NDR icon, brand color `#0C1754`.
     @_alwaysEmitIntoClient
-    public static var ndr: SimpleIcon {
+    public static func ndr() -> SimpleIcon {
         SimpleIcon(
             title: "NDR",
             slug: "ndr",
@@ -262,7 +262,7 @@ extension SimpleIcon {
 
     /// The NEAR icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var near: SimpleIcon {
+    public static func near() -> SimpleIcon {
         SimpleIcon(
             title: "NEAR",
             slug: "near",
@@ -274,7 +274,7 @@ extension SimpleIcon {
 
     /// The Nebula icon, brand color `#2CADFE`.
     @_alwaysEmitIntoClient
-    public static var nebula: SimpleIcon {
+    public static func nebula() -> SimpleIcon {
         SimpleIcon(
             title: "Nebula",
             slug: "nebula",
@@ -286,7 +286,7 @@ extension SimpleIcon {
 
     /// The NEC icon, brand color `#1414A0`.
     @_alwaysEmitIntoClient
-    public static var nec: SimpleIcon {
+    public static func nec() -> SimpleIcon {
         SimpleIcon(
             title: "NEC",
             slug: "nec",
@@ -298,7 +298,7 @@ extension SimpleIcon {
 
     /// The Nederlandse Spoorwegen icon, brand color `#003082`.
     @_alwaysEmitIntoClient
-    public static var nederlandsespoorwegen: SimpleIcon {
+    public static func nederlandsespoorwegen() -> SimpleIcon {
         SimpleIcon(
             title: "Nederlandse Spoorwegen",
             slug: "nederlandsespoorwegen",
@@ -311,7 +311,7 @@ extension SimpleIcon {
 
     /// The Neo4j icon, brand color `#4581C3`.
     @_alwaysEmitIntoClient
-    public static var neo4j: SimpleIcon {
+    public static func neo4j() -> SimpleIcon {
         SimpleIcon(
             title: "Neo4j",
             slug: "neo4j",
@@ -324,7 +324,7 @@ extension SimpleIcon {
 
     /// The Neon icon, brand color `#34D59A`.
     @_alwaysEmitIntoClient
-    public static var neon: SimpleIcon {
+    public static func neon() -> SimpleIcon {
         SimpleIcon(
             title: "Neon",
             slug: "neon",
@@ -337,7 +337,7 @@ extension SimpleIcon {
 
     /// The Neovim icon, brand color `#57A143`.
     @_alwaysEmitIntoClient
-    public static var neovim: SimpleIcon {
+    public static func neovim() -> SimpleIcon {
         SimpleIcon(
             title: "Neovim",
             slug: "neovim",
@@ -350,7 +350,7 @@ extension SimpleIcon {
 
     /// The Neptune icon, brand color `#5B69C2`.
     @_alwaysEmitIntoClient
-    public static var neptune: SimpleIcon {
+    public static func neptune() -> SimpleIcon {
         SimpleIcon(
             title: "Neptune",
             slug: "neptune",
@@ -362,7 +362,7 @@ extension SimpleIcon {
 
     /// The NestJS icon, brand color `#E0234E`.
     @_alwaysEmitIntoClient
-    public static var nestjs: SimpleIcon {
+    public static func nestjs() -> SimpleIcon {
         SimpleIcon(
             title: "NestJS",
             slug: "nestjs",
@@ -374,7 +374,7 @@ extension SimpleIcon {
 
     /// The NetApp icon, brand color `#0067C5`.
     @_alwaysEmitIntoClient
-    public static var netapp: SimpleIcon {
+    public static func netapp() -> SimpleIcon {
         SimpleIcon(
             title: "NetApp",
             slug: "netapp",
@@ -387,7 +387,7 @@ extension SimpleIcon {
 
     /// The NetBSD icon, brand color `#FF6600`.
     @_alwaysEmitIntoClient
-    public static var netbsd: SimpleIcon {
+    public static func netbsd() -> SimpleIcon {
         SimpleIcon(
             title: "NetBSD",
             slug: "netbsd",
@@ -400,7 +400,7 @@ extension SimpleIcon {
 
     /// The netcup icon, brand color `#056473`.
     @_alwaysEmitIntoClient
-    public static var netcup: SimpleIcon {
+    public static func netcup() -> SimpleIcon {
         SimpleIcon(
             title: "netcup",
             slug: "netcup",
@@ -413,7 +413,7 @@ extension SimpleIcon {
 
     /// The Netdata icon, brand color `#00AB44`.
     @_alwaysEmitIntoClient
-    public static var netdata: SimpleIcon {
+    public static func netdata() -> SimpleIcon {
         SimpleIcon(
             title: "Netdata",
             slug: "netdata",
@@ -425,7 +425,7 @@ extension SimpleIcon {
 
     /// The NetEase Cloud Music icon, brand color `#D43C33`.
     @_alwaysEmitIntoClient
-    public static var neteasecloudmusic: SimpleIcon {
+    public static func neteasecloudmusic() -> SimpleIcon {
         SimpleIcon(
             title: "NetEase Cloud Music",
             slug: "neteasecloudmusic",
@@ -438,7 +438,7 @@ extension SimpleIcon {
 
     /// The Netflix icon, brand color `#E50914`.
     @_alwaysEmitIntoClient
-    public static var netflix: SimpleIcon {
+    public static func netflix() -> SimpleIcon {
         SimpleIcon(
             title: "Netflix",
             slug: "netflix",
@@ -451,7 +451,7 @@ extension SimpleIcon {
 
     /// The NETGEAR icon, brand color `#2C262D`.
     @_alwaysEmitIntoClient
-    public static var netgear: SimpleIcon {
+    public static func netgear() -> SimpleIcon {
         SimpleIcon(
             title: "NETGEAR",
             slug: "netgear",
@@ -464,7 +464,7 @@ extension SimpleIcon {
 
     /// The Netim icon, brand color `#FE8427`.
     @_alwaysEmitIntoClient
-    public static var netim: SimpleIcon {
+    public static func netim() -> SimpleIcon {
         SimpleIcon(
             title: "Netim",
             slug: "netim",
@@ -476,7 +476,7 @@ extension SimpleIcon {
 
     /// The Netlify icon, brand color `#00C7B7`.
     @_alwaysEmitIntoClient
-    public static var netlify: SimpleIcon {
+    public static func netlify() -> SimpleIcon {
         SimpleIcon(
             title: "Netlify",
             slug: "netlify",
@@ -490,7 +490,7 @@ extension SimpleIcon {
 
     /// The Nette icon, brand color `#3484D2`.
     @_alwaysEmitIntoClient
-    public static var nette: SimpleIcon {
+    public static func nette() -> SimpleIcon {
         SimpleIcon(
             title: "Nette",
             slug: "nette",
@@ -503,7 +503,7 @@ extension SimpleIcon {
 
     /// The Netto icon, brand color `#FFE500`.
     @_alwaysEmitIntoClient
-    public static var netto: SimpleIcon {
+    public static func netto() -> SimpleIcon {
         SimpleIcon(
             title: "Netto",
             slug: "netto",
@@ -515,7 +515,7 @@ extension SimpleIcon {
 
     /// The Neutralinojs icon, brand color `#F89901`.
     @_alwaysEmitIntoClient
-    public static var neutralinojs: SimpleIcon {
+    public static func neutralinojs() -> SimpleIcon {
         SimpleIcon(
             title: "Neutralinojs",
             slug: "neutralinojs",
@@ -527,7 +527,7 @@ extension SimpleIcon {
 
     /// The New Balance icon, brand color `#CF0A2C`.
     @_alwaysEmitIntoClient
-    public static var newbalance: SimpleIcon {
+    public static func newbalance() -> SimpleIcon {
         SimpleIcon(
             title: "New Balance",
             slug: "newbalance",
@@ -539,7 +539,7 @@ extension SimpleIcon {
 
     /// The New Japan Pro-Wrestling icon, brand color `#FF160B`.
     @_alwaysEmitIntoClient
-    public static var newjapanprowrestling: SimpleIcon {
+    public static func newjapanprowrestling() -> SimpleIcon {
         SimpleIcon(
             title: "New Japan Pro-Wrestling",
             slug: "newjapanprowrestling",
@@ -552,7 +552,7 @@ extension SimpleIcon {
 
     /// The New Relic icon, brand color `#1CE783`.
     @_alwaysEmitIntoClient
-    public static var newrelic: SimpleIcon {
+    public static func newrelic() -> SimpleIcon {
         SimpleIcon(
             title: "New Relic",
             slug: "newrelic",
@@ -565,7 +565,7 @@ extension SimpleIcon {
 
     /// The New York Times icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var newyorktimes: SimpleIcon {
+    public static func newyorktimes() -> SimpleIcon {
         SimpleIcon(
             title: "New York Times",
             slug: "newyorktimes",
@@ -577,7 +577,7 @@ extension SimpleIcon {
 
     /// The Newegg icon, brand color `#E05E00`.
     @_alwaysEmitIntoClient
-    public static var newegg: SimpleIcon {
+    public static func newegg() -> SimpleIcon {
         SimpleIcon(
             title: "Newegg",
             slug: "newegg",
@@ -589,7 +589,7 @@ extension SimpleIcon {
 
     /// The Newgrounds icon, brand color `#FDA238`.
     @_alwaysEmitIntoClient
-    public static var newgrounds: SimpleIcon {
+    public static func newgrounds() -> SimpleIcon {
         SimpleIcon(
             title: "Newgrounds",
             slug: "newgrounds",
@@ -602,7 +602,7 @@ extension SimpleIcon {
 
     /// The NewPipe icon, brand color `#CD201F`.
     @_alwaysEmitIntoClient
-    public static var newpipe: SimpleIcon {
+    public static func newpipe() -> SimpleIcon {
         SimpleIcon(
             title: "NewPipe",
             slug: "newpipe",
@@ -614,7 +614,7 @@ extension SimpleIcon {
 
     /// The NEXON icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var nexon: SimpleIcon {
+    public static func nexon() -> SimpleIcon {
         SimpleIcon(
             title: "NEXON",
             slug: "nexon",
@@ -627,7 +627,7 @@ extension SimpleIcon {
 
     /// The Next.js icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var nextdotjs: SimpleIcon {
+    public static func nextdotjs() -> SimpleIcon {
         SimpleIcon(
             title: "Next.js",
             slug: "nextdotjs",
@@ -640,7 +640,7 @@ extension SimpleIcon {
 
     /// The nextbike icon, brand color `#0046D7`.
     @_alwaysEmitIntoClient
-    public static var nextbike: SimpleIcon {
+    public static func nextbike() -> SimpleIcon {
         SimpleIcon(
             title: "nextbike",
             slug: "nextbike",
@@ -653,7 +653,7 @@ extension SimpleIcon {
 
     /// The NextBillion.ai icon, brand color `#8D5A9E`.
     @_alwaysEmitIntoClient
-    public static var nextbilliondotai: SimpleIcon {
+    public static func nextbilliondotai() -> SimpleIcon {
         SimpleIcon(
             title: "NextBillion.ai",
             slug: "nextbilliondotai",
@@ -665,7 +665,7 @@ extension SimpleIcon {
 
     /// The Nextcloud icon, brand color `#0082C9`.
     @_alwaysEmitIntoClient
-    public static var nextcloud: SimpleIcon {
+    public static func nextcloud() -> SimpleIcon {
         SimpleIcon(
             title: "Nextcloud",
             slug: "nextcloud",
@@ -678,7 +678,7 @@ extension SimpleIcon {
 
     /// The NextDNS icon, brand color `#007BFF`.
     @_alwaysEmitIntoClient
-    public static var nextdns: SimpleIcon {
+    public static func nextdns() -> SimpleIcon {
         SimpleIcon(
             title: "NextDNS",
             slug: "nextdns",
@@ -690,7 +690,7 @@ extension SimpleIcon {
 
     /// The Nextdoor icon, brand color `#8ED500`.
     @_alwaysEmitIntoClient
-    public static var nextdoor: SimpleIcon {
+    public static func nextdoor() -> SimpleIcon {
         SimpleIcon(
             title: "Nextdoor",
             slug: "nextdoor",
@@ -702,7 +702,7 @@ extension SimpleIcon {
 
     /// The Nextflow icon, brand color `#0DC09D`.
     @_alwaysEmitIntoClient
-    public static var nextflow: SimpleIcon {
+    public static func nextflow() -> SimpleIcon {
         SimpleIcon(
             title: "Nextflow",
             slug: "nextflow",
@@ -714,7 +714,7 @@ extension SimpleIcon {
 
     /// The Nextra icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var nextra: SimpleIcon {
+    public static func nextra() -> SimpleIcon {
         SimpleIcon(
             title: "Nextra",
             slug: "nextra",
@@ -727,7 +727,7 @@ extension SimpleIcon {
 
     /// The nf-core icon, brand color `#24B064`.
     @_alwaysEmitIntoClient
-    public static var nfcore: SimpleIcon {
+    public static func nfcore() -> SimpleIcon {
         SimpleIcon(
             title: "nf-core",
             slug: "nfcore",
@@ -740,7 +740,7 @@ extension SimpleIcon {
 
     /// The NFC icon, brand color `#002E5F`.
     @_alwaysEmitIntoClient
-    public static var nfc: SimpleIcon {
+    public static func nfc() -> SimpleIcon {
         SimpleIcon(
             title: "NFC",
             slug: "nfc",
@@ -753,7 +753,7 @@ extension SimpleIcon {
 
     /// The NGINX icon, brand color `#009639`.
     @_alwaysEmitIntoClient
-    public static var nginx: SimpleIcon {
+    public static func nginx() -> SimpleIcon {
         SimpleIcon(
             title: "NGINX",
             slug: "nginx",
@@ -766,7 +766,7 @@ extension SimpleIcon {
 
     /// The Nginx Proxy Manager icon, brand color `#F15833`.
     @_alwaysEmitIntoClient
-    public static var nginxproxymanager: SimpleIcon {
+    public static func nginxproxymanager() -> SimpleIcon {
         SimpleIcon(
             title: "Nginx Proxy Manager",
             slug: "nginxproxymanager",
@@ -778,7 +778,7 @@ extension SimpleIcon {
 
     /// The ngrok icon, brand color `#1F1E37`.
     @_alwaysEmitIntoClient
-    public static var ngrok: SimpleIcon {
+    public static func ngrok() -> SimpleIcon {
         SimpleIcon(
             title: "ngrok",
             slug: "ngrok",
@@ -790,7 +790,7 @@ extension SimpleIcon {
 
     /// The NgRx icon, brand color `#BA2BD2`.
     @_alwaysEmitIntoClient
-    public static var ngrx: SimpleIcon {
+    public static func ngrx() -> SimpleIcon {
         SimpleIcon(
             title: "NgRx",
             slug: "ngrx",
@@ -803,7 +803,7 @@ extension SimpleIcon {
 
     /// The NHL icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var nhl: SimpleIcon {
+    public static func nhl() -> SimpleIcon {
         SimpleIcon(
             title: "NHL",
             slug: "nhl",
@@ -816,7 +816,7 @@ extension SimpleIcon {
 
     /// The Nhost icon, brand color `#0052CD`.
     @_alwaysEmitIntoClient
-    public static var nhost: SimpleIcon {
+    public static func nhost() -> SimpleIcon {
         SimpleIcon(
             title: "Nhost",
             slug: "nhost",
@@ -828,7 +828,7 @@ extension SimpleIcon {
 
     /// The NiceHash icon, brand color `#FBC342`.
     @_alwaysEmitIntoClient
-    public static var nicehash: SimpleIcon {
+    public static func nicehash() -> SimpleIcon {
         SimpleIcon(
             title: "NiceHash",
             slug: "nicehash",
@@ -841,7 +841,7 @@ extension SimpleIcon {
 
     /// The niconico icon, brand color `#231815`.
     @_alwaysEmitIntoClient
-    public static var niconico: SimpleIcon {
+    public static func niconico() -> SimpleIcon {
         SimpleIcon(
             title: "niconico",
             slug: "niconico",
@@ -853,7 +853,7 @@ extension SimpleIcon {
 
     /// The Nike icon, brand color `#111111`.
     @_alwaysEmitIntoClient
-    public static var nike: SimpleIcon {
+    public static func nike() -> SimpleIcon {
         SimpleIcon(
             title: "Nike",
             slug: "nike",
@@ -865,7 +865,7 @@ extension SimpleIcon {
 
     /// The Nikon icon, brand color `#FFE100`.
     @_alwaysEmitIntoClient
-    public static var nikon: SimpleIcon {
+    public static func nikon() -> SimpleIcon {
         SimpleIcon(
             title: "Nikon",
             slug: "nikon",
@@ -878,7 +878,7 @@ extension SimpleIcon {
 
     /// The Nim icon, brand color `#FFE953`.
     @_alwaysEmitIntoClient
-    public static var nim: SimpleIcon {
+    public static func nim() -> SimpleIcon {
         SimpleIcon(
             title: "Nim",
             slug: "nim",
@@ -890,7 +890,7 @@ extension SimpleIcon {
 
     /// The niri icon, brand color `#D55C44`.
     @_alwaysEmitIntoClient
-    public static var niri: SimpleIcon {
+    public static func niri() -> SimpleIcon {
         SimpleIcon(
             title: "niri",
             slug: "niri",
@@ -904,7 +904,7 @@ extension SimpleIcon {
 
     /// The Nissan icon, brand color `#C3002F`.
     @_alwaysEmitIntoClient
-    public static var nissan: SimpleIcon {
+    public static func nissan() -> SimpleIcon {
         SimpleIcon(
             title: "Nissan",
             slug: "nissan",
@@ -916,7 +916,7 @@ extension SimpleIcon {
 
     /// The NixOS icon, brand color `#5277C3`.
     @_alwaysEmitIntoClient
-    public static var nixos: SimpleIcon {
+    public static func nixos() -> SimpleIcon {
         SimpleIcon(
             title: "NixOS",
             slug: "nixos",
@@ -930,7 +930,7 @@ extension SimpleIcon {
 
     /// The Nobara Linux icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var nobaralinux: SimpleIcon {
+    public static func nobaralinux() -> SimpleIcon {
         SimpleIcon(
             title: "Nobara Linux",
             slug: "nobaralinux",
@@ -942,7 +942,7 @@ extension SimpleIcon {
 
     /// The Node-RED icon, brand color `#8F0000`.
     @_alwaysEmitIntoClient
-    public static var nodered: SimpleIcon {
+    public static func nodered() -> SimpleIcon {
         SimpleIcon(
             title: "Node-RED",
             slug: "nodered",
@@ -954,7 +954,7 @@ extension SimpleIcon {
 
     /// The Node.js icon, brand color `#5FA04E`.
     @_alwaysEmitIntoClient
-    public static var nodedotjs: SimpleIcon {
+    public static func nodedotjs() -> SimpleIcon {
         SimpleIcon(
             title: "Node.js",
             slug: "nodedotjs",
@@ -967,7 +967,7 @@ extension SimpleIcon {
 
     /// The NodeBB icon, brand color `#1E5EBC`.
     @_alwaysEmitIntoClient
-    public static var nodebb: SimpleIcon {
+    public static func nodebb() -> SimpleIcon {
         SimpleIcon(
             title: "NodeBB",
             slug: "nodebb",
@@ -980,7 +980,7 @@ extension SimpleIcon {
 
     /// The NodeGui icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var nodegui: SimpleIcon {
+    public static func nodegui() -> SimpleIcon {
         SimpleIcon(
             title: "NodeGui",
             slug: "nodegui",
@@ -992,7 +992,7 @@ extension SimpleIcon {
 
     /// The Nodemon icon, brand color `#76D04B`.
     @_alwaysEmitIntoClient
-    public static var nodemon: SimpleIcon {
+    public static func nodemon() -> SimpleIcon {
         SimpleIcon(
             title: "Nodemon",
             slug: "nodemon",
@@ -1004,7 +1004,7 @@ extension SimpleIcon {
 
     /// The Nokia icon, brand color `#005AFF`.
     @_alwaysEmitIntoClient
-    public static var nokia: SimpleIcon {
+    public static func nokia() -> SimpleIcon {
         SimpleIcon(
             title: "Nokia",
             slug: "nokia",
@@ -1016,7 +1016,7 @@ extension SimpleIcon {
 
     /// The Nomad icon, brand color `#00CA8E`.
     @_alwaysEmitIntoClient
-    public static var nomad: SimpleIcon {
+    public static func nomad() -> SimpleIcon {
         SimpleIcon(
             title: "Nomad",
             slug: "nomad",
@@ -1029,7 +1029,7 @@ extension SimpleIcon {
 
     /// The Norco icon, brand color `#00FF00`.
     @_alwaysEmitIntoClient
-    public static var norco: SimpleIcon {
+    public static func norco() -> SimpleIcon {
         SimpleIcon(
             title: "Norco",
             slug: "norco",
@@ -1041,7 +1041,7 @@ extension SimpleIcon {
 
     /// The Nordic Semiconductor icon, brand color `#00A9CE`.
     @_alwaysEmitIntoClient
-    public static var nordicsemiconductor: SimpleIcon {
+    public static func nordicsemiconductor() -> SimpleIcon {
         SimpleIcon(
             title: "Nordic Semiconductor",
             slug: "nordicsemiconductor",
@@ -1053,7 +1053,7 @@ extension SimpleIcon {
 
     /// The NordVPN icon, brand color `#4687FF`.
     @_alwaysEmitIntoClient
-    public static var nordvpn: SimpleIcon {
+    public static func nordvpn() -> SimpleIcon {
         SimpleIcon(
             title: "NordVPN",
             slug: "nordvpn",
@@ -1066,7 +1066,7 @@ extension SimpleIcon {
 
     /// The Normalize.css icon, brand color `#E3695F`.
     @_alwaysEmitIntoClient
-    public static var normalizedotcss: SimpleIcon {
+    public static func normalizedotcss() -> SimpleIcon {
         SimpleIcon(
             title: "Normalize.css",
             slug: "normalizedotcss",
@@ -1078,7 +1078,7 @@ extension SimpleIcon {
 
     /// The Norton icon, brand color `#FFE01A`.
     @_alwaysEmitIntoClient
-    public static var norton: SimpleIcon {
+    public static func norton() -> SimpleIcon {
         SimpleIcon(
             title: "Norton",
             slug: "norton",
@@ -1090,7 +1090,7 @@ extension SimpleIcon {
 
     /// The Norwegian icon, brand color `#D81939`.
     @_alwaysEmitIntoClient
-    public static var norwegian: SimpleIcon {
+    public static func norwegian() -> SimpleIcon {
         SimpleIcon(
             title: "Norwegian",
             slug: "norwegian",
@@ -1102,7 +1102,7 @@ extension SimpleIcon {
 
     /// The Note icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var note: SimpleIcon {
+    public static func note() -> SimpleIcon {
         SimpleIcon(
             title: "Note",
             slug: "note",
@@ -1115,7 +1115,7 @@ extension SimpleIcon {
 
     /// The NotebookLM icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var notebooklm: SimpleIcon {
+    public static func notebooklm() -> SimpleIcon {
         SimpleIcon(
             title: "NotebookLM",
             slug: "notebooklm",
@@ -1127,7 +1127,7 @@ extension SimpleIcon {
 
     /// The Notepad++ icon, brand color `#90E59A`.
     @_alwaysEmitIntoClient
-    public static var notepadplusplus: SimpleIcon {
+    public static func notepadplusplus() -> SimpleIcon {
         SimpleIcon(
             title: "Notepad++",
             slug: "notepadplusplus",
@@ -1139,7 +1139,7 @@ extension SimpleIcon {
 
     /// The Notesnook icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var notesnook: SimpleIcon {
+    public static func notesnook() -> SimpleIcon {
         SimpleIcon(
             title: "Notesnook",
             slug: "notesnook",
@@ -1151,7 +1151,7 @@ extension SimpleIcon {
 
     /// The Notion icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var notion: SimpleIcon {
+    public static func notion() -> SimpleIcon {
         SimpleIcon(
             title: "Notion",
             slug: "notion",
@@ -1163,7 +1163,7 @@ extension SimpleIcon {
 
     /// The Notist icon, brand color `#333333`.
     @_alwaysEmitIntoClient
-    public static var notist: SimpleIcon {
+    public static func notist() -> SimpleIcon {
         SimpleIcon(
             title: "Notist",
             slug: "notist",
@@ -1175,7 +1175,7 @@ extension SimpleIcon {
 
     /// The Noun Project icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var nounproject: SimpleIcon {
+    public static func nounproject() -> SimpleIcon {
         SimpleIcon(
             title: "Noun Project",
             slug: "nounproject",
@@ -1187,7 +1187,7 @@ extension SimpleIcon {
 
     /// The Novu icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var novu: SimpleIcon {
+    public static func novu() -> SimpleIcon {
         SimpleIcon(
             title: "Novu",
             slug: "novu",
@@ -1199,7 +1199,7 @@ extension SimpleIcon {
 
     /// The NOW icon, brand color `#001211`.
     @_alwaysEmitIntoClient
-    public static var now: SimpleIcon {
+    public static func now() -> SimpleIcon {
         SimpleIcon(
             title: "NOW",
             slug: "now",
@@ -1211,7 +1211,7 @@ extension SimpleIcon {
 
     /// The npm icon, brand color `#CB3837`.
     @_alwaysEmitIntoClient
-    public static var npm: SimpleIcon {
+    public static func npm() -> SimpleIcon {
         SimpleIcon(
             title: "npm",
             slug: "npm",
@@ -1224,7 +1224,7 @@ extension SimpleIcon {
 
     /// The Nrwl icon, brand color `#96D7E8`.
     @_alwaysEmitIntoClient
-    public static var nrwl: SimpleIcon {
+    public static func nrwl() -> SimpleIcon {
         SimpleIcon(
             title: "Nrwl",
             slug: "nrwl",
@@ -1236,7 +1236,7 @@ extension SimpleIcon {
 
     /// The NSIS icon, brand color `#01B0F0`.
     @_alwaysEmitIntoClient
-    public static var nsis: SimpleIcon {
+    public static func nsis() -> SimpleIcon {
         SimpleIcon(
             title: "NSIS",
             slug: "nsis",
@@ -1249,7 +1249,7 @@ extension SimpleIcon {
 
     /// The ntfy icon, brand color `#317F6F`.
     @_alwaysEmitIntoClient
-    public static var ntfy: SimpleIcon {
+    public static func ntfy() -> SimpleIcon {
         SimpleIcon(
             title: "ntfy",
             slug: "ntfy",
@@ -1261,7 +1261,7 @@ extension SimpleIcon {
 
     /// The Nubank icon, brand color `#820AD1`.
     @_alwaysEmitIntoClient
-    public static var nubank: SimpleIcon {
+    public static func nubank() -> SimpleIcon {
         SimpleIcon(
             title: "Nubank",
             slug: "nubank",
@@ -1273,7 +1273,7 @@ extension SimpleIcon {
 
     /// The Nucleo icon, brand color `#252B2D`.
     @_alwaysEmitIntoClient
-    public static var nucleo: SimpleIcon {
+    public static func nucleo() -> SimpleIcon {
         SimpleIcon(
             title: "Nucleo",
             slug: "nucleo",
@@ -1285,7 +1285,7 @@ extension SimpleIcon {
 
     /// The NuGet icon, brand color `#004880`.
     @_alwaysEmitIntoClient
-    public static var nuget: SimpleIcon {
+    public static func nuget() -> SimpleIcon {
         SimpleIcon(
             title: "NuGet",
             slug: "nuget",
@@ -1297,7 +1297,7 @@ extension SimpleIcon {
 
     /// The Nuke icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var nuke: SimpleIcon {
+    public static func nuke() -> SimpleIcon {
         SimpleIcon(
             title: "Nuke",
             slug: "nuke",
@@ -1309,7 +1309,7 @@ extension SimpleIcon {
 
     /// The Numba icon, brand color `#00A3E0`.
     @_alwaysEmitIntoClient
-    public static var numba: SimpleIcon {
+    public static func numba() -> SimpleIcon {
         SimpleIcon(
             title: "Numba",
             slug: "numba",
@@ -1321,7 +1321,7 @@ extension SimpleIcon {
 
     /// The NumPy icon, brand color `#013243`.
     @_alwaysEmitIntoClient
-    public static var numpy: SimpleIcon {
+    public static func numpy() -> SimpleIcon {
         SimpleIcon(
             title: "NumPy",
             slug: "numpy",
@@ -1334,7 +1334,7 @@ extension SimpleIcon {
 
     /// The Nunjucks icon, brand color `#1C4913`.
     @_alwaysEmitIntoClient
-    public static var nunjucks: SimpleIcon {
+    public static func nunjucks() -> SimpleIcon {
         SimpleIcon(
             title: "Nunjucks",
             slug: "nunjucks",
@@ -1346,7 +1346,7 @@ extension SimpleIcon {
 
     /// The Nushell icon, brand color `#4E9A06`.
     @_alwaysEmitIntoClient
-    public static var nushell: SimpleIcon {
+    public static func nushell() -> SimpleIcon {
         SimpleIcon(
             title: "Nushell",
             slug: "nushell",
@@ -1358,7 +1358,7 @@ extension SimpleIcon {
 
     /// The Nutanix icon, brand color `#024DA1`.
     @_alwaysEmitIntoClient
-    public static var nutanix: SimpleIcon {
+    public static func nutanix() -> SimpleIcon {
         SimpleIcon(
             title: "Nutanix",
             slug: "nutanix",
@@ -1370,7 +1370,7 @@ extension SimpleIcon {
 
     /// The Nuxt icon, brand color `#00DC82`.
     @_alwaysEmitIntoClient
-    public static var nuxt: SimpleIcon {
+    public static func nuxt() -> SimpleIcon {
         SimpleIcon(
             title: "Nuxt",
             slug: "nuxt",
@@ -1384,7 +1384,7 @@ extension SimpleIcon {
 
     /// The NVIDIA icon, brand color `#76B900`.
     @_alwaysEmitIntoClient
-    public static var nvidia: SimpleIcon {
+    public static func nvidia() -> SimpleIcon {
         SimpleIcon(
             title: "NVIDIA",
             slug: "nvidia",
@@ -1396,7 +1396,7 @@ extension SimpleIcon {
 
     /// The nvm icon, brand color `#F4DD4B`.
     @_alwaysEmitIntoClient
-    public static var nvm: SimpleIcon {
+    public static func nvm() -> SimpleIcon {
         SimpleIcon(
             title: "nvm",
             slug: "nvm",
@@ -1408,7 +1408,7 @@ extension SimpleIcon {
 
     /// The Nx icon, brand color `#143055`.
     @_alwaysEmitIntoClient
-    public static var nx: SimpleIcon {
+    public static func nx() -> SimpleIcon {
         SimpleIcon(
             title: "Nx",
             slug: "nx",
@@ -1420,7 +1420,7 @@ extension SimpleIcon {
 
     /// The NXP icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var nxp: SimpleIcon {
+    public static func nxp() -> SimpleIcon {
         SimpleIcon(
             title: "NXP",
             slug: "nxp",
@@ -1433,7 +1433,7 @@ extension SimpleIcon {
 
     /// The NZXT icon, brand color `#000000`.
     @_alwaysEmitIntoClient
-    public static var nzxt: SimpleIcon {
+    public static func nzxt() -> SimpleIcon {
         SimpleIcon(
             title: "NZXT",
             slug: "nzxt",

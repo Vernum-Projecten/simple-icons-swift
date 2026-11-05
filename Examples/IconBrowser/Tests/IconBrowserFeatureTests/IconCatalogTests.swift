@@ -10,11 +10,11 @@ import Testing
     }
 
     @Test(arguments: [
-        ("swift", SimpleIcon.swift),
-        ("SWIFT", SimpleIcon.swift),
-        ("nodedotjs", SimpleIcon.nodedotjs),
-        ("Node.js", SimpleIcon.nodedotjs),
-        ("Dotenv", SimpleIcon.dotenv),
+        ("swift", SimpleIcon.swift()),
+        ("SWIFT", SimpleIcon.swift()),
+        ("nodedotjs", SimpleIcon.nodedotjs()),
+        ("Node.js", SimpleIcon.nodedotjs()),
+        ("Dotenv", SimpleIcon.dotenv()),
     ])
     func `Finds an icon by title, slug or other name`(query: String, icon: SimpleIcon) {
         let catalog = IconCatalog()
