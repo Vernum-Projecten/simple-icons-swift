@@ -10,6 +10,18 @@ fragments in `changelog.d/` until the release cut writes them here.
 
 ## [Unreleased]
 
+## [16.36.2] - 2026-11-05
+
+### Changed
+
+- **Breaking:** every icon is now a static function: write `SimpleIcon.swift()` and `.github()`
+  instead of `SimpleIcon.swift` and `.github`. A public static property makes the library export a
+  property descriptor per icon, and an app kept the names of all 3,467 in its symbol table even
+  when it used six icons. A release build of a program with six icons is now 0.15 MB instead of
+  0.5 MB on macOS (0.35 MB instead of 0.6 MB on Linux), measured unstripped with its symbol table.
+  To update, add `()` after every icon. `SimpleIcon.allCases` and every icon's properties are
+  unchanged (#17).
+
 ## [16.36.1] - 2026-11-04
 
 ### Changed
@@ -50,7 +62,8 @@ fragments in `changelog.d/` until the release cut writes them here.
 - `SimpleIconsSwiftUI`: `SimpleIconView`, `SimpleIconShape`, `Path(_:)` and
   `Color(simpleIcon:)` for iOS, macOS, tvOS, watchOS and visionOS.
 
-[Unreleased]: https://github.com/Vernum-Projecten/simple-icons-swift/compare/v16.36.1...HEAD
+[Unreleased]: https://github.com/Vernum-Projecten/simple-icons-swift/compare/v16.36.2...HEAD
+[16.36.2]: https://github.com/Vernum-Projecten/simple-icons-swift/compare/v16.36.1...v16.36.2
 [16.36.1]: https://github.com/Vernum-Projecten/simple-icons-swift/compare/v16.36.0...v16.36.1
 [16.36.0]: https://github.com/Vernum-Projecten/simple-icons-swift/compare/v1.0.0...v16.36.0
 [1.0.0]: https://github.com/Vernum-Projecten/simple-icons-swift/releases/tag/v1.0.0
